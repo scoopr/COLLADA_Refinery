@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+  Copyright 2006 Sony Computer Entertainment Inc.
+ 
+  Licensed under the SCEA Shared Source License, Version 1.0 (the "License"); you may not use this 
+  file except in compliance with the License. You may obtain a copy of the License at:
+  http://research.scea.com/scea_shared_source_license.html
+ 
+  Unless required by applicable law or agreed to in writing, software distributed under the License 
+  is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 
+  implied. See the License for the specific language governing permissions and limitations under the 
+  License. 
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="pipeline">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="fullname" type="xs:string"/>
+				<xs:element name="description" type="xs:string"/>
+				<xs:element name="input" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="file" type="xs:string" minOccurs="0"/>
+							<xs:element name="display" type="coordinates" minOccurs="0"/>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:ID" use="required" />
+            <xs:attribute name="number" type="xs:integer" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="output" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="file" type="xs:string" minOccurs="0"/>
+							<xs:element name="execute" type="xs:string" minOccurs="0"/>
+              <xs:element name="command" type="xs:string" minOccurs="0"/>
+              <xs:element name="workingDir" type="xs:string" minOccurs="0"/>
+							<xs:element name="display" type="coordinates" minOccurs="0"/>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:ID" use="required" />
+            <xs:attribute name="number" type="xs:integer" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="conditioner" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="option" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType mixed="true">
+									<xs:attribute name="type" type="optionType" use="required" />
+									<xs:attribute name="name" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="display" type="coordinates" minOccurs="0"/>
+						</xs:sequence>
+						<xs:attribute name="idname" type="xs:ID" use="required" />
+						<xs:attribute name="name" type="xs:string" />
+						<xs:attribute name="libname" type="xs:string" use="required" />
+						<xs:attribute name="inputnumber" type="xs:integer" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="macro" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="display" type="coordinates" minOccurs="0" />
+						</xs:sequence>
+						<xs:attribute name="idname" type="xs:ID" use="required" />
+						<xs:attribute name="name" type="xs:string" />
+						<xs:attribute name="libname" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="link" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="endNb" type="xs:unsignedByte" use="optional" default="0"/>
+						<xs:attribute name="startNb" type="xs:unsignedByte" use="optional" default="0"/>
+						<xs:attribute name="end" type="xs:IDREF" use="required"/>
+						<xs:attribute name="start" type="xs:IDREF" use="required"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="optionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="bool"/>
+			<xs:enumeration value="float"/>
+			<xs:enumeration value="string"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="coordinates">
+		<xs:sequence>
+			<xs:element name="x" type="xs:integer"/>
+			<xs:element name="y" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

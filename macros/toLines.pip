@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pipeline>
+	<fullname>toLines.pip</fullname>
+	<description>No description set for this document</description>
+	<input name="input81c98f2d-b96c-4d90-9cc4-6694ce7d0383" number="0">
+		<display>
+			<x>10</x>
+			<y>10</y>
+		</display>
+	</input>
+	<output name="output6c24c440-8ec5-44cf-9108-f77fae818884" number="0">
+		<execute>no</execute>
+		<display>
+			<x>34</x>
+			<y>612</y>
+		</display>
+	</output>
+
+	<conditioner name="Linestrips2lines-1" idname="Linestrips2lines-15654b0e7-281b-4852-8ae6-b3bceecb8182" libname="Linestrips2lines">
+		<option name="verbose" type="bool">true</option>
+		<display>
+			<x>74</x>
+			<y>401</y>
+		</display>
+	</conditioner>
+	<conditioner name="Triangles2lines-1" idname="Triangles2lines-186ae3a17-ba04-497c-9ea3-221946da370b" libname="Triangles2lines">
+		<option name="verbose" type="bool">true</option>
+		<display>
+			<x>124</x>
+			<y>291</y>
+		</display>
+	</conditioner>
+	<conditioner name="polygons2lines-1" idname="polygons2lines-1c550816e-0dd9-4134-aba4-6d971a4de005" libname="polygons2lines">
+		<option name="verbose" type="bool">true</option>
+		<display>
+			<x>140</x>
+			<y>609</y>
+		</display>
+	</conditioner>
+	<conditioner name="polylists2lines-1" idname="polylists2lines-1de40049a-86e1-4bd7-aeff-46478e0b9c8b" libname="polylists2lines">
+		<option name="verbose" type="bool">true</option>
+		<display>
+			<x>138</x>
+			<y>504</y>
+		</display>
+	</conditioner>
+	<conditioner name="detrifanner-1" idname="detrifanner-178721cb3-c79c-4526-a21f-8423d2bd4c2e" libname="detrifanner">
+		<display>
+			<x>121</x>
+			<y>211</y>
+		</display>
+	</conditioner>
+	<conditioner name="detristripper-1" idname="detristripper-1f7ad79d1-e893-4562-a89c-2fd530aa44ba" libname="detristripper">
+		<display>
+			<x>119</x>
+			<y>124</y>
+		</display>
+	</conditioner>
+
+
+	<link start="input81c98f2d-b96c-4d90-9cc4-6694ce7d0383" startNb="0" end="detristripper-1f7ad79d1-e893-4562-a89c-2fd530aa44ba" endNb="0"/>
+	<link start="detristripper-1f7ad79d1-e893-4562-a89c-2fd530aa44ba" startNb="0" end="detrifanner-178721cb3-c79c-4526-a21f-8423d2bd4c2e" endNb="0"/>
+	<link start="detrifanner-178721cb3-c79c-4526-a21f-8423d2bd4c2e" startNb="0" end="Triangles2lines-186ae3a17-ba04-497c-9ea3-221946da370b" endNb="0"/>
+	<link start="Triangles2lines-186ae3a17-ba04-497c-9ea3-221946da370b" startNb="0" end="Linestrips2lines-15654b0e7-281b-4852-8ae6-b3bceecb8182" endNb="0"/>
+	<link start="Linestrips2lines-15654b0e7-281b-4852-8ae6-b3bceecb8182" startNb="0" end="polylists2lines-1de40049a-86e1-4bd7-aeff-46478e0b9c8b" endNb="0"/>
+	<link start="polylists2lines-1de40049a-86e1-4bd7-aeff-46478e0b9c8b" startNb="0" end="polygons2lines-1c550816e-0dd9-4134-aba4-6d971a4de005" endNb="0"/>
+	<link start="polygons2lines-1c550816e-0dd9-4134-aba4-6d971a4de005" startNb="0" end="output6c24c440-8ec5-44cf-9108-f77fae818884" endNb="0"/>
+
+</pipeline>

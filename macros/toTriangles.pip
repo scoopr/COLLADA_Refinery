@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pipeline>
+	<fullname>toTriangles.pip</fullname>
+	<description>No description set for this document</description>
+	<input name="input7c8d0a9f-d993-46af-b235-0254c45f54d3" number="0">
+		<display>
+			<x>10</x>
+			<y>10</y>
+		</display>
+	</input>
+	<output name="outputd4b6674b-1c30-448e-a86b-b0e20defe868" number="0">
+		<execute>no</execute>
+		<display>
+			<x>36</x>
+			<y>606</y>
+		</display>
+	</output>
+
+	<conditioner name="detrifanner-1" idname="detrifanner-10336cf84-563c-45d3-82ba-00560fd98542" libname="detrifanner">
+		<display>
+			<x>60</x>
+			<y>154</y>
+		</display>
+	</conditioner>
+	<conditioner name="detristripper-1" idname="detristripper-141f912db-5082-4e5d-87e1-63c1ee1c919d" libname="detristripper">
+		<display>
+			<x>67</x>
+			<y>260</y>
+		</display>
+	</conditioner>
+	<conditioner name="polygons2triangles-1" idname="polygons2triangles-136797c20-d71b-4de4-918e-54961b018d60" libname="polygons2triangles">
+		<display>
+			<x>61</x>
+			<y>462</y>
+		</display>
+	</conditioner>
+	<conditioner name="polylists2triangles-1" idname="polylists2triangles-1acc7a003-e8f8-41d2-bdf3-bc9f634e8a83" libname="polylists2triangles">
+		<display>
+			<x>67</x>
+			<y>355</y>
+		</display>
+	</conditioner>
+
+
+	<link start="input7c8d0a9f-d993-46af-b235-0254c45f54d3" startNb="0" end="detrifanner-10336cf84-563c-45d3-82ba-00560fd98542" endNb="0"/>
+	<link start="detrifanner-10336cf84-563c-45d3-82ba-00560fd98542" startNb="0" end="detristripper-141f912db-5082-4e5d-87e1-63c1ee1c919d" endNb="0"/>
+	<link start="detristripper-141f912db-5082-4e5d-87e1-63c1ee1c919d" startNb="0" end="polylists2triangles-1acc7a003-e8f8-41d2-bdf3-bc9f634e8a83" endNb="0"/>
+	<link start="polylists2triangles-1acc7a003-e8f8-41d2-bdf3-bc9f634e8a83" startNb="0" end="polygons2triangles-136797c20-d71b-4de4-918e-54961b018d60" endNb="0"/>
+	<link start="polygons2triangles-136797c20-d71b-4de4-918e-54961b018d60" startNb="0" end="outputd4b6674b-1c30-448e-a86b-b0e20defe868" endNb="0"/>
+
+</pipeline>
