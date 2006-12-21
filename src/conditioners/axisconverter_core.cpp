@@ -785,6 +785,7 @@ void common_convert(DAE *input, int code, int verbose)
 		}
 		int channelCount = (int)thisAnimation->getChannel_array().getCount();
 		PRINTF("channel count is %d\n", channelCount);
+		if (channelCount==0) continue;
         // one channel per animation?
 		xsToken target = thisAnimation->getChannel_array()[0]->getTarget();
 		// check to see it is tranalate or rotate
