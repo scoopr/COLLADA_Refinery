@@ -17,6 +17,7 @@
 
 // Collada API includes
 #include "dae.h" 
+#include "dae/daeSIDResolver.h"
 #include "dom/domCOLLADA.h"
 #include "dom/domConstants.h"
 //#include "dom/domProfile_COMMON.h"

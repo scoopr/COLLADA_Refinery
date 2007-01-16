@@ -709,6 +709,38 @@ void process_spline(domSpline *spline, int code, int verbose)
 	} // for
 }
 
+void gettargetid(char * targetid, const char * target)
+{
+	size_t i = 0;
+	for (i=0; i<strlen(target); i++)
+	{
+		if (target[i] == '/') break;
+		else targetid[i] = target[i];
+	}
+	targetid[i]=0;
+}
+void gettargetsid(char * targetsid, const char * target)
+{
+	size_t i = 0;
+	size_t j = 0;
+	for (i=0; i<strlen(target); i++)
+	{
+		if (target[i] == '/')
+		{
+			targetsid[0] = '.';
+			for (j=0; j<strlen(target)-i; j++)
+			{
+				if ( (target[i+j] == '.') ||
+					 (target[i+j] == '('))
+					 break;
+				targetsid[j+1] = target[i+j];
+			}
+			break;
+		}
+	}
+	targetsid[j+1]=0;
+}
+
 void common_convert(DAE *input, int code, int verbose)
 {
 	domNode *thisNode;
@@ -788,11 +820,30 @@ void common_convert(DAE *input, int code, int verbose)
 		if (channelCount==0) continue;
         // one channel per animation?
 		xsToken target = thisAnimation->getChannel_array()[0]->getTarget();
+
+		char targetid[1024];
+		char targetsid[1024];
+		domElement * element = 0;
+		gettargetid(targetid, target);
+		gettargetsid(targetsid, target);
+
+		domElement * rootnode = thisAnimation->getDocument()->getDomRoot();
+		daeIDRef ref(targetid);
+		ref.setContainer(rootnode);
+		ref.resolveElement();
+		element = ref.getElement();
+		if (element==NULL) continue;
+
+		daeSIDResolver sidRes(element, targetsid);
+		element = sidRes.getElement();
+		if (element==NULL) continue;
+		COLLADA_TYPE::TypeEnum  elementtype = element->getElementType();
+
 		// check to see it is tranalate or rotate
         char *targetValue = const_cast<char*>(strrchr( target, '/' ));
 		if (targetValue != NULL) {
 			PRINTF("target value is %s\n", targetValue);
-			if ( (strcmp(targetValue, "/translate") == 0) || (strcmp(targetValue, "/scale") == 0) ) {
+			if ( (elementtype == COLLADA_TYPE::TRANSLATE) || (elementtype == COLLADA_TYPE::SCALE) ) {
 				// translate/scale animation
 				int samplerCount = (int)thisAnimation->getSampler_array().getCount();
 				PRINTF("sampler count is %d\n", samplerCount);
@@ -866,9 +917,12 @@ void common_convert(DAE *input, int code, int verbose)
 						} // if
 					} // for
 				} // for
-			} else {
+			} else if (elementtype == COLLADA_TYPE::ROTATE) {
 				// rotate animation
-				if (strcmp(targetValue, "/rotateX.ANGLE") == 0) {
+				domRotate * rotate = (domRotate *) element;
+				domFloat4 value = rotate->getValue();
+
+				if (value[0] == 1) {
 					int samplerCount = (int)thisAnimation->getSampler_array().getCount();
 					PRINTF("rotateX sampler count is %d\n", samplerCount);
 					// one sampler per animation?
@@ -885,7 +939,7 @@ void common_convert(DAE *input, int code, int verbose)
                             sourcemap.insert(pair<string, string>("OUT_TANGENT_X", source));
 						} // if
 					} //for input
-				} else if (strcmp(targetValue, "/rotateY.ANGLE") == 0) {
+				} else if (value[1] == 1) {
 					int samplerCount = (int)thisAnimation->getSampler_array().getCount();
 					PRINTF("rotateX sampler count is %d\n", samplerCount);
 					// one sampler per animation?
@@ -902,7 +956,7 @@ void common_convert(DAE *input, int code, int verbose)
                             sourcemap.insert(pair<string, string>("OUT_TANGENT_Y", source));
 						} // if
 					} //for input				
-				} else if (strcmp(targetValue, "/rotateZ.ANGLE") == 0) {
+				} else if (value[2] == 1) {
 					int samplerCount = (int)thisAnimation->getSampler_array().getCount();
 					PRINTF("rotateX sampler count is %d\n", samplerCount);
 					// one sampler per animation?
@@ -958,6 +1012,8 @@ void common_convert(DAE *input, int code, int verbose)
 						} // if
 					} // for map
 				} // for source
+			} else {
+				PRINTF("none of TRANSLATE, ROTATE, or SCALE targetsid=%s\n", targetsid);					
 			} //else
 		} // if
 	} // for animation
@@ -1297,6 +1353,7 @@ void common_convert(DAE *input, int code, int verbose)
 	} // for animation
 
     // physics
+	// shape
 	unsigned int shapeCount = input->getDatabase()->getElementCount(NULL, COLLADA_ELEMENT_SHAPE, docName);
     PRINTF("shape count is %d\n", shapeCount);
 	for (unsigned int i = 0; i < shapeCount; i++) {
@@ -1306,7 +1363,8 @@ void common_convert(DAE *input, int code, int verbose)
 			//exit(-1);
 		}
         process_shape(thisShape, code, verbose);
-	} // shape
+	} 
+	// rigid_constraint
 	unsigned int constraintCount = input->getDatabase()->getElementCount(NULL, COLLADA_ELEMENT_RIGID_CONSTRAINT, docName);
     PRINTF("rigid constraint count is %d\n", constraintCount);
 	for (unsigned int i = 0; i < constraintCount; i++) {
@@ -1318,6 +1376,7 @@ void common_convert(DAE *input, int code, int verbose)
 		// seem not needed, comment out for now
 		process_rigid_constraint(thisConstraint, code, verbose);
 	}
+	//	physics_scene
 	unsigned int physicsSceneCount = input->getDatabase()->getElementCount(NULL, COLLADA_ELEMENT_PHYSICS_SCENE, docName);
     PRINTF("physics scene count is %d\n", physicsSceneCount);
 	for (unsigned int i = 0; i < physicsSceneCount; i++) {
@@ -1453,6 +1512,9 @@ int Axisconverter::execute()
 		y_up_converter(_dae, verbose);
 	else if (stricmp(axis.c_str(), "Z_UP") == 0 || stricmp(axis.c_str(), "Z") == 0)
 		z_up_converter(_dae, verbose);
+	else {
+		printf("%s is not recongized\n", axis.c_str());
+	}
 
 	return 0;
 }
