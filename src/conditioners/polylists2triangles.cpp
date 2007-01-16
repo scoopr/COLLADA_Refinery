@@ -39,33 +39,23 @@ int Polylist2Triangles::execute()
 		// Get the mesh out of the geometry
 		domMesh *thisMesh = thisGeometry->getMesh();
 
-#if 0
-		// Loop over all the polygon elements
-		int polygonsElementCount = (int)(thisMesh->getPolygons_array().getCount());
-		//if(verbose)	cerr<<"There are "<<polygonsElementCount<<" polygon elements in this file\n"; 
-		for(int currentPolygons = 0; currentPolygons < polygonsElementCount; currentPolygons++)
-		{
-			// Get the polygons out of the mesh
-			// Always get index 0 because every pass through this loop deletes the <polygons> element as it finishes with it
-			domPolygons *thisPolygons = thisMesh->getPolygons_array().get(0);  
-			createTrianglesFromPolygons( thisMesh, thisPolygons );
-			// Remove the polygons from the mesh
-			thisMesh->removeChildElement(thisPolygons);
-		}
-#endif
+		if (thisMesh == 0) continue;
 
-		int polylistElementCount = (int)(thisMesh->getPolylist_array().getCount());
 		//if(verbose)	cerr<<"There are "<<polylistElementCount<<" polylist elements in this file\n"; 
-		for(int currentPolylist = 0; currentPolylist < polylistElementCount; currentPolylist++)
+		for(size_t currentPolylist = 0; currentPolylist < thisMesh->getPolylist_array().getCount(); currentPolylist++)
 		{
 			// Get the polylist out of the mesh
 			// Always get index 0 because every pass through this loop deletes the <polygons> element as it finishes with it
-			domPolylist *thisPolylist = thisMesh->getPolylist_array().get(0);  
+			domPolylist *thisPolylist = thisMesh->getPolylist_array()[currentPolylist];  
 			createTrianglesFromPolylist( thisMesh, thisPolylist );
 			// Remove the polylist from the mesh
 			thisMesh->removeChildElement(thisPolylist);
 		}
-
+		while (thisMesh->getPolylist_array().getCount() > 0)
+		{
+			domPolylist *thisPolylist = thisMesh->getPolylist_array()[0];  
+			thisMesh->removeChildElement(thisPolylist);
+		}
 	}
 	return 0;
 }
