@@ -125,11 +125,9 @@ domUint Coherencytest::CHECK_count(domElement * element, domInt expected, domInt
 }
 bool Coherencytest::CHECK_fileexist(const char * filename)
 {
-	FILE		*fp;
-	fp = fopen(filename, "r");
-	if (!fp)
+	xmlTextReader * reader = xmlReaderForFile(filename, 0, 0);
+	if (!reader)
 		return false;
-    fclose(fp);
 	return true;
 }
 domUint Coherencytest::CHECK_file(domElement *element, xsAnyURI & fileuri)

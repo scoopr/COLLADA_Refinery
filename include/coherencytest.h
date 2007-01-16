@@ -26,6 +26,10 @@
 #include "dom/domProfile_GLES.h"
 #include "dom/domProfile_COMMON.h"
 #include "dom/domFx_include_common.h"
+#include "libxml/xmlschemas.h"
+#include "libxml/schemasInternals.h"
+#include "libxml/schematron.h"
+#include "libxml/xmlreader.h"
 #include "defines.h"
 #include <map>
 #include <set>
