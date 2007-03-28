@@ -12,13 +12,23 @@
  */
 #include "axisconverter.h"
 
+enum
+{
+    M00=0, M01=1, M02, M03,
+	M10, M11, M12, M13,
+	M20, M21, M22, M23,
+	M30, M31, M32, M33
+};
+
 daeString docName;
 char debugmessage[1024];
 #define PRINTF(X, Y)	if (verbose) {sprintf(debugmessage, X, Y); Axisconverter::printExecutionMessage(std::string(debugmessage));}
 //#define PRINTF(X, Y) if (verbose) {sprintf(debugmessage, X, Y); Axisconverter::printExecutionMessage(std::string(X));}
 //#define PRINTF(X) if (verbose) Axisconverter::printExecutionMessage(std::string(X));}
+void domMatrix4x4Mult(domFloat4x4 &LSrcMtx, domFloat4x4 &LDestMtx);
+
 void float3_swap(domFloat3 &trans, int code, int flag, int verbose)
-{
+{ // flag = 0 is for translate, flag=1 is for scale
 	domFloat3 trans1;
 	trans1.setCount(3);
 	trans1[0] = trans[0];
@@ -109,7 +119,7 @@ void float4_swap(domFloat4 &rot, int code, int verbose)
 	rot1[2] = rot[2];
 	switch (code) 
 	{
-		case 1:
+		case 1: //y->x
 			rot[0] = rot1[1];
 			rot[1] = -rot1[0];
 			rot[2] = rot1[2];
@@ -142,6 +152,55 @@ void float4_swap(domFloat4 &rot, int code, int verbose)
 		default:
 			PRINTF("invalid code=%d\n", code);
 	}
+}
+void float4x4_swap(domFloat4x4 & matrix, int code, int verbose)
+{
+	domFloat4x4 src_matrix = matrix;
+	domFloat4x4 convert_matrix;
+	convert_matrix.setCount(16);
+	convert_matrix[M00] = 1.0f; convert_matrix[M01] = 0.0f; convert_matrix[M02] = 0.0f; convert_matrix[M03] = 0.0f;
+	convert_matrix[M10] = 0.0f; convert_matrix[M11] = 1.0f; convert_matrix[M12] = 0.0f; convert_matrix[M13] = 0.0f;
+	convert_matrix[M20] = 0.0f; convert_matrix[M21] = 0.0f; convert_matrix[M22] = 1.0f; convert_matrix[M23] = 0.0f;
+	convert_matrix[M30] = 0.0f; convert_matrix[M31] = 0.0f; convert_matrix[M32] = 0.0f; convert_matrix[M33] = 1.0f;
+
+	switch (code) 
+	{
+		case 1: //y->x
+			convert_matrix[M00] = 0.0f; convert_matrix[M01] = -1.0f; 
+			convert_matrix[M10] = 1.0f; convert_matrix[M11] = 0.0f; 
+			break;
+		case 2: //z->x
+			convert_matrix[M11] = 0.0f; convert_matrix[M12] = -1.0f; 
+			convert_matrix[M21] = 1.0f; convert_matrix[M22] = 0.0f; 
+			domMatrix4x4Mult(convert_matrix, matrix);
+			convert_matrix[M00] = 0.0f; convert_matrix[M01] = -1.0f; 
+			convert_matrix[M10] = 1.0f; convert_matrix[M11] = 0.0f; convert_matrix[M12] = 0.0f; 
+										convert_matrix[M21] = 0.0f; convert_matrix[M22] = 1.0f; 
+			break;
+		case 3: //x->y
+			convert_matrix[M00] = 0.0f; convert_matrix[M01] = 1.0f; 
+			convert_matrix[M10] = -1.0f; convert_matrix[M11] = 0.0f; 
+			break;
+		case 4: //z->y
+			convert_matrix[M11] = 0.0f; convert_matrix[M12] = -1.0f; 
+			convert_matrix[M21] = 1.0f; convert_matrix[M22] = 0.0f; 
+			break;
+		case 5: //x->z
+			convert_matrix[M00] = 0.0f; convert_matrix[M01] = 1.0f; 
+			convert_matrix[M10] = -1.0f; convert_matrix[M11] = 0.0f; 
+			domMatrix4x4Mult(convert_matrix, matrix);
+			convert_matrix[M00] = 1.0f; convert_matrix[M01] = 0.0f; 
+			convert_matrix[M10] = 0.0f; convert_matrix[M11] = 0.0f; convert_matrix[M12] = 1.0f; 
+										convert_matrix[M21] = -1.0f; convert_matrix[M22] = 0.0f; 
+			break;
+		case 6: //y->z
+			convert_matrix[M11] = 0.0f; convert_matrix[M12] = 1.0f; 
+			convert_matrix[M21] = -1.0f; convert_matrix[M22] = 0.0f; 
+			break;
+		default:
+			PRINTF("invalid code=%d\n", code);
+	}	
+	domMatrix4x4Mult(convert_matrix, matrix);
 }
 
 void doublearray_swap(daeDoubleArray &array, int code, int verbose)
@@ -215,6 +274,15 @@ void process_node(domNode *node, int code, int verbose)
 		domFloat3 &scale = node->getScale_array()[i]->getValue();
         float3_swap(scale, code, 1, verbose);
 	} // scale
+
+	// matrix
+	unsigned int matrixCount = (unsigned int)node->getMatrix_array().getCount();
+	for (unsigned int i = 0; i < matrixCount; i++ )
+	{
+		PRINTF("inside scale i=%d\n", i);
+		domFloat4x4 &matrix = node->getMatrix_array()[i]->getValue();
+        float4x4_swap(matrix, code, verbose);
+	} // matrix
 }
 
 template<class T>
@@ -761,11 +829,8 @@ void common_convert(DAE *input, int code, int verbose)
 	for (unsigned int j = 0; j < nodeCount; j++) {
 		error = input->getDatabase()->getElement((daeElement**)&thisNode, j, NULL, COLLADA_ELEMENT_NODE, docName);
 		PRINTF("get node %d\n", j);
-		if (error != DAE_OK)
-		{
-			exit(-1);
-		}
-		process_node(thisNode, code, verbose);
+		if (error == DAE_OK)
+			process_node(thisNode, code, verbose);
 	} // for
 
 	// check <geometry>
@@ -774,9 +839,8 @@ void common_convert(DAE *input, int code, int verbose)
 	for (unsigned int i = 0; i < geometryCount; i++) {
 		domGeometry *thisGeometry;
 		error = input->getDatabase()->getElement((daeElement**)&thisGeometry,i, NULL, "geometry", docName);
-		if (error != DAE_OK) {
-			//exit(-1);
-		}
+		if (error != DAE_OK) 
+			continue;
 
 		// Get the geometry element's mesh
 		domMesh *thisMesh = thisGeometry->getMesh();
@@ -812,9 +876,9 @@ void common_convert(DAE *input, int code, int verbose)
 	for (unsigned int i = 0; i < animationCount; i++) {
 		domAnimation *thisAnimation;
 		error = input->getDatabase()->getElement((daeElement**)&thisAnimation,i, NULL, "animation", docName);
-		if (error != DAE_OK) {
-			//exit(-1);
-		}
+		if (error != DAE_OK) 
+			continue;
+
 		int channelCount = (int)thisAnimation->getChannel_array().getCount();
 		PRINTF("channel count is %d\n", channelCount);
 		if (channelCount==0) continue;
@@ -1021,9 +1085,9 @@ void common_convert(DAE *input, int code, int verbose)
 	for (unsigned int i = 0; i < animationCount; i++) {
 		domAnimation *thisAnimation;
 		error = input->getDatabase()->getElement((daeElement**)&thisAnimation,i, NULL, "animation", docName);
-		if (error != DAE_OK) {
-			//exit(-1);
-		}
+		if (error != DAE_OK) 
+			continue;
+
 		int animationSourceCount = (int)thisAnimation->getSource_array().getCount();
 		for (int currentSource = 0; currentSource < animationSourceCount; currentSource++) {
 			daeString sourceId = thisAnimation->getSource_array()[currentSource]->getID();
@@ -1359,9 +1423,9 @@ void common_convert(DAE *input, int code, int verbose)
 	for (unsigned int i = 0; i < shapeCount; i++) {
 		domRigid_body::domTechnique_common::domShape *thisShape;
 		error = input->getDatabase()->getElement((daeElement**)&thisShape,i, NULL, "shape", docName);
-		if (error != DAE_OK) {
-			//exit(-1);
-		}
+		if (error != DAE_OK) 
+			continue;
+
         process_shape(thisShape, code, verbose);
 	} 
 	// rigid_constraint
@@ -1370,9 +1434,9 @@ void common_convert(DAE *input, int code, int verbose)
 	for (unsigned int i = 0; i < constraintCount; i++) {
 		domRigid_constraint *thisConstraint;
 		error = input->getDatabase()->getElement((daeElement**)&thisConstraint,i, NULL, "rigid_constraint", docName);
-		if (error != DAE_OK) {
-			//exit(-1);
-		}
+		if (error != DAE_OK) 
+			continue;
+
 		// seem not needed, comment out for now
 		process_rigid_constraint(thisConstraint, code, verbose);
 	}
@@ -1382,9 +1446,9 @@ void common_convert(DAE *input, int code, int verbose)
 	for (unsigned int i = 0; i < physicsSceneCount; i++) {
 		domPhysics_scene *thisPhysicsScene;
 		error = input->getDatabase()->getElement((daeElement**)&thisPhysicsScene,i, NULL, "physics_scene", docName);
-		if (error != DAE_OK) {
-			//exit(-1);
-		}
+		if (error != DAE_OK) 
+			continue;
+
 		domPhysics_scene::domTechnique_commonRef tech = thisPhysicsScene->getTechnique_common();
 		daeDoubleArray &gravity = tech->getGravity()->getValue();
         doublearray_swap(gravity, code, verbose);
@@ -1430,9 +1494,10 @@ void x_up_converter(DAE *input, int verbose)
 	error = input->getDatabase()->getElement((daeElement**)&thisAsset,0, NULL, COLLADA_ELEMENT_ASSET, docName);
 	if(error != DAE_OK)
 	{
-		//cerr<<"error "<<daeErrorString(error)<<" getting asset"<<i<<"\n";
-		exit(-1);
+		//printErrorMessage("Can't get <asset> from Collada document\n");
+		return;
 	}
+
 	domAsset::domUp_axisRef up_axis = thisAsset->getUp_axis();
 	if (up_axis != NULL) {
 		if (up_axis->getValue() == UPAXISTYPE_Y_UP)
@@ -1454,8 +1519,8 @@ void y_up_converter(DAE *input, int verbose)
 	error = input->getDatabase()->getElement((daeElement**)&thisAsset,0, NULL, COLLADA_ELEMENT_ASSET, docName);
 	if(error != DAE_OK)
 	{
-		//cerr<<"error "<<daeErrorString(error)<<" getting asset"<<i<<"\n";
-		exit(-1);
+		//printErrorMessage("Can't get <asset> from Collada document\n");
+		return;
 	}
 	domAsset::domUp_axisRef up_axis = thisAsset->getUp_axis();
 	if (up_axis != NULL) {
@@ -1474,7 +1539,8 @@ void z_up_converter(DAE *input, int verbose)
 	error = input->getDatabase()->getElement((daeElement**)&thisAsset,0, NULL, COLLADA_ELEMENT_ASSET, docName);
 	if(error != DAE_OK)
 	{
-		exit(-1);
+		//printErrorMessage("Can't get <asset> from Collada document\n");
+		return;
 	}
 	domAsset::domUp_axisRef up_axis = thisAsset->getUp_axis();
 	if (up_axis != NULL) {
@@ -1520,3 +1586,48 @@ int Axisconverter::execute()
 }
 
 Conditioner::Register<AxisconverterProxy> registerObject;
+
+void domMatrix4x4Mult(domFloat4x4 &LSrcMtx, domFloat4x4 &LDestMtx)
+{
+	daeDouble	L00, L01, L02, L03, L10, L11, L12, L13,
+			L20, L21, L22, L23, L30, L31, L32, L33;
+
+	// !!!GAC as an experiment, reorder the operations so the lifetime of the temps is limited
+	// !!!GAC the compiler should do this, but I want to make sure it's doing its job.
+
+	L00 = LDestMtx[M00];
+	L10 = LDestMtx[M10];
+	L20 = LDestMtx[M20];
+	L30 = LDestMtx[M30];
+	LDestMtx[M00] = LSrcMtx[M00]*L00+LSrcMtx[M01]*L10+LSrcMtx[M02]*L20+LSrcMtx[M03]*L30;
+	LDestMtx[M10] = LSrcMtx[M10]*L00+LSrcMtx[M11]*L10+LSrcMtx[M12]*L20+LSrcMtx[M13]*L30;
+	LDestMtx[M20] = LSrcMtx[M20]*L00+LSrcMtx[M21]*L10+LSrcMtx[M22]*L20+LSrcMtx[M23]*L30;
+	LDestMtx[M30] = LSrcMtx[M30]*L00+LSrcMtx[M31]*L10+LSrcMtx[M32]*L20+LSrcMtx[M33]*L30;
+
+	L01 = LDestMtx[M01];
+	L11 = LDestMtx[M11];
+	L21 = LDestMtx[M21];
+	L31 = LDestMtx[M31];
+	LDestMtx[M01] = LSrcMtx[M00]*L01+LSrcMtx[M01]*L11+LSrcMtx[M02]*L21+LSrcMtx[M03]*L31;
+	LDestMtx[M11] = LSrcMtx[M10]*L01+LSrcMtx[M11]*L11+LSrcMtx[M12]*L21+LSrcMtx[M13]*L31;
+	LDestMtx[M21] = LSrcMtx[M20]*L01+LSrcMtx[M21]*L11+LSrcMtx[M22]*L21+LSrcMtx[M23]*L31;
+	LDestMtx[M31] = LSrcMtx[M30]*L01+LSrcMtx[M31]*L11+LSrcMtx[M32]*L21+LSrcMtx[M33]*L31;
+	
+	L02 = LDestMtx[M02];
+	L12 = LDestMtx[M12];
+	L22 = LDestMtx[M22];
+	L32 = LDestMtx[M32];
+	LDestMtx[M02] = LSrcMtx[M00]*L02+LSrcMtx[M01]*L12+LSrcMtx[M02]*L22+LSrcMtx[M03]*L32;
+	LDestMtx[M12] = LSrcMtx[M10]*L02+LSrcMtx[M11]*L12+LSrcMtx[M12]*L22+LSrcMtx[M13]*L32;
+	LDestMtx[M22] = LSrcMtx[M20]*L02+LSrcMtx[M21]*L12+LSrcMtx[M22]*L22+LSrcMtx[M23]*L32;
+	LDestMtx[M32] = LSrcMtx[M30]*L02+LSrcMtx[M31]*L12+LSrcMtx[M32]*L22+LSrcMtx[M33]*L32;
+	
+	L03 = LDestMtx[M03];
+	L13 = LDestMtx[M13];
+	L23 = LDestMtx[M23];
+	L33 = LDestMtx[M33];
+	LDestMtx[M03] = LSrcMtx[M00]*L03+LSrcMtx[M01]*L13+LSrcMtx[M02]*L23+LSrcMtx[M03]*L33;
+	LDestMtx[M13] = LSrcMtx[M10]*L03+LSrcMtx[M11]*L13+LSrcMtx[M12]*L23+LSrcMtx[M13]*L33;
+	LDestMtx[M23] = LSrcMtx[M20]*L03+LSrcMtx[M21]*L13+LSrcMtx[M22]*L23+LSrcMtx[M23]*L33;
+	LDestMtx[M33] = LSrcMtx[M30]*L03+LSrcMtx[M31]*L13+LSrcMtx[M32]*L23+LSrcMtx[M33]*L33;
+}

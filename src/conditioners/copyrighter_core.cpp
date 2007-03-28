@@ -42,7 +42,7 @@ int Copyrighter::execute()
 			char temp[1024];
 			sprintf(temp, "File %s is not found\n", copyright_file); 
 			printDebugMessage(temp);
-			exit(-1);
+			return (-1);
 		}
 
 		// obtain file size.
@@ -57,7 +57,7 @@ int Copyrighter::execute()
 			char temp[1024];
 			sprintf(temp, "File %s is too big, not enough memory\n", copyright_file); 
 			printDebugMessage(temp);
-			exit (2);
+			return (-2);
 		}
 		buffer[lSize] = '\0';
 		// copy the file into the buffer.
@@ -78,9 +78,8 @@ int Copyrighter::execute()
 		// Get the next asset
 		error = _dae->getDatabase()->getElement((daeElement**)&thisAsset,i, NULL, COLLADA_TYPE_ASSET, getInput(0).c_str());
 		if(error != DAE_OK)
-		{
-		    exit(-1);
-		}
+			continue;
+
 		domAsset::domContributor_Array & contributorArray = thisAsset->getContributor_array();
 		unsigned int contributorCount = (int) contributorArray.getCount();
 

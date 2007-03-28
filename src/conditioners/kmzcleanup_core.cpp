@@ -58,11 +58,15 @@ bool Kmzcleanup::checkbindneeded(DAE* input, daeString material, int verbose)
 			for (int i = 0; i < count; i++) {
 				domProfile_COMMON *profile = daeSafeCast< domProfile_COMMON >( thisEffect->getContents()[i] );
 				if (profile != NULL) {
-					domCommon_color_or_texture_type_complexType::domTexture *thisTexture = profile->getTechnique()->getPhong()->getDiffuse()->getTexture();
-					if (thisTexture != NULL)
-						return true;
-					else 
-						return false;
+					if (profile->getTechnique()) {
+						domProfile_COMMON::domTechnique::domPhong * phong = profile->getTechnique()->getPhong();
+						if (phong == NULL) continue;
+						domCommon_color_or_texture_type_complexType::domTexture *thisTexture = phong->getDiffuse()->getTexture();
+						if (thisTexture != NULL)
+							return true;
+						else 
+							continue;
+					}
 				}
 			}
 		}
@@ -95,10 +99,8 @@ int Kmzcleanup::execute()
 		// Get the next asset
 		error = _dae->getDatabase()->getElement((daeElement**)&thisAsset,i, NULL, COLLADA_TYPE_ASSET, getInput(0).c_str());
 		if(error != DAE_OK)
-		{
-			//cerr<<"error "<<daeErrorString(error)<<" getting asset"<<i<<"\n";
-		    exit(-1);
-		}
+			continue;
+
 		domAsset::domCreated *pCreated = thisAsset->getCreated();
 		if (pCreated == 0) {
 			// need to add created
@@ -162,9 +164,7 @@ int Kmzcleanup::execute()
 						//Get the next phong
 						error = _dae->getDatabase()->getElement((daeElement**)&thisPhong, i, NULL, COLLADA_TYPE_PHONG, getInput(0).c_str());
 						if (error != DAE_OK)
-						{
-							exit(-1);
-						}
+							continue;
 
 						domCommon_color_or_texture_type * thisDiffuse;
 						thisDiffuse = thisPhong->getDiffuse();

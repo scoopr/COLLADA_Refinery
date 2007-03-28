@@ -157,9 +157,13 @@ void MergeVertex(VertexIndexes * match_vertex, VertexIndexes *vertex)
 void ParseInputAndP(domInputLocalOffset_Array &input_array, domP * p, domPRef &newp, VertexSet & vertexset, domUint & vertexindex, domUint &maxoffset)
 {
 	std::map<domElement*, domUint> offsetmap;
+	// set offsetmap<source_element_ptr, offset_number>
 	for (size_t j=0; j<input_array.getCount(); j++)
 	{
-		offsetmap[input_array[j]->getSource().getElement()] = input_array[j]->getOffset();
+		xsAnyURI & uri = input_array[j]->getSource();
+		uri.resolveElement();
+		domElement * element = uri.getElement();
+		offsetmap[element] = input_array[j]->getOffset();
 		input_array[j]->setOffset(0);			// reset all input's offset to 0 since all inputs use the same vertex index
 	}
 	domListOfUInts & value = p->getValue();
@@ -439,6 +443,11 @@ int Deindexer::execute()
 		}
 
 		domVertices * vertices = mesh->getVertices();
+		if (vertices == 0)
+		{
+			printf("<vertices> not found int mesh, please run coherencytest\n");
+			continue;
+		}
 
 		// setup map for new sources
 		std::map<domSource*,domSource*> source_map;
@@ -477,7 +486,9 @@ int Deindexer::execute()
 					domInputLocal_Array & vertices_input_array = vertices->getInput_array();
 					for(size_t i=0; i<vertices_input_array.getCount(); i++)
 					{
-						domSource* source = (domSource*) (domElement*) vertices_input_array[i]->getSource().getElement();
+						xsAnyURI & uri = vertices_input_array[i]->getSource();
+						uri.resolveElement();
+						domSource* source = (domSource*) (domElement*) uri.getElement();
 						assert(source_map[source]);
 						SetSource(source, source_map[source], mapiter->second, index->new_index);
 					}
@@ -506,7 +517,9 @@ int Deindexer::execute()
 			domSkin * skin = 0;
 			error = _dae->getDatabase()->getElement((daeElement**)&skin, i, NULL, COLLADA_TYPE_SKIN, getInput(0).c_str());
 
-			domGeometry * skin_geometry = (domGeometry*) (domElement*) skin->getSource().getElement();
+			xsAnyURI & uri = skin->getSource();
+			uri.resolveElement();
+			domGeometry * skin_geometry = (domGeometry*) (domElement*) uri.getElement();
 			if (geometry == skin_geometry)
 			{						// found match mesh, process skin
 				domSkin::domVertex_weights * weights = skin->getVertex_weights();

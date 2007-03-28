@@ -190,7 +190,8 @@ vector<string> Packager::gatherExternals( const daeString &docName, bool needsTe
 		// Get the next image element
 		error = _dae->getDatabase()->getElement((daeElement**)&thisImage,i, NULL, "image", docName);
 		if(error != DAE_OK)
-			exit(-1);
+			continue;
+
 		daeURI * uri = thisImage->getDocument()->getDocumentURI();
 		daePath = FindPath(uri->getURI());
 		if (daePath == "") daePath = ".";

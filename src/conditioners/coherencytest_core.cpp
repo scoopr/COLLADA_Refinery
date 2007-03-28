@@ -10,6 +10,33 @@
  * implied. See the License for the specific language governing permissions and limitations under the 
  * License. 
  */
+
+/*
+List of Checks
+Check_links		It checks if all id are valid reference and if we can resolveElement and getElement 
+				from a link    
+Check_unique_id	It checks if all Ids in each document are unique     
+Check_counts	It checks number counts are correctly set, eg. 
+				skin vertex count should be = mesh vertex count     
+				accessor has the right count on arrays from stride and counts.
+Check_files		It checks if the image files, cg/fx files, and other non-dae files that the document 
+				referenced exist     
+Check_textures  It checks if the textures are correctly defined/used (image, surface, sampler, 
+				instancing...)
+				<texture> shouldn't directly reference to <image> id.
+				it should reference <newparam>'s sid, and have <sampler2D> with <source> reference to
+				another <newparam>'s sid that have <surface> with <init_from> refernce to <image> id.
+
+Check_URI		It checks if the URI are correct. It should also check for unescaped spaces because 
+				a xml validator won't catch the problem. Reference http://www.w3.org/TR/xmlschema-2/#anyURI
+Check_schema	It checks if the document validates against the Schema   
+Check_inputs	It checks if the required number of input elements are present and that they have the 
+				correct semantic values for their sources.   
+Check_skin		It will check if values in name_array should only reference to an existing SID, 
+				and values in IDREF_array should only reference to an existing ID  
+Check_InstanceGeometry It checks if all Intance_geometry has bind_material that has a correct matching 
+				bind_material between symbol and target
+*/
 #include "coherencytest.h"
 #define MAX_PATH 260
 
@@ -30,12 +57,7 @@ void Coherencytest::PRINTF(const char * log)
 }
 int VERBOSE;
 
-// check links
-// check unique id
-// check file path
-// check counts
-// check schema
-// check texture
+
 
 bool Coherencytest::init()
 {
@@ -462,35 +484,41 @@ domUint Coherencytest::CHECK_Controller(domController *controller)
 	{
 		xsAnyURI & uri = skin->getSource();
 
-		// get vertex count from skin
-		domSkin::domVertex_weights * vertex_weights = skin->getVertex_weights();
-		domUint vertex_weights_count = vertex_weights->getCount();
-		domGeometry * geometry = (domGeometry*) (domElement*) uri.getElement();
-		domMesh * mesh = geometry->getMesh();				
-		if (mesh)
-		{	// get vertex count from geometry
-			domVertices * vertices = mesh->getVertices();
-			CHECK_error(geometry, vertices != NULL, "geometry, vertices in this mesh\n");
-			if (vertices)
+		domElement * element = uri.getElement();
+		daeString type_str = element->getTypeName();
+
+		if (stricmp(type_str, "geometry") == 0)
+		{	// skin is reference directly to geometry
+			// get vertex count from skin
+			domSkin::domVertex_weights * vertex_weights = skin->getVertex_weights();
+			domUint vertex_weights_count = vertex_weights->getCount();
+			domGeometry * geometry = (domGeometry*) (domElement*) uri.getElement();
+			domMesh * mesh = geometry->getMesh();				
+			if (mesh)
+			{	// get vertex count from geometry
+				domVertices * vertices = mesh->getVertices();
+				CHECK_error(geometry, vertices != NULL, "geometry, vertices in this mesh\n");
+				if (vertices)
+				{
+					xsAnyURI src = vertices->getInput_array()[0]->getSource();
+					domSource * source = (domSource*) (domElement*) src.getElement();
+					domUint vertices_count = source->getTechnique_common()->getAccessor()->getCount();
+					errorcount += CHECK_count(controller, vertices_count, vertex_weights_count,
+											"controller, vertex weight count != mesh vertex count\n");
+				}
+			}	// TODO: it could be convex_mesh and spline
+			domUint vcount_count = (domUint) vertex_weights->getVcount()->getValue().getCount();
+			errorcount += CHECK_count(controller, vcount_count, vertex_weights_count,
+									  "controller, vcount count != vertex weight count\n");	
+			domInputLocalOffset_Array & inputs = vertex_weights->getInput_array();
+			domUint sum = 0;
+			for (size_t i=0; i<vcount_count; i++)
 			{
-				xsAnyURI src = vertices->getInput_array()[0]->getSource();
-				domSource * source = (domSource*) (domElement*) src.getElement();
-				domUint vertices_count = source->getTechnique_common()->getAccessor()->getCount();
-				errorcount += CHECK_count(controller, vertices_count, vertex_weights_count,
-										"controller, vertex weight count != mesh vertex count\n");
+				sum += vertex_weights->getVcount()->getValue()[i];
 			}
-		}	// TODO: it could be convex_mesh and spline
-		domUint vcount_count = (domUint) vertex_weights->getVcount()->getValue().getCount();
-		errorcount += CHECK_count(controller, vcount_count, vertex_weights_count,
-			                      "controller, vcount count != vertex weight count\n");	
-		domInputLocalOffset_Array & inputs = vertex_weights->getInput_array();
-		domUint sum = 0;
-		for (size_t i=0; i<vcount_count; i++)
-		{
-			sum += vertex_weights->getVcount()->getValue()[i];
+			errorcount += CHECK_count(controller, sum * inputs.getCount(), (domInt) vertex_weights->getV()->getValue().getCount(), 
+									  "controller, total vcount doesn't match with numbers of v\n");
 		}
-		errorcount += CHECK_count(controller, sum * inputs.getCount(), (domInt) vertex_weights->getV()->getValue().getCount(), 
-			                      "controller, total vcount doesn't match with numbers of v\n");
 	}	// TODO : we will support morph later
 	return errorcount;
 }
@@ -827,16 +855,19 @@ domUint Coherencytest::CHECK_unique_id (DAE *input, int verbose)
 	domInt error = 0;
 	domUint errorcount = 0;
 	daeDatabase *db = input->getDatabase();
-	daeInt count = (daeInt) db->getElementCount(NULL, NULL, getInput(0).c_str());
+	daeString file = file_name.c_str();
+	daeInt count = (daeInt) db->getElementCount(NULL, NULL, NULL);
 	for (daeInt i=0; i<count; i++)
 	{
 		domElement *element;
-		error = db->getElement((daeElement**)&element, i, NULL, NULL, getInput(0).c_str());
+		error = db->getElement((daeElement**)&element, i, NULL, NULL, NULL);
 		daeString id = element->getID();
-		daeString docURI = element->getDocumentURI()->getURI();
 		if (id == NULL) continue;
-		pair = ids.insert(string(id) + string(docURI));
-		if (pair.second == false)
+
+		daeString docURI = element->getDocumentURI()->getURI();
+		// check if there is second element with the same id.
+		error = db->getElement((daeElement**)&element, 1, id, NULL, docURI);
+		if (error == DAE_OK)
 		{
 			errorcount++;
 			char temp[MAX_LOG_BUFFER];
