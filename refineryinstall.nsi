@@ -11,7 +11,7 @@
 Name "Refinery Install"
 Caption "Refinery Install"
 ;Icon "${EXEDIR}\icons\collada.ico"
-OutFile "..\COLLADA_Refinery_2.0.0.exe"
+OutFile "..\COLLADA_Refinery_2.0.3.exe"
 
 Var PROGRAM_NAME
 SetCompressor /SOLID lzma
