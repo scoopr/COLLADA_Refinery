@@ -16,6 +16,7 @@
 // Collada API includes
 #include "dae.h" 
 #include "dom/domCOLLADA.h"
+#include "dom/domConstants.h"
 
 #include "defines.h"
 #include "utility.h"
