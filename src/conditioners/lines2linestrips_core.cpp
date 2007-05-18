@@ -12,6 +12,84 @@
  */
 #include "lines2linestrips.h"
 
+class Vertex
+{
+public:
+	Vertex() 
+	{
+		m_maxoffset = 0;
+		m_data = 0;
+	};
+	Vertex(Vertex & copy)
+	{
+		m_maxoffset = copy.m_maxoffset;
+		m_data = new domUint(m_maxoffset);
+		for(int i=0; i<m_maxoffset; i++)
+		{
+			m_data[i] = copy.m_data[i];
+		}
+	};
+	Vertex(domUint maxoffset) 
+	{
+		m_maxoffset = maxoffset;
+		m_data = new domUint[(size_t)m_maxoffset];
+	};
+	~Vertex() 
+	{
+		if (m_data) 
+		{
+			delete [] m_data;
+			m_data = 0;
+		}
+	};
+	domUint m_maxoffset;
+	domUint * m_data;
+
+	bool operator ==(Vertex & v)
+	{
+		for (int i=0; i<m_maxoffset; i++)
+		{
+			if (m_data[i] != v.m_data[i])
+				return false;
+		}
+		return true;
+	}
+	Vertex * operator =(Vertex & copy)
+	{
+		m_maxoffset = copy.m_maxoffset;
+		m_data = new domUint(m_maxoffset);
+		for(int i=0; i<m_maxoffset; i++)
+		{
+			m_data[i] = copy.m_data[i];
+		}
+		return this;
+	}
+};
+
+class Line
+{
+public:
+	Line() {v[0]=v[1]=NULL;};
+	~Line() {};
+	Line(Vertex *v0, Vertex *v1) 
+	{
+		v[0]=v0;
+		v[1]=v1;
+	};
+	Vertex * v[2];
+	bool operator ==(Line & s)
+	{
+		domUint maxoffset = s.v[0]->m_maxoffset;
+		for (domUint i=0; i<maxoffset; i++)
+		{
+			if ((v[0]->m_data[i] != s.v[0]->m_data[i]) ||
+				(v[1]->m_data[i] != s.v[1]->m_data[i]))
+				return false;
+		}
+		return true;
+	}
+};
+
 struct ltstr
 {
   bool operator()(const lineStruct s1, const lineStruct s2) const
@@ -33,6 +111,120 @@ bool Lines2linestrips::init()
 	addBoolOption( "verbose", "verbose", "verbose", true);
 	return true;
 }
+
+void ConvertLinesToLine(domMesh * thisMesh, domLines * lines)
+{
+	vector<Line *> Line_Container;
+	vector<Vertex *> Vertex_Container;
+
+	vector<Line *> Line_List;
+	domLinestrips *linestrips = (domLinestrips *)thisMesh->createAndPlace("linestrips");
+
+	// Get the number of inputs and primitives for the triangles array
+	domUint offsetcount = (int)getMaxOffset(lines->getInput_array())+1;
+
+	// set inputs
+	for (size_t j=0; j<lines->getInput_array().getCount(); j++)
+		linestrips->placeElement(lines->getInput_array()[j]->clone());
+	// set names
+	if (lines->getName())
+		linestrips->setName(lines->getName());
+	// set materials
+	if (lines->getMaterial())
+		linestrips->setMaterial(lines->getMaterial());
+
+	domUint line_count = lines->getCount();
+
+	domP * dom_p = lines->getP();
+	if (dom_p==NULL) return;
+	domListOfUInts p_value = dom_p->getValue();
+
+	// parsing lines into Line and Vertex
+	for (size_t j=0; j<line_count; j++)
+	{
+		Vertex * v0 = new Vertex(offsetcount);
+		Vertex * v1 = new Vertex(offsetcount);
+		for (size_t k=0; k<offsetcount; k++)
+		{
+			v0->m_data[k] = p_value[(size_t)(2*j*offsetcount + 0*offsetcount + k)];
+			v1->m_data[k] = p_value[(size_t)(2*j*offsetcount + 1*offsetcount + k)];
+		}
+		Line * l = new Line(v0, v1);
+		Line_List.push_back(l);
+		Line_Container.push_back(l);
+		Vertex_Container.push_back(v0);
+		Vertex_Container.push_back(v1);
+	}
+
+	// create linestrips
+	domUint linestrips_count=0;
+	vector<Line*>::iterator iter;
+	for (iter = Line_List.begin(); !Line_List.empty(); iter = Line_List.begin())
+	{
+		vector<Vertex *> vertex_list;
+
+		Line *start_line = *iter;
+		vertex_list.push_back(start_line->v[0]);
+		vertex_list.push_back(start_line->v[1]);
+		Line_List.erase(iter);
+
+		Vertex *find_vertex = start_line->v[1];
+
+		vector<Line*>::iterator jter;
+		for (jter=Line_List.begin(); jter!= Line_List.end(); jter=Line_List.begin())
+		{
+			vector<Line*>::iterator kter;
+			Vertex *match_vertex = NULL;
+			for (kter=Line_List.begin(); kter!= Line_List.end(); kter++)
+			{
+				// find the next vertex, might update next_side and Triangle_list
+				Line * test_line = *kter;
+				if (*(test_line->v[0]) == (*find_vertex))
+				{	// next vertex found
+					match_vertex = test_line->v[1];
+					vertex_list.push_back(match_vertex);
+					Line_List.erase(kter);
+					break;
+				}
+			}
+			if (match_vertex)
+			{	// matching vertext found, continue finding the next match_vertex
+				find_vertex = match_vertex; 
+				continue;
+			} else
+			{	// match_vertex not found, line_strips complete
+				break;
+			}
+		}
+
+		domP * newP = (domP *) linestrips->createAndPlace("p");
+		for (size_t k=0; k<vertex_list.size(); k++)
+		{
+			Vertex * v = vertex_list[k];
+			for (size_t l=0; l<offsetcount; l++)
+			{
+				newP->getValue().append(v->m_data[l]);
+			}
+		}
+		vertex_list.clear();
+		linestrips_count++;
+	}
+
+	linestrips->setCount(linestrips_count);
+
+	// cleanup
+	for (size_t i=0; i<Vertex_Container.size(); i++)
+	{
+		delete Vertex_Container[i];
+	}
+	for (size_t i=0; i<Line_Container.size(); i++)
+	{
+		delete Line_Container[i];
+	}
+	Line_Container.clear();
+	Vertex_Container.clear();	
+}
+
 
 int Lines2linestrips::execute()
 {
@@ -62,95 +254,20 @@ int Lines2linestrips::execute()
 		if (thisMesh == 0) continue;
 
 		// Loop over all the lines elements
-		int lineCount = (int)(thisMesh->getLines_array().getCount());
+		size_t lineCount = (int)(thisMesh->getLines_array().getCount());
 
-		if (lineCount  == 0)
+		if (lineCount == 0)
 			continue;
 
-		domLinestrips *thisLinestrips = (domLinestrips *)thisMesh->createAndPlace("linestrips");
-
-//		if(verbose)	cerr<<"There are "<<lineCount<<" line elements in this file\n"; 
-		for(int currLine = 0; currLine<lineCount; currLine++)
+		for (size_t i=0; i<lineCount; i++)
 		{
-			// Get the lines out of the mesh
-			domLines *thisLines = thisMesh->getLines_array().get(0);
-			
-			// add inputs
-			unsigned int offsetcount = 0;
-			for(unsigned int i=0; i<thisLines->getInput_array().getCount(); i++)
-			{
-				unsigned int tempoffset = (unsigned int) thisLines->getInput_array()[i]->getOffset();
-				if (offsetcount < tempoffset) offsetcount = tempoffset;
-				thisLinestrips->placeElement( thisLines->getInput_array()[i]->clone() );
-			}
-			offsetcount++; //offset is 1 start
-			// add names
-			if (thisLines->getName())
-				thisLinestrips->setName(thisLines->getName());
-			// set materials
-			thisLinestrips->setMaterial(thisLines->getMaterial());
-
-			// set P
-			domListOfUInts lineValue = thisLines->getP()->getValue();
-
-			for(unsigned int i=0; i<thisLines->getCount(); i++)
-			{
-				lineStruct line;
-				if (lineValue[2*i*offsetcount] <= lineValue[2*i*offsetcount+offsetcount]) {
-					line.start = lineValue[2*i*offsetcount];
-					line.end = lineValue[2*i*offsetcount+offsetcount];
-				} else {
-					line.start = lineValue[2*i*offsetcount+offsetcount];
-					line.end = lineValue[2*i*offsetcount];
-				}
-				lineArray.insert(pair<lineStruct, bool>(line, false));
-			}
-    
-			// check for the possible line strips assume the duplicates have been removed
-			vector<domUint> lineStrips;
-			vector<domUint>::iterator vi;
-			unsigned int lineStripsCount = 0;
-			for (li = lineArray.begin(); li != lineArray.end(); li++) {
-				if ( (*li).second == false) {
-					lineStrips.push_back((*li).first.start);
-					lineStrips.push_back((*li).first.end);
-					(*li).second = true;
-
-					domUint temp = (*li).first.end;
-					for (lli = lineArray.begin(); lli != lineArray.end(); lli++) {
-						if (((*lli).second == false) && (temp == (*lli).first.start)) {
-							lineStrips.push_back((*lli).first.end);
-							temp = (*lli).first.end;
-							(*lli).second = true;
-						} 
-					}
-
-					// create <p> for each line strips
-					domP*  linestripP = (domP*) thisLinestrips->createAndPlace("p");
-					for (vi = lineStrips.begin(); vi != lineStrips.end(); vi++) {
-						if (offsetcount == 1)
-							linestripP->getValue().append((*vi));
-						else {
-							if (verbose) printf("inside strip append %d\n", (*vi));
-							linestripP->getValue().append((*vi));
-							for (unsigned int i = 0; i < thisLines->getCount()*offsetcount*2; i++) {
-								if (lineValue[i] == (*vi)) {
-									if (verbose) printf("find match i is %d, lineValue is %d\n", i, lineValue[i]); 
-									for (unsigned int j = 1; j < offsetcount; j++) {
-										linestripP->getValue().append(lineValue[i+j]);
-									} // for
-									break;
-								} // if
-							} // for
-						}
-					} // for
-					lineStripsCount++;
-					lineStrips.clear();
-				} // if
-			} // for
-
-			thisLinestrips->setCount(lineStripsCount);
-			thisMesh->removeChildElement(thisLines);
+			domLines * lines = thisMesh->getLines_array()[i];
+			ConvertLinesToLine(thisMesh, lines);
+		}
+		for (size_t i=0; i<lineCount; i++)
+		{
+			domLines * lines = thisMesh->getLines_array()[i];
+			thisMesh->removeChildElement(lines);
 		}
 	}
 	return 0;

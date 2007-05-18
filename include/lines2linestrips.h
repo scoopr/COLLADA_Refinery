@@ -18,6 +18,8 @@
 #include "dom/domCOLLADA.h"
 #include "conditionerBase.h"
 #include "defines.h"
+#include "utility.h"
+
 
 #include <map>
 #include <vector>
