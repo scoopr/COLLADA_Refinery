@@ -181,7 +181,13 @@ void createTrifansFromTriangles( domMesh *thisMesh, domTriangles *thisTriangles,
 	// Create a new <trifans> inside the mesh that has the same material as the <triangles>
 	domTrifans *thisTrifans = (domTrifans *)thisMesh->createAndPlace("trifans");
 	thisTrifans->setCount( 0 );
-	thisTrifans->setMaterial(thisTriangles->getMaterial());
+
+	// set name
+	if (thisTriangles->getName())
+		thisTrifans->setName(thisTriangles->getName());		
+	// set material symbol
+	if (thisTriangles->getMaterial())
+		thisTrifans->setMaterial(thisTriangles->getMaterial());
 
 	// Give the new <trifans> the same <input> and <parameters> as the old <triangles>
 	for(int i=0; i<(int)(thisTriangles->getInput_array().getCount()); i++)
@@ -314,9 +320,14 @@ int Trifanner::execute()
 			// Get the triangles out of the mesh
 			domTriangles *thisTriangles = thisMesh->getTriangles_array().get(currentTriangles);  
 			createTrifansFromTriangles( thisMesh, thisTriangles, verbose );
+		}  
+		for(int currentTriangles = 0; currentTriangles < trianglesElementCount; currentTriangles++)
+		{
+			// Get the triangles out of the mesh
+			domTriangles *thisTriangles = thisMesh->getTriangles_array().get(currentTriangles);  
 			// Remove the triangles from the mesh
 			thisMesh->removeChildElement(thisTriangles);
-		}  
+		}
 	} 
 	return 0; 
 }
