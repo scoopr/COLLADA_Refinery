@@ -90,22 +90,6 @@ public:
 	}
 };
 
-struct ltstr
-{
-  bool operator()(const lineStruct s1, const lineStruct s2) const
-  {
-	  if (s1.start < s2.start) {
-		return true;
-	  } else if (s1.start == s2.start) {
-		if (s1.end <= s2.end) 
-			return true;
-		else 
-			return false;
-	  } else
-		return false;
-  }
-};
-
 bool Lines2linestrips::init()
 {
 	addBoolOption( "verbose", "verbose", "verbose", true);
@@ -231,11 +215,6 @@ int Lines2linestrips::execute()
 	string axis;
 	bool verbose = false;
 	getBoolOption("v", verbose);
-
-	int VERBOSE = verbose;
-	map<lineStruct, bool, ltstr> lineArray;
-	map<lineStruct, bool, ltstr>::iterator li;
-	map<lineStruct, bool, ltstr>::iterator lli;
 
 	int error = 0;
 

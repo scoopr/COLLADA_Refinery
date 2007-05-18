@@ -20,15 +20,9 @@
 #include "defines.h"
 #include "utility.h"
 
-
 #include <map>
 #include <vector>
 using namespace std;
-
-typedef struct {
-	domUint start;
-	domUint end;
-} lineStruct;
 
 class Lines2linestrips : public ConditionerBase
 {

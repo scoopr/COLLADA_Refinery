@@ -26,12 +26,6 @@
 #include <vector>
 using namespace std;
 
-typedef struct {
-	domUint first;
-	domUint second;
-	domUint third;
-} triangleStruct;
-
 class Trifanner : public ConditionerBase
 {
 public:
