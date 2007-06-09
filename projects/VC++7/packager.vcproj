@@ -5,85 +5,118 @@
 	Name="packager"
 	ProjectGUID="{3BDD95A3-4681-475F-A6FF-512EBE12C502}"
 	RootNamespace="conditioners_cl"
-	Keyword="Win32Proj"
-	>
+	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
-			Name="Win32"
-		/>
+			Name="Win32"/>
 	</Platforms>
-	<ToolFiles>
-	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="../../tmp/$(ProjectName)/$(ConfigurationName)"
-			IntermediateDirectory="../../tmp/$(ProjectName)/$(ConfigurationName)"
+			OutputDirectory="../../bin/vc7/$(ConfigurationName)/conditioners"
+			IntermediateDirectory="../../tmp/vc7/$(ConfigurationName)/$(ProjectName)"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
-			CharacterSet="2"
-			>
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Java\jdk1.5.0_07\include&quot;;&quot;C:\Program Files\Java\jdk1.5.0_07\include\win32&quot;;../../include;&quot;$(COLLADA_DOM_LOCATION)/include/1.4&quot;;&quot;$(COLLADA_DOM_LOCATION)/include&quot;;&quot;$(COLLADA_EXTERNAL_LIBS_LOCATION)/zip32/win32/c-headers&quot;"
+				AdditionalIncludeDirectories="&quot;$(JDK_HOME)\include&quot;;&quot;$(JDK_HOME)\include\win32&quot;;../../include;&quot;../../external-libs/collada_dom/include/1.4&quot;;&quot;../../external-libs/collada_dom/include&quot;;&quot;$(COLLADA_EXTERNAL_LIBS_LOCATION)/zip32/win32/c-headers&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;REFINERY;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;_POSIX_"
-				MinimalRebuild="true"
+				MinimalRebuild="TRUE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="4"
-			/>
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcollada141dom12_d.lib libloader.lib"
-				OutputFile="../../conditioners/$(ProjectName).dll"
+				AdditionalDependencies="libcollada141dom12.lib libloader.lib"
+				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;$(COLLADA_DOM_LOCATION)/lib-dbg&quot;;../../lib"
-				IgnoreAllDefaultLibraries="false"
+				AdditionalLibraryDirectories="../../external-libs/collada_dom/lib;../../lib/vc7/$(ConfigurationName)"
+				IgnoreAllDefaultLibraries="FALSE"
 				IgnoreDefaultLibraryNames="msvcrt"
-				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(OutDir)/collada_conditioners_cl.pdb"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
 				SubSystem="1"
-				ImportLibrary="../../lib/$(TargetName).lib"
-				TargetMachine="1"
-			/>
+				ImportLibrary="../../lib/vc7/$(ConfigurationName)/$(TargetName).lib"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="../../tmp/$(ProjectName)/$(ConfigurationName)"
-			IntermediateDirectory="../../tmp/$(ProjectName)/$(ConfigurationName)"
+			OutputDirectory="../../bin/vc7/$(ConfigurationName)/conditioners"
+			IntermediateDirectory="../../tmp/vc7/$(ConfigurationName)/$(ProjectName)"
 			ConfigurationType="2"
-			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
-			CharacterSet="2"
-			>
+			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;C:\Program Files\Java\jdk1.5.0_07\include&quot;;&quot;C:\Program Files\Java\jdk1.5.0_07\include\win32&quot;;../../include;&quot;$(COLLADA_DOM_LOCATION)/include/1.4&quot;;&quot;$(COLLADA_DOM_LOCATION)/include&quot;;&quot;$(COLLADA_EXTERNAL_LIBS_LOCATION)/zip32/win32/c-headers&quot;"
+				AdditionalIncludeDirectories="&quot;$(JDK_HOME)\include&quot;;&quot;$(JDK_HOME)\include\win32&quot;;../../include;&quot;../../external-libs/collada_dom/include/1.4&quot;;&quot;../../external-libs/collada_dom/include&quot;;&quot;$(COLLADA_EXTERNAL_LIBS_LOCATION)/zip32/win32/c-headers&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBLOADER_EXPORTS;_CRT_SECURE_NO_DEPRECATE;REFINERY;DOM_DYNAMIC;_POSIX_"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
-				DebugInformationFormat="3"
-			/>
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="libcollada141dom12.lib libloader.lib"
-				OutputFile="../../conditioners/$(ProjectName).dll"
+				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="$(COLLADA_DOM_LOCATION)/lib;&quot;../../external-libs/zip32/&quot;;../../lib"
-				GenerateDebugInformation="true"
+				AdditionalLibraryDirectories="../../external-libs/collada_dom/lib;../../lib/vc7/$(ConfigurationName)"
+				GenerateDebugInformation="FALSE"
+				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
 				SubSystem="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				ImportLibrary="../../lib/$(TargetName).lib"
-				TargetMachine="1"
-			/>
+				ImportLibrary="../../lib/vc7/$(ConfigurationName)/$(TargetName).lib"
+				TargetMachine="1"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -92,27 +125,21 @@
 		<Filter
 			Name="Source Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
 			<File
-				RelativePath="..\..\src\libloader\conditionerBase.cpp"
-				>
+				RelativePath="..\..\src\libloader\conditionerBase.cpp">
 			</File>
 			<File
-				RelativePath="..\..\src\conditioners\packager_core.cpp"
-				>
+				RelativePath="..\..\src\conditioners\packager_core.cpp">
 			</File>
 		</Filter>
 		<Filter
-			Name="Header Files"
-			>
+			Name="Header Files">
 			<File
-				RelativePath="..\..\include\conditionerBase.h"
-				>
+				RelativePath="..\..\include\conditionerBase.h">
 			</File>
 			<File
-				RelativePath="..\..\include\packager.h"
-				>
+				RelativePath="..\..\include\packager.h">
 			</File>
 		</Filter>
 	</Files>

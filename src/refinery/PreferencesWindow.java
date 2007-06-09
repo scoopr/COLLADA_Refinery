@@ -60,7 +60,7 @@ public class PreferencesWindow extends JDialog {
 		// Directory panel
 		JPanel dirPanel = new JPanel();
 		dirPanel.setLayout(new GridLayout(0,2));
-		addOption("DIR_LIB", dirPanel);
+		addOption("DIR_USER_LIB", dirPanel);
 		addOption("DIR_MACRO", dirPanel);
 		//addOption("DIR_TEMP", dirPanel);
 		
@@ -145,7 +145,7 @@ public class PreferencesWindow extends JDialog {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			preferences.setValue("DIR_LIB", texts.get("DIR_LIB").getText());
+			preferences.setValue("DIR_USER_LIB", texts.get("DIR_USER_LIB").getText());
 			preferences.setValue("DIR_MACRO", texts.get("DIR_MACRO").getText());
 			//preferences.setValue("DIR_TEMP", texts.get("DIR_TEMP").getText());
 			//preferences.setValue("REMOTE_IP", texts.get("REMOTE_IP").getText());

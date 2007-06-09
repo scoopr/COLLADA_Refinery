@@ -89,7 +89,9 @@ public class Refinery {
 		errorAndWarnings = new ErrorAndWarningReport();
 		extLibs = new LibLoader(availableCondList, this);
 
-		availableCondList.load(extLibs, RefineryDirectory + File.separator + preferences.getValue("DIR_LIB"));
+		String mainConditionerDir = System.getProperty("user.dir") + File.separator + "conditioners";
+		availableCondList.load(extLibs, mainConditionerDir);
+		availableCondList.load(extLibs, RefineryDirectory + File.separator + preferences.getValue("DIR_USER_LIB"));
 
 		if(errorAndWarnings.hasErrors() || errorAndWarnings.hasWarnings()){
 			errorAndWarnings.popupWindow();
@@ -291,11 +293,18 @@ public class Refinery {
 		CommandLineParser clp;
 		
 		Refinery main;
-		Refinery.RefineryDirectory = System.getenv("COLLADA_REFINERY_LOCATION");
+		char sep = File.separatorChar;
+		Refinery.RefineryDirectory = System.getProperty("user.dir") + sep + ".." + sep + ".." + sep + "..";
+		try {
+			Refinery.RefineryDirectory = new File(Refinery.RefineryDirectory).getCanonicalPath();
+		}
+		catch (IOException e) {
+			// It doesn't really matter if converting to a canonical path fails
+		}
 
 		if (Refinery.RefineryDirectory == null)
 		{
-			System.err.println("COLLADA_REFINERY_LOCATION environment variable is not set!");
+			System.err.println("Failed to determine the location of the COLLADA Refinery!");
 			System.exit(-1);
 		}
 

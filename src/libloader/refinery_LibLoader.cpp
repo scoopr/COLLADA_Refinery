@@ -409,7 +409,7 @@ JNIEXPORT void JNICALL Java_refinery_LibLoader_setBoolOption
 	{
 		return;
 	}
-	cond->setBoolOption( optionStr, (bool) val  );
+	cond->setBoolOption( optionStr, (val != 0)  );
 }
 
 JNIEXPORT void JNICALL Java_refinery_LibLoader_setStringOption

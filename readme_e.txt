@@ -11,42 +11,36 @@
 
 Refinery and Conditioners:
 Original Author: Philippe David
-Authors: Andrew Lorino, Herbert Law, Ling Liu
+Authors: Andrew Lorino, Herbert Law, Ling Liu, Steven Thomas
 
-Prerequisite:
-- Microsoft Visual Studio 2003 (Or 2005) - Visual C++ or above 
-  (http://msdn.microsoft.com/vstudio/)
-  Make sure path is set to use devenv.com, means for example adding 
-  C:\Program Files\Microsoft Visual Studio .NET 2003\Common7\IDE
-  to the system 'Path' variable
-  
-- J2SE Development Kit 
-  (http://java.sun.com/)
-  Make sure path is set to use javac and v1.5 is tested, means for example adding
-  C:\Program Files\Java\jdk1.5.0_07\bin
-  to the system 'Path' variable
+Prerequisites for *running* Refinery:
 
-- COLLADA_DOM
-  (http://sourceforge.net/projects/collada-dom/)
-  Set Refinery directory to same level with collada-dom
-  
-How to build
+- Java Runtime Engine (JRE)
+  Make sure the JRE bin folder is included in your path (the installer handles this automatically).
 
-* Use Microsoft Visual Stdio 2003
+Prerequisites for *building* Refinery:
 
-In the projects/VC++7 directory, there are two solution files - Refinery.sln and conditioners.sln
-Refinery.sln will build the libcollada_conditioners.lib, libloader.dll, launcher.exe and launcher_cl.exe
-conditioners.sln will build the individual conditioner executable
+- Microsoft Visual Studio 2003 or 2005
 
-* Use Microsoft Visual Stdio 2005
+- Java Development Kit (JDK)
+  Make sure that the environment variable JDK_HOME is set to the JDK bin folder (the
+  installer handles this automatically).
 
-In the projects/VC++8 directory, there are two solution files - Refinery.sln and conditioners.sln
+How to build:
 
-How to run
-bin/refinery.bat 
-or 
-$ java -jar refinery.jar 
-to run refinery GUI
+- Visual Studio 2003: Open projects/VC++7/Refinery.sln and build the solution.
+- Visual Studio 2005: Open projects/VC++8/Refinery.sln and build the solution.
+
+How to run:
+
+- Navigate to the bin directory appropriate for your platform and execute refinery.bat.
+
+or
+
+- Open a command prompt, navigate to the bin directory appropriate for your platform,
+  and execute "java -jar ..\..\refinery.jar"
+
+Command line options:
 
 $ java -jar refinery.jar --help
 Refinery command line usage:
@@ -73,7 +67,18 @@ example
 $ refinery -i input.dae -o output.dae -x Axisconverter -axis X_UP
 or
 $ java -jar refinery.jar -i input.dae -o output.dae -x Axisconverter -axis X_UP
-                          
+
+How to test
+
+make runtest   
+
+- run each dae files in dae_data directory with each conditioners executable.
+
+make pip 
+- run the test cases from saved pipeline files automatically (*)
+- run the test cases from saved pipeline macros automatically (*)
+*make sure the input/output files specified in .pip match what you have in your environment
+                           
 Available conditioner list 
 
 Axisconverter       - convert the different up_axis (X_UP, Y_UP, Z_UP)  

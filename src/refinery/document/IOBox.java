@@ -373,7 +373,7 @@ public class IOBox extends IdentifiableImpl implements Box
 						throw new EntryException("Error in "+getName()+": cannot write in directory "+parentDir.getPath());
 					}
 				} else {
-					throw new EntryException("Error in "+getName()+": incorrect file name " + filename);
+					throw new EntryException("Error in "+getName()+": fix the file name or delete the output box if it isn't necessary" + filename);
 				}
 			}
 		}

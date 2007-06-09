@@ -43,7 +43,7 @@ public class Preferences {
 		preferences.put("GUI_PIPDIR", new Option("GUI_PIPDIR", "Default pipeline files directory", "", "savefiles"));
 		preferences.put("GUI_DAEDIR", new Option("GUI_DAEDIR", "Default dae files directory", "", "Collada_data"));
 		
-		preferences.put("DIR_LIB", new Option("DIR_LIB", "Conditioner directory", "Directory where conditioners are stored and loaded at launch", "conditioners"));
+		preferences.put("DIR_USER_LIB", new Option("DIR_USER_LIB", "User conditioner directory", "Directory where the user's custom conditioners are stored and loaded at launch", "user_conditioners"));
 		preferences.put("DIR_MACRO", new Option("DIR_MACRO", "Macro directory", "Directory where macros are stored and loaded at launch", "macros"));
 		//preferences.put("DIR_TEMP", new Option("DIR_TEMP", "Temporary directory", "Directory where temporary execution files are stored", "tmp"));
 		
@@ -59,7 +59,7 @@ public class Preferences {
 		preferences.get("GUI_PIPDIR").setDefaultValue();
 		preferences.get("GUI_DAEDIR").setDefaultValue();
 		
-		preferences.get("DIR_LIB").setDefaultValue();
+		preferences.get("DIR_USER_LIB").setDefaultValue();
 		preferences.get("DIR_MACRO").setDefaultValue();
 		//preferences.get("DIR_TEMP").setDefaultValue();
 		
@@ -113,7 +113,7 @@ public class Preferences {
 			addOption(output, "GUI_SIZE");
 			addOption(output, "GUI_PIPDIR");
 			addOption(output, "GUI_DAEDIR");
-			addOption(output, "DIR_LIB");
+			addOption(output, "DIR_USER_LIB");
 			addOption(output, "DIR_MACRO");
 			//addOption(output, "DIR_TEMP");
 			//addOption(output, "REMOTE_IP");

@@ -69,7 +69,7 @@ public class AvailableConditionersList {
 		//Refinery.instance.addDebugMessage("Lib list:");
 		for (int i = 0; i < libList.length; i++)
 		{
-			File file = new File(directory + "\\" + libList[i]);
+			File file = new File(directory + File.separator + libList[i]);
 			if (file.isFile() && file.getName().matches("[a-zA-Z][a-zA-Z0-9\\-\\_]*\\." + LIB_EXTENSION))
 			{
 				try

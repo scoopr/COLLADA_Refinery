@@ -117,8 +117,8 @@ public class LibLoader
 	static
 	{
 		//Possibly make this variable so we can have different conditioner libraries.
-		//System.loadLibrary("libloader");
-		System.load(Refinery.RefineryDirectory + File.separator + "libloader.dll");
+		System.loadLibrary("libloader");
+		//System.load(Refinery.RefineryDirectory + File.separator + "libloader.dll");
 		//init();
 	}
 
