@@ -1,2 +1,2 @@
 @echo off
-java -jar ..\..\refinery.jar %*
+java -jar "%~dp0..\..\refinery.jar" %*
