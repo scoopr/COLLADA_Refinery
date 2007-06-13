@@ -23,10 +23,10 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
-				ReBuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
-				CleanCommandLine="del /F /Q ..\..\bin\refinery.jar &#x0D;&#x0A;rmdir /S /Q ..\..\tmp\refinery"
-				Output="..\..\bin\refinery.jar"
+				BuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc8/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
+				ReBuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc8/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
+				CleanCommandLine="del /F /Q ..\..\bin\vc8\$(ConfigurationName)\refinery.jar &#x0D;&#x0A;rmdir /S /Q ..\..\tmp\refinery"
+				Output="..\..\bin\vc8\$(ConfigurationName)\refinery.jar"
 				PreprocessorDefinitions="WIN32;_DEBUG"
 				IncludeSearchPath=""
 				ForcedIncludes=""
@@ -43,10 +43,10 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
-				ReBuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
-				CleanCommandLine="del /F /Q ..\..\bin\refinery.jar &#x0D;&#x0A;rmdir /S /Q ..\..\tmp\refinery"
-				Output="..\..\bin\refinery.jar"
+				BuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc8/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
+				ReBuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc8/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
+				CleanCommandLine="del /F /Q ..\..\bin\vc8\$(ConfigurationName)\refinery.jar &#x0D;&#x0A;rmdir /S /Q ..\..\tmp\refinery"
+				Output="..\..\bin\vc8\$(ConfigurationName)\refinery.jar"
 				PreprocessorDefinitions="WIN32;NDEBUG"
 				IncludeSearchPath=""
 				ForcedIncludes=""

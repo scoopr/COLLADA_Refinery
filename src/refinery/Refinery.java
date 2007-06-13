@@ -67,7 +67,10 @@ public class Refinery {
 	public ErrorAndWarningReport errorAndWarnings;
 	public Preferences preferences;
 
-	public static String RefineryDirectory;
+	public static String RefineryDirectory;    // The top-level directory of the Refinery project and its data files,
+	                                           //   e.g. "C:\Program Files\COLLADA Refinery"
+	public static String ApplicationDirectory; // The actual bin path that the Refinery was run from,
+	                                           //   e.g. "C:\Program Files\COLLADA Refinery\bin\vc8\release"
 	
 //	public static final String CONDITIONER_DIRECTORY = "lib";
 //	public static final String MACRO_DIRECTORY = "macros";
@@ -89,7 +92,7 @@ public class Refinery {
 		errorAndWarnings = new ErrorAndWarningReport();
 		extLibs = new LibLoader(availableCondList, this);
 
-		String mainConditionerDir = System.getProperty("user.dir") + File.separator + "conditioners";
+		String mainConditionerDir = Refinery.ApplicationDirectory + File.separator + "conditioners";
 		availableCondList.load(extLibs, mainConditionerDir);
 		availableCondList.load(extLibs, RefineryDirectory + File.separator + preferences.getValue("DIR_USER_LIB"));
 
@@ -291,15 +294,15 @@ public class Refinery {
 	public static void main(String[] args) {
 		Mode mode;
 		CommandLineParser clp;
-		
 		Refinery main;
-		char sep = File.separatorChar;
-		Refinery.RefineryDirectory = System.getProperty("user.dir") + sep + ".." + sep + ".." + sep + "..";
+
+		// Get the Refinery and bin locations as absolute paths
 		try {
-			Refinery.RefineryDirectory = new File(Refinery.RefineryDirectory).getCanonicalPath();
+			File appPath = new File(System.getProperty("java.class.path")).getCanonicalFile().getParentFile();
+			Refinery.ApplicationDirectory = appPath.getCanonicalPath();
+			Refinery.RefineryDirectory = appPath.getParentFile().getParentFile().getParentFile().getCanonicalPath();
 		}
 		catch (IOException e) {
-			// It doesn't really matter if converting to a canonical path fails
 		}
 
 		if (Refinery.RefineryDirectory == null)

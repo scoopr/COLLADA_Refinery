@@ -67,11 +67,10 @@ Section "" ; empty string makes it hidden, so would starting with -
 SectionEnd
 
 Section "Binaries" Sec1
-    SetOutPath $INSTDIR\bin
-	File bin\refinery.jar
 	SetOutPath $INSTDIR\bin\vc8\release
 	File /r bin\vc8\release\*.dll
 	File /r bin\vc8\release\*.bat
+	File /r bin\vc8\release\*.jar
 	SetOutPath $INSTDIR\icons
 	File icons\*.*
     SetOutPath $INSTDIR\macros
@@ -90,12 +89,10 @@ Section /o "Source" Sec2
 	Call DetectMSVS
 	Call DetectJDK
     
-	SetOutPath $INSTDIR\bin
-	File bin\refinery.jar
-	
 	SetOutPath $INSTDIR\bin\vc8\release
 	File /r bin\vc8\release\*.dll
 	File /r bin\vc8\release\*.bat
+	File /r bin\vc8\release\*.jar
 	
 	SetOutPath $INSTDIR\bin\vc8\debug
 	File bin\vc8\debug\DevIL.dll

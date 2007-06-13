@@ -20,13 +20,13 @@
 				Name="VCNMakeTool"
 				BuildCommandLine="mkdir ..\..\tmp
 &quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java
-&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
+&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc7/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
 				ReBuildCommandLine="mkdir ..\..\tmp
 &quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java
-&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
-				CleanCommandLine="del /F /Q ..\..\bin\refinery.jar 
+&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc7/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
+				CleanCommandLine="del /F /Q ..\..\bin\vc7\$(ConfigurationName)\refinery.jar 
 rmdir /S /Q ..\..\tmp\refinery"
-				Output="..\..\bin\refinery.jar"/>
+				Output="..\..\bin\vc7\$(ConfigurationName)\refinery.jar"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -37,13 +37,13 @@ rmdir /S /Q ..\..\tmp\refinery"
 				Name="VCNMakeTool"
 				BuildCommandLine="mkdir ..\..\tmp
 &quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java
-&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
+&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc7/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
 				ReBuildCommandLine="mkdir ..\..\tmp
 &quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java
-&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
-				CleanCommandLine="del /F /Q ..\..\bin\refinery.jar 
+&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc7/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
+				CleanCommandLine="del /F /Q ..\..\bin\vc7\$(ConfigurationName)\refinery.jar 
 rmdir /S /Q ..\..\tmp\refinery"
-				Output="..\..\bin\refinery.jar"/>
+				Output="..\..\bin\vc7\$(ConfigurationName)\refinery.jar"/>
 		</Configuration>
 	</Configurations>
 	<References>
