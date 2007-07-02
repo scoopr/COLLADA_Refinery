@@ -556,7 +556,7 @@
 		AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libDefaultConditioners.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAEE3850C130C5B00B9789A /* conditioner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = conditioner.h; path = ../../include/conditioner.h; sourceTree = SOURCE_ROOT; };
 		ADD5EFA20C2FEE1F006632A6 /* COLLADA_DOM141.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = COLLADA_DOM141.framework; path = /Library/Frameworks/COLLADA_DOM141.framework; sourceTree = "<absolute>"; };
-		ADDCBCD00C32C66600F60F2B /* ColladaRefinery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColladaRefinery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADDCBCD00C32C66600F60F2B /* ColladaRefinery.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ColladaRefinery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE4CDF50C3402BA00295441 /* JNIWrapper.jar */ = {isa = PBXFileReference; explicitFileType = archive.jar; includeInIndex = 0; path = JNIWrapper.jar; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
