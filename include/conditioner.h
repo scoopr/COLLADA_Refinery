@@ -31,6 +31,17 @@ class DAE;
 class ConditionerCreator
 {
 public:
+	
+	/**
+	 * Constructor.
+	 */
+	ConditionerCreator() {}
+
+	/**
+	 * Destructor.
+	 */
+	virtual ~ConditionerCreator() {}
+
 	/**
 	 * Gets the name to identify Conditioners that can be created by this class.
 	 * @return Returns the identifying name for the Conditioner object this class knows to create.

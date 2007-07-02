@@ -71,6 +71,8 @@ public class Refinery {
 	                                           //   e.g. "C:\Program Files\COLLADA Refinery"
 	public static String ApplicationDirectory; // The actual bin path that the Refinery was run from,
 	                                           //   e.g. "C:\Program Files\COLLADA Refinery\bin\vc8\release"
+											   
+	
 	
 //	public static final String CONDITIONER_DIRECTORY = "lib";
 //	public static final String MACRO_DIRECTORY = "macros";
@@ -78,6 +80,41 @@ public class Refinery {
 	
 	public Refinery() {
 		instance = this;
+		
+		//Get the path of the jar-file, that's our binary-path
+		try {
+		
+			File appPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().getFile());;
+			ApplicationDirectory = appPath.getParentFile().getCanonicalPath();
+			
+			//On Windows we use the usual dir-structure, three level above jar-directory
+			if (System.getProperty("os.name").contains("Windows")) {
+			
+				RefineryDirectory = appPath.getParentFile().getParentFile().getParentFile().getCanonicalPath();
+				
+			} else if (System.getProperty("os.name").contains("Mac OS")) {
+				
+				String homeDir = System.getProperty("user.home")+"/Library/Application Support/Collada Refinery";
+				File appUserPath = new File(homeDir);
+				if (!appUserPath.exists()) {
+					if (appUserPath.getParentFile().canWrite()) {
+						appUserPath.mkdir();
+						//Also create user-dir of conditioners
+						File userConditionerDir = new File(homeDir + "/conditioners");
+						userConditionerDir.mkdir();
+					} else 
+						System.err.println("No ~/Library/Application Support/Collada Refinery directory available.");
+				}
+					
+				RefineryDirectory = appUserPath.getCanonicalPath();
+				
+			} else if (System.getProperty("os.name").contains("Linux")) {
+				//TODO: setup Linux-Userpaths (e.g. ~/.ColladaRefinery/ ) 
+			}
+			
+		} catch (IOException e) {
+		}
+
 		availableCondList = new AvailableConditionersList();
 		availableMacroList = new AvailableMacrosList();
 		gui = null;
@@ -95,6 +132,22 @@ public class Refinery {
 		String mainConditionerDir = Refinery.ApplicationDirectory + File.separator + "conditioners";
 		availableCondList.load(extLibs, mainConditionerDir);
 		availableCondList.load(extLibs, RefineryDirectory + File.separator + preferences.getValue("DIR_USER_LIB"));
+
+		//Populate the list of conditioners
+		for (int i = 0; i < extLibs.getNumAvailableConditioners(); i++)
+		{
+			ConditionerTemplate cb = extLibs.getConditioner( i );
+			if (cb != null)
+			{
+				availableCondList.add(cb);
+				//Refinery.instance.addDebugMessage(cb.getIDName()() + " added");
+			}
+			else
+			{
+				System.err.println("load lib call back null");
+			}
+			
+		}
 
 		if(errorAndWarnings.hasErrors() || errorAndWarnings.hasWarnings()){
 			errorAndWarnings.popupWindow();
@@ -207,7 +260,7 @@ public class Refinery {
 		//System.out.println("2###############");
 		SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		//System.out.println("3###############");
-		Schema schema = factory.newSchema(new StreamSource(new File(Refinery.RefineryDirectory + File.separator + "savefiles.xsd")));
+		Schema schema = factory.newSchema(this.getClass().getResource("/savefiles.xsd"));
 		//System.out.println("4###############");
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		//System.out.println("5###############");
@@ -292,24 +345,10 @@ public class Refinery {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+	
 		Mode mode;
 		CommandLineParser clp;
 		Refinery main;
-
-		// Get the Refinery and bin locations as absolute paths
-		try {
-			File appPath = new File(System.getProperty("java.class.path")).getCanonicalFile().getParentFile();
-			Refinery.ApplicationDirectory = appPath.getCanonicalPath();
-			Refinery.RefineryDirectory = appPath.getParentFile().getParentFile().getParentFile().getCanonicalPath();
-		}
-		catch (IOException e) {
-		}
-
-		if (Refinery.RefineryDirectory == null)
-		{
-			System.err.println("Failed to determine the location of the COLLADA Refinery!");
-			System.exit(-1);
-		}
 
 		try {
 			clp = new CommandLineParser(args);
@@ -325,6 +364,7 @@ public class Refinery {
 		//System.out.println("############");
 
 		main = new Refinery();
+		
 		Pipeline document = main.document;
 		ConditionerWrapper lib;
 

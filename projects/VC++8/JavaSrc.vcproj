@@ -23,7 +23,7 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc8/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
+				BuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc8/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery&#x0D;&#x0A;cd ../../&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; uf ./bin/vc8/$(ConfigurationName)/refinery.jar icons/*.gif savefiles.xsd"
 				ReBuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc8/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
 				CleanCommandLine="del /F /Q ..\..\bin\vc8\$(ConfigurationName)\refinery.jar &#x0D;&#x0A;rmdir /S /Q ..\..\tmp\refinery"
 				Output="..\..\bin\vc8\$(ConfigurationName)\refinery.jar"
@@ -43,7 +43,7 @@
 			>
 			<Tool
 				Name="VCNMakeTool"
-				BuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc8/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
+				BuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc8/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery&#x0D;&#x0A;cd ../../&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; uf ./bin/vc8/$(ConfigurationName)/refinery.jar icons/*.gif savefiles.xsd"
 				ReBuildCommandLine="mkdir ..\..\tmp&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java&#x0D;&#x0A;&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc8/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
 				CleanCommandLine="del /F /Q ..\..\bin\vc8\$(ConfigurationName)\refinery.jar &#x0D;&#x0A;rmdir /S /Q ..\..\tmp\refinery"
 				Output="..\..\bin\vc8\$(ConfigurationName)\refinery.jar"

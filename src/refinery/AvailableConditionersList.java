@@ -57,11 +57,22 @@ public class AvailableConditionersList {
 	
 	public void load(LibLoader ll, String directory )
 	{
-		final String LIB_EXTENSION = "dll";
+		final String LIB_EXTENSION;
+		if (System.getProperty("os.name").contains("Windows"))
+			LIB_EXTENSION = "dll";
+		else if (System.getProperty("os.name").contains("Mac OS"))
+			LIB_EXTENSION = "dylib";
+		else if (System.getProperty("os.name").contains("Linux"))
+			LIB_EXTENSION = "so";
+		else {
+			System.err.println("Could not determine OS for platform-specific LIB_EXTENSION");
+			return;
+		}
 		File libDirectory = new File(directory);
 		if (!libDirectory.exists())
 		{
 			//libDirectory.mkdirs();
+			System.out.println("nodir");
 			return;
 		}
 		String[] libList = libDirectory.list();
@@ -76,29 +87,18 @@ public class AvailableConditionersList {
 				{
 					System.load(file.getCanonicalPath());
 				}
+				catch (UnsatisfiedLinkError ule)
+				{
+					ule.printStackTrace();
+				}
 				catch (Exception e)
 				{
 					System.err.println(e.getMessage());
 				}
 			}
 		}
-
-		for (int i = 0; i < ll.getNumAvailableConditioners(); i++)
-		{
-			ConditionerTemplate cb = ll.getConditioner( i );
-			if (cb != null)
-			{
-				add(cb);
-				//Refinery.instance.addDebugMessage(cb.getIDName() + " added");
-			}
-			else
-			{
-				System.err.println("load lib call back null");
-			}
-			
-		}
 	}
-
+	
 	public void printList(){
 		System.out.println("Conditioners found :");
 		Iterator<ConditionerTemplate> cIt = conditionerBasesList.iterator();

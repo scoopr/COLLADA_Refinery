@@ -1,0 +1,1797 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXApplicationTarget section */
+		ADDCBCCF0C32C66600F60F2B /* ColladaRefinery */ = {
+			isa = PBXApplicationTarget;
+			buildConfigurationList = ADDCBCD20C32C6B200F60F2B /* Build configuration list for PBXApplicationTarget "ColladaRefinery" */;
+			buildPhases = (
+				ADDCBCCC0C32C66600F60F2B /* Sources */,
+				AD1111B50C39902C00F727F5 /* Resources */,
+				AD4A8C440C33EF99000E6405 /* ShellScript */,
+				ADDCBCCE0C32C66600F60F2B /* Rez */,
+				AD11121E0C39ABC600F727F5 /* CopyFiles */,
+				ADDCBD050C32CC5A00F60F2B /* CopyFiles */,
+				AD350FD00C39800A0094C37A /* CopyFiles */,
+				AD9A7F150C39072400C43196 /* JavaArchive */,
+				AD11122F0C39AD1400F727F5 /* Frameworks */,
+			);
+			comments = "This target sets up the Application bundle";
+			dependencies = (
+				AD04ADDB0C39676D002DF7FD /* PBXTargetDependency */,
+				AD04ADDD0C39676D002DF7FD /* PBXTargetDependency */,
+			);
+			name = ColladaRefinery;
+			productInstallPath = "$(USER_APPS_DIR)";
+			productName = ColladaRefinery;
+			productReference = ADDCBCD00C32C66600F60F2B /* ColladaRefinery.app */;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDocumentTypes</key>
+	<array/>
+	<key>CFBundleExecutable</key>
+	<string>startJavaStub</string>
+	<key>CFBundleGetInfoString</key>
+	<string>2.0.3</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>org.collada.refinery</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>ColladaRefinery</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>203</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>0.0.1d1</string>
+	<key>Java</key>
+	<dict>
+		<key>ClassPath</key>
+		<array>
+			<string>$JAVAROOT/ColladaRefinery.jar</string>
+		</array>
+		<key>JVMVersion</key>
+		<string>1.4+</string>
+		<key>MainClass</key>
+		<string>refinery.Refinery</string>
+		<key>Properties</key>
+		<dict>
+			<key>apple.awt.textantialiasing</key>
+			<string>on</string>
+			<key>apple.laf.useScreenMenuBar</key>
+			<string>true</string>
+		</dict>
+		<key>WorkingDirectory</key>
+		<string>$APP_PACKAGE/Contents/Resources/Java</string>
+	</dict>
+</dict>
+</plist>
+";
+		};
+/* End PBXApplicationTarget section */
+
+/* Begin PBXBuildFile section */
+		AD04AE1C0C3969E1002DF7FD /* libDefaultConditioners.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */; };
+		AD1112200C39ABD400F727F5 /* startJavaStub in CopyFiles */ = {isa = PBXBuildFile; fileRef = AD11121D0C39ABB400F727F5 /* startJavaStub */; };
+		AD350FD20C3980240094C37A /* libLibLoader.jnilib in CopyFiles */ = {isa = PBXBuildFile; fileRef = AD48A6890C39661A000CA3CF /* libLibLoader.jnilib */; };
+		AD48A68A0C39661A000CA3CF /* libLibLoader.jnilib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD48A6890C39661A000CA3CF /* libLibLoader.jnilib */; };
+		AD6440140BC7D7EB00BA0DC0 /* JavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE2200B0208CA9C0CC91562 /* JavaVM.framework */; };
+		AD9A7F170C39076100C43196 /* Add16.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E7E0C38FED200C43196 /* Add16.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F180C39076100C43196 /* collada.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E7F0C38FED200C43196 /* collada.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F190C39076100C43196 /* collada.ico in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E800C38FED200C43196 /* collada.ico */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F1A0C39076100C43196 /* Delete16.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E810C38FED200C43196 /* Delete16.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F1B0C39076100C43196 /* New16.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E820C38FED200C43196 /* New16.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F1C0C39076100C43196 /* Open16.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E830C38FED200C43196 /* Open16.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F1D0C39076100C43196 /* Play16.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E840C38FED200C43196 /* Play16.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F1E0C39076100C43196 /* Redo16.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E850C38FED200C43196 /* Redo16.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F1F0C39076100C43196 /* Save16.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E860C38FED300C43196 /* Save16.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F200C39076100C43196 /* Stop16.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E870C38FED300C43196 /* Stop16.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F210C39076100C43196 /* Undo16.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E880C38FED300C43196 /* Undo16.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
+		AD9A7F720C390CF300C43196 /* savefiles.xsd in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7F6F0C390CEE00C43196 /* savefiles.xsd */; settings = {JAVA_ARCHIVE_SUBDIR = ""; }; };
+		AD9A81720C3960AA00C43196 /* JavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE2200B0208CA9C0CC91562 /* JavaVM.framework */; };
+		AD9A81730C3960AA00C43196 /* COLLADA_DOM141.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADD5EFA20C2FEE1F006632A6 /* COLLADA_DOM141.framework */; };
+		AD9A818B0C3961FC00C43196 /* axisconverter.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847ED0BCEB49E000FC307 /* axisconverter.h */; };
+		AD9A818C0C3961FC00C43196 /* bindmaterialfixer.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847EE0BCEB49E000FC307 /* bindmaterialfixer.h */; };
+		AD9A81900C3961FC00C43196 /* copyrighter.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847F20BCEB49E000FC307 /* copyrighter.h */; };
+		AD9A81910C3961FC00C43196 /* daestripper.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847F30BCEB49E000FC307 /* daestripper.h */; };
+		AD9A81920C3961FC00C43196 /* deindexer.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847F50BCEB49E000FC307 /* deindexer.h */; };
+		AD9A81930C3961FC00C43196 /* detrifanner.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847F60BCEB49E000FC307 /* detrifanner.h */; };
+		AD9A81940C3961FC00C43196 /* detristripper.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847F70BCEB49E000FC307 /* detristripper.h */; };
+		AD9A81950C3961FC00C43196 /* filename.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847F80BCEB49E000FC307 /* filename.h */; };
+		AD9A81970C3961FC00C43196 /* inputinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847FA0BCEB49E000FC307 /* inputinfo.h */; };
+		AD9A81980C3961FC00C43196 /* kmzcleanup.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847FB0BCEB49E000FC307 /* kmzcleanup.h */; };
+		AD9A81990C3961FC00C43196 /* lines2linestrips.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847FC0BCEB49E000FC307 /* lines2linestrips.h */; };
+		AD9A819A0C3961FC00C43196 /* linestrips2lines.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847FD0BCEB49E000FC307 /* linestrips2lines.h */; };
+		AD9A819B0C3961FC00C43196 /* muxer.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847FE0BCEB49E000FC307 /* muxer.h */; };
+		AD9A819C0C3961FC00C43196 /* optimizer.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847FF0BCEB49E000FC307 /* optimizer.h */; };
+		AD9A819E0C3961FC00C43196 /* packedvertexindex.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1848010BCEB49E000FC307 /* packedvertexindex.h */; };
+		AD9A819F0C3961FC00C43196 /* polygons2lines.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1848020BCEB49E000FC307 /* polygons2lines.h */; };
+		AD9A81A00C3961FC00C43196 /* polygons2polylists.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1848030BCEB49E000FC307 /* polygons2polylists.h */; };
+		AD9A81A10C3961FC00C43196 /* polygons2triangles.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1848040BCEB49E000FC307 /* polygons2triangles.h */; };
+		AD9A81A20C3961FC00C43196 /* polylists2lines.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1848050BCEB49E000FC307 /* polylists2lines.h */; };
+		AD9A81A30C3961FC00C43196 /* polylists2polygons.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1848060BCEB49E000FC307 /* polylists2polygons.h */; };
+		AD9A81A40C3961FC00C43196 /* polylists2triangles.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1848070BCEB49E000FC307 /* polylists2triangles.h */; };
+		AD9A81A50C3961FC00C43196 /* sceneCreator.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1848080BCEB49E000FC307 /* sceneCreator.h */; };
+		AD9A81A60C3961FC00C43196 /* triangles2lines.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1848090BCEB49E000FC307 /* triangles2lines.h */; };
+		AD9A81A70C3961FC00C43196 /* trifanner.h in Headers */ = {isa = PBXBuildFile; fileRef = AD18480A0BCEB49E000FC307 /* trifanner.h */; };
+		AD9A81A80C3961FC00C43196 /* tristripper.h in Headers */ = {isa = PBXBuildFile; fileRef = AD18480B0BCEB49E000FC307 /* tristripper.h */; };
+		AD9A81A90C3961FC00C43196 /* utility.h in Headers */ = {isa = PBXBuildFile; fileRef = AD18480C0BCEB49E000FC307 /* utility.h */; };
+		AD9A81AA0C3961FC00C43196 /* vertexcache.h in Headers */ = {isa = PBXBuildFile; fileRef = AD18480D0BCEB49E000FC307 /* vertexcache.h */; };
+		AD9A81AB0C3961FC00C43196 /* axisconverter_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EE70BC7B2CF00BA0DC0 /* axisconverter_core.cpp */; };
+		AD9A81AC0C3961FC00C43196 /* bindmaterialfixer_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EE80BC7B2CF00BA0DC0 /* bindmaterialfixer_core.cpp */; };
+		AD9A81AE0C3961FC00C43196 /* copyrighter_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EEA0BC7B2CF00BA0DC0 /* copyrighter_core.cpp */; };
+		AD9A81AF0C3961FC00C43196 /* daestripper_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EEB0BC7B2CF00BA0DC0 /* daestripper_core.cpp */; };
+		AD9A81B00C3961FC00C43196 /* deindexer_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EEC0BC7B2CF00BA0DC0 /* deindexer_core.cpp */; };
+		AD9A81B10C3961FC00C43196 /* detrifanner_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EED0BC7B2CF00BA0DC0 /* detrifanner_core.cpp */; };
+		AD9A81B20C3961FC00C43196 /* detristripper_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EEE0BC7B2CF00BA0DC0 /* detristripper_core.cpp */; };
+		AD9A81B30C3961FC00C43196 /* filename_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EEF0BC7B2CF00BA0DC0 /* filename_core.cpp */; };
+		AD9A81B50C3961FC00C43196 /* inputinfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EF10BC7B2CF00BA0DC0 /* inputinfo.cpp */; };
+		AD9A81B60C3961FC00C43196 /* kmzcleanup_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EF20BC7B2CF00BA0DC0 /* kmzcleanup_core.cpp */; };
+		AD9A81B70C3961FC00C43196 /* lines2linestrips_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EF30BC7B2CF00BA0DC0 /* lines2linestrips_core.cpp */; };
+		AD9A81B80C3961FC00C43196 /* linestrips2lines_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EF40BC7B2CF00BA0DC0 /* linestrips2lines_core.cpp */; };
+		AD9A81B90C3961FC00C43196 /* optimizer_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EF50BC7B2CF00BA0DC0 /* optimizer_core.cpp */; };
+		AD9A81BB0C3961FC00C43196 /* packedvertexindex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EF70BC7B2CF00BA0DC0 /* packedvertexindex.cpp */; };
+		AD9A81BC0C3961FC00C43196 /* polygons2lines_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EF80BC7B2CF00BA0DC0 /* polygons2lines_core.cpp */; };
+		AD9A81BD0C3961FC00C43196 /* polygons2polylists.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EF90BC7B2CF00BA0DC0 /* polygons2polylists.cpp */; };
+		AD9A81BE0C3961FC00C43196 /* polygons2triangles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EFA0BC7B2CF00BA0DC0 /* polygons2triangles.cpp */; };
+		AD9A81BF0C3961FC00C43196 /* polylists2lines_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EFB0BC7B2CF00BA0DC0 /* polylists2lines_core.cpp */; };
+		AD9A81C00C3961FC00C43196 /* polylists2polygons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EFC0BC7B2CF00BA0DC0 /* polylists2polygons.cpp */; };
+		AD9A81C10C3961FC00C43196 /* polylists2triangles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EFD0BC7B2CF00BA0DC0 /* polylists2triangles.cpp */; };
+		AD9A81C20C3961FC00C43196 /* triangles2lines_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EFE0BC7B2CF00BA0DC0 /* triangles2lines_core.cpp */; };
+		AD9A81C30C3961FC00C43196 /* trifanner_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EFF0BC7B2CF00BA0DC0 /* trifanner_core.cpp */; };
+		AD9A81C40C3961FC00C43196 /* tristripper_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643F000BC7B2CF00BA0DC0 /* tristripper_core.cpp */; };
+		AD9A81C50C3961FC00C43196 /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643F010BC7B2CF00BA0DC0 /* utility.cpp */; };
+		AD9A81C60C3961FC00C43196 /* vertexcache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643F020BC7B2CF00BA0DC0 /* vertexcache.cpp */; };
+		AD9B68040BCD33E60035F5EC /* conditionerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643F050BC7B2CF00BA0DC0 /* conditionerBase.cpp */; };
+		AD9B68050BCD33E60035F5EC /* libloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643F060BC7B2CF00BA0DC0 /* libloader.cpp */; };
+		AD9B68060BCD33E60035F5EC /* refinery_LibLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643F070BC7B2CF00BA0DC0 /* refinery_LibLoader.cpp */; };
+		ADAEE3860C130C5B00B9789A /* conditioner.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAEE3850C130C5B00B9789A /* conditioner.h */; };
+		ADD5EFA30C2FEE1F006632A6 /* COLLADA_DOM141.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADD5EFA20C2FEE1F006632A6 /* COLLADA_DOM141.framework */; };
+		ADDD8D6A0C33F6B50044C0D4 /* Action.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F330BC7B2D000BA0DC0 /* Action.java */; };
+		ADDD8D6B0C33F6B50044C0D4 /* ActionCreateConditioner.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F340BC7B2D000BA0DC0 /* ActionCreateConditioner.java */; };
+		ADDD8D6C0C33F6B50044C0D4 /* ActionCreateInputBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F350BC7B2D000BA0DC0 /* ActionCreateInputBox.java */; };
+		ADDD8D6D0C33F6B50044C0D4 /* ActionCreateLink.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F360BC7B2D000BA0DC0 /* ActionCreateLink.java */; };
+		ADDD8D6E0C33F6B50044C0D4 /* ActionCreateMacro.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F370BC7B2D000BA0DC0 /* ActionCreateMacro.java */; };
+		ADDD8D6F0C33F6B50044C0D4 /* ActionCreateOutputBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F380BC7B2D000BA0DC0 /* ActionCreateOutputBox.java */; };
+		ADDD8D700C33F6B50044C0D4 /* ActionEditConditioner.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F390BC7B2D000BA0DC0 /* ActionEditConditioner.java */; };
+		ADDD8D710C33F6B50044C0D4 /* ActionEditIO.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3A0BC7B2D000BA0DC0 /* ActionEditIO.java */; };
+		ADDD8D720C33F6B50044C0D4 /* ActionGroup.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3B0BC7B2D000BA0DC0 /* ActionGroup.java */; };
+		ADDD8D730C33F6B50044C0D4 /* ActionHistory.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3C0BC7B2D000BA0DC0 /* ActionHistory.java */; };
+		ADDD8D740C33F6B50044C0D4 /* ActionMoveDisplay.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3D0BC7B2D000BA0DC0 /* ActionMoveDisplay.java */; };
+		ADDD8D750C33F6B50044C0D4 /* ActionRemoveConditioner.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3E0BC7B2D000BA0DC0 /* ActionRemoveConditioner.java */; };
+		ADDD8D760C33F6B50044C0D4 /* ActionRemoveInputBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3F0BC7B2D000BA0DC0 /* ActionRemoveInputBox.java */; };
+		ADDD8D770C33F6B50044C0D4 /* ActionRemoveLink.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F400BC7B2D000BA0DC0 /* ActionRemoveLink.java */; };
+		ADDD8D780C33F6B50044C0D4 /* ActionRemoveMacro.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F410BC7B2D000BA0DC0 /* ActionRemoveMacro.java */; };
+		ADDD8D790C33F6B50044C0D4 /* ActionRemoveOutputBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F420BC7B2D000BA0DC0 /* ActionRemoveOutputBox.java */; };
+		ADDD8D7A0C33F6B50044C0D4 /* Anchor.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F210BC7B2D000BA0DC0 /* Anchor.java */; };
+		ADDD8D7B0C33F6B50044C0D4 /* AnchorConditioner.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F220BC7B2D000BA0DC0 /* AnchorConditioner.java */; };
+		ADDD8D7C0C33F6B50044C0D4 /* AnchorIO.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F230BC7B2D000BA0DC0 /* AnchorIO.java */; };
+		ADDD8D7D0C33F6B50044C0D4 /* AnchorMacro.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F240BC7B2D000BA0DC0 /* AnchorMacro.java */; };
+		ADDD8D7E0C33F6B50044C0D4 /* AvailableConditionersList.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F090BC7B2D000BA0DC0 /* AvailableConditionersList.java */; };
+		ADDD8D7F0C33F6B50044C0D4 /* AvailableMacrosList.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F0A0BC7B2D000BA0DC0 /* AvailableMacrosList.java */; };
+		ADDD8D800C33F6B50044C0D4 /* Box.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F250BC7B2D000BA0DC0 /* Box.java */; };
+		ADDD8D810C33F6B50044C0D4 /* Chart.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F4E0BC7B2D000BA0DC0 /* Chart.java */; };
+		ADDD8D820C33F6B50044C0D4 /* CommandLineParser.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F0B0BC7B2D000BA0DC0 /* CommandLineParser.java */; };
+		ADDD8D830C33F6B50044C0D4 /* ConditionerDisplay.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F0F0BC7B2D000BA0DC0 /* ConditionerDisplay.java */; };
+		ADDD8D840C33F6B50044C0D4 /* ConditionerPropertyWindow.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F100BC7B2D000BA0DC0 /* ConditionerPropertyWindow.java */; };
+		ADDD8D850C33F6B50044C0D4 /* ConditionerTemplate.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F0C0BC7B2D000BA0DC0 /* ConditionerTemplate.java */; };
+		ADDD8D860C33F6B50044C0D4 /* ConditionerWrapper.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F260BC7B2D000BA0DC0 /* ConditionerWrapper.java */; };
+		ADDD8D870C33F6B50044C0D4 /* Console.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F4F0BC7B2D000BA0DC0 /* Console.java */; };
+		ADDD8D880C33F6B50044C0D4 /* Couple.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F0D0BC7B2D000BA0DC0 /* Couple.java */; };
+		ADDD8D890C33F6B50044C0D4 /* Display.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F110BC7B2D000BA0DC0 /* Display.java */; };
+		ADDD8D8A0C33F6B50044C0D4 /* DisplayArea.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F120BC7B2D000BA0DC0 /* DisplayArea.java */; };
+		ADDD8D8B0C33F6B50044C0D4 /* DisplayAreaDummy.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F130BC7B2D000BA0DC0 /* DisplayAreaDummy.java */; };
+		ADDD8D8C0C33F6B50044C0D4 /* DisplayAreaInterface.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F140BC7B2D000BA0DC0 /* DisplayAreaInterface.java */; };
+		ADDD8D8D0C33F6B50044C0D4 /* DisplayAreaNonEditable.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F150BC7B2D000BA0DC0 /* DisplayAreaNonEditable.java */; };
+		ADDD8D8E0C33F6B50044C0D4 /* DisplayAreaViewPort.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F160BC7B2D000BA0DC0 /* DisplayAreaViewPort.java */; };
+		ADDD8D8F0C33F6B50044C0D4 /* DocumentPropertyWindow.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F170BC7B2D000BA0DC0 /* DocumentPropertyWindow.java */; };
+		ADDD8D900C33F6B50044C0D4 /* EntryException.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F300BC7B2D000BA0DC0 /* EntryException.java */; };
+		ADDD8D910C33F6B50044C0D4 /* ErrorAndWarningReport.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F500BC7B2D000BA0DC0 /* ErrorAndWarningReport.java */; };
+		ADDD8D920C33F6B50044C0D4 /* ExecuteDocumentThread.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F310BC7B2D000BA0DC0 /* ExecuteDocumentThread.java */; };
+		ADDD8D930C33F6B50044C0D4 /* ExecuteException.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F270BC7B2D000BA0DC0 /* ExecuteException.java */; };
+		ADDD8D940C33F6B50044C0D4 /* ExecuteWindow.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F510BC7B2D000BA0DC0 /* ExecuteWindow.java */; };
+		ADDD8D950C33F6B50044C0D4 /* ExtensionFileFilter.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F180BC7B2D000BA0DC0 /* ExtensionFileFilter.java */; };
+		ADDD8D960C33F6B50044C0D4 /* FileLoader.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F280BC7B2D000BA0DC0 /* FileLoader.java */; };
+		ADDD8D970C33F6B50044C0D4 /* GraphException.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F290BC7B2D000BA0DC0 /* GraphException.java */; };
+		ADDD8D980C33F6B50044C0D4 /* GraphNode.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2A0BC7B2D000BA0DC0 /* GraphNode.java */; };
+		ADDD8D990C33F6B50044C0D4 /* HistoryException.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F430BC7B2D000BA0DC0 /* HistoryException.java */; };
+		ADDD8D9A0C33F6B50044C0D4 /* Identifiable.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F440BC7B2D000BA0DC0 /* Identifiable.java */; };
+		ADDD8D9B0C33F6B50044C0D4 /* IdentifiableImpl.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F450BC7B2D000BA0DC0 /* IdentifiableImpl.java */; };
+		ADDD8D9C0C33F6B50044C0D4 /* IOBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2B0BC7B2D000BA0DC0 /* IOBox.java */; };
+		ADDD8D9D0C33F6B50044C0D4 /* IOBoxDisplay.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F190BC7B2D000BA0DC0 /* IOBoxDisplay.java */; };
+		ADDD8D9E0C33F6B50044C0D4 /* LibLoader.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F470BC7B2D000BA0DC0 /* LibLoader.java */; };
+		ADDD8D9F0C33F6B50044C0D4 /* Link.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2C0BC7B2D000BA0DC0 /* Link.java */; };
+		ADDD8DA00C33F6B50044C0D4 /* LinkDisplay.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1A0BC7B2D000BA0DC0 /* LinkDisplay.java */; };
+		ADDD8DA10C33F6B50044C0D4 /* LinksList.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2D0BC7B2D000BA0DC0 /* LinksList.java */; };
+		ADDD8DA20C33F6B50044C0D4 /* LogOutput.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F520BC7B2D000BA0DC0 /* LogOutput.java */; };
+		ADDD8DA30C33F6B50044C0D4 /* MacroTemplate.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F480BC7B2D000BA0DC0 /* MacroTemplate.java */; };
+		ADDD8DA40C33F6B50044C0D4 /* MacroTemplateLoader.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F490BC7B2D000BA0DC0 /* MacroTemplateLoader.java */; };
+		ADDD8DA50C33F6B50044C0D4 /* MainGUI.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1B0BC7B2D000BA0DC0 /* MainGUI.java */; };
+		ADDD8DA70C33F6B50044C0D4 /* Mark.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F460BC7B2D000BA0DC0 /* Mark.java */; };
+		ADDD8DA80C33F6B50044C0D4 /* MultiLineToolTip.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1C0BC7B2D000BA0DC0 /* MultiLineToolTip.java */; };
+		ADDD8DA90C33F6B50044C0D4 /* MultiLineToolTipUI.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1D0BC7B2D000BA0DC0 /* MultiLineToolTipUI.java */; };
+		ADDD8DAA0C33F6B50044C0D4 /* Option.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F4B0BC7B2D000BA0DC0 /* Option.java */; };
+		ADDD8DAB0C33F6B50044C0D4 /* OptionList.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F4C0BC7B2D000BA0DC0 /* OptionList.java */; };
+		ADDD8DAC0C33F6B50044C0D4 /* OutputBoxPropertyWindow.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1E0BC7B2D000BA0DC0 /* OutputBoxPropertyWindow.java */; };
+		ADDD8DAD0C33F6B50044C0D4 /* ParsingErrorException.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F540BC7B2D000BA0DC0 /* ParsingErrorException.java */; };
+		ADDD8DAE0C33F6B50044C0D4 /* Pipeline.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2E0BC7B2D000BA0DC0 /* Pipeline.java */; };
+		ADDD8DAF0C33F6B50044C0D4 /* PipelineMacro.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2F0BC7B2D000BA0DC0 /* PipelineMacro.java */; };
+		ADDD8DB00C33F6B50044C0D4 /* PipelineMacroSimpleDisplay.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1F0BC7B2D000BA0DC0 /* PipelineMacroSimpleDisplay.java */; };
+		ADDD8DB10C33F6B50044C0D4 /* Preferences.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F550BC7B2D000BA0DC0 /* Preferences.java */; };
+		ADDD8DB20C33F6B50044C0D4 /* PreferencesWindow.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F560BC7B2D000BA0DC0 /* PreferencesWindow.java */; };
+		ADDD8DB30C33F6B50044C0D4 /* Refinery.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F570BC7B2D000BA0DC0 /* Refinery.java */; };
+		ADDD8DB40C33F6B50044C0D4 /* StandardOutput.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F530BC7B2D000BA0DC0 /* StandardOutput.java */; };
+		ADDD8DB50C33F6B50044C0D4 /* XMLOutput.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F580BC7B2D000BA0DC0 /* XMLOutput.java */; };
+		ADE4CDFB0C34030D00295441 /* Action.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F330BC7B2D000BA0DC0 /* Action.java */; };
+		ADE4CDFC0C34030D00295441 /* ActionCreateConditioner.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F340BC7B2D000BA0DC0 /* ActionCreateConditioner.java */; };
+		ADE4CDFD0C34030D00295441 /* ActionCreateInputBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F350BC7B2D000BA0DC0 /* ActionCreateInputBox.java */; };
+		ADE4CDFE0C34030D00295441 /* ActionCreateLink.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F360BC7B2D000BA0DC0 /* ActionCreateLink.java */; };
+		ADE4CDFF0C34030D00295441 /* ActionCreateMacro.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F370BC7B2D000BA0DC0 /* ActionCreateMacro.java */; };
+		ADE4CE000C34030D00295441 /* ActionCreateOutputBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F380BC7B2D000BA0DC0 /* ActionCreateOutputBox.java */; };
+		ADE4CE010C34030D00295441 /* ActionEditConditioner.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F390BC7B2D000BA0DC0 /* ActionEditConditioner.java */; };
+		ADE4CE020C34030D00295441 /* ActionEditIO.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3A0BC7B2D000BA0DC0 /* ActionEditIO.java */; };
+		ADE4CE030C34030D00295441 /* ActionGroup.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3B0BC7B2D000BA0DC0 /* ActionGroup.java */; };
+		ADE4CE040C34030D00295441 /* ActionHistory.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3C0BC7B2D000BA0DC0 /* ActionHistory.java */; };
+		ADE4CE050C34030D00295441 /* ActionMoveDisplay.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3D0BC7B2D000BA0DC0 /* ActionMoveDisplay.java */; };
+		ADE4CE060C34030D00295441 /* ActionRemoveConditioner.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3E0BC7B2D000BA0DC0 /* ActionRemoveConditioner.java */; };
+		ADE4CE070C34030D00295441 /* ActionRemoveInputBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F3F0BC7B2D000BA0DC0 /* ActionRemoveInputBox.java */; };
+		ADE4CE080C34030D00295441 /* ActionRemoveLink.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F400BC7B2D000BA0DC0 /* ActionRemoveLink.java */; };
+		ADE4CE090C34030D00295441 /* ActionRemoveMacro.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F410BC7B2D000BA0DC0 /* ActionRemoveMacro.java */; };
+		ADE4CE0A0C34030D00295441 /* ActionRemoveOutputBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F420BC7B2D000BA0DC0 /* ActionRemoveOutputBox.java */; };
+		ADE4CE0B0C34030D00295441 /* Anchor.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F210BC7B2D000BA0DC0 /* Anchor.java */; };
+		ADE4CE0C0C34030D00295441 /* AnchorConditioner.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F220BC7B2D000BA0DC0 /* AnchorConditioner.java */; };
+		ADE4CE0D0C34030D00295441 /* AnchorIO.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F230BC7B2D000BA0DC0 /* AnchorIO.java */; };
+		ADE4CE0E0C34030D00295441 /* AnchorMacro.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F240BC7B2D000BA0DC0 /* AnchorMacro.java */; };
+		ADE4CE0F0C34030D00295441 /* AvailableConditionersList.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F090BC7B2D000BA0DC0 /* AvailableConditionersList.java */; };
+		ADE4CE100C34030D00295441 /* AvailableMacrosList.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F0A0BC7B2D000BA0DC0 /* AvailableMacrosList.java */; };
+		ADE4CE110C34030D00295441 /* Box.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F250BC7B2D000BA0DC0 /* Box.java */; };
+		ADE4CE120C34030D00295441 /* Chart.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F4E0BC7B2D000BA0DC0 /* Chart.java */; };
+		ADE4CE130C34030D00295441 /* CommandLineParser.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F0B0BC7B2D000BA0DC0 /* CommandLineParser.java */; };
+		ADE4CE140C34030D00295441 /* ConditionerDisplay.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F0F0BC7B2D000BA0DC0 /* ConditionerDisplay.java */; };
+		ADE4CE150C34030D00295441 /* ConditionerPropertyWindow.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F100BC7B2D000BA0DC0 /* ConditionerPropertyWindow.java */; };
+		ADE4CE160C34030D00295441 /* ConditionerTemplate.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F0C0BC7B2D000BA0DC0 /* ConditionerTemplate.java */; };
+		ADE4CE170C34030D00295441 /* ConditionerWrapper.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F260BC7B2D000BA0DC0 /* ConditionerWrapper.java */; };
+		ADE4CE180C34030D00295441 /* Console.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F4F0BC7B2D000BA0DC0 /* Console.java */; };
+		ADE4CE190C34030D00295441 /* Couple.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F0D0BC7B2D000BA0DC0 /* Couple.java */; };
+		ADE4CE1A0C34030D00295441 /* Display.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F110BC7B2D000BA0DC0 /* Display.java */; };
+		ADE4CE1B0C34030D00295441 /* DisplayArea.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F120BC7B2D000BA0DC0 /* DisplayArea.java */; };
+		ADE4CE1C0C34030D00295441 /* DisplayAreaDummy.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F130BC7B2D000BA0DC0 /* DisplayAreaDummy.java */; };
+		ADE4CE1D0C34030D00295441 /* DisplayAreaInterface.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F140BC7B2D000BA0DC0 /* DisplayAreaInterface.java */; };
+		ADE4CE1E0C34030D00295441 /* DisplayAreaNonEditable.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F150BC7B2D000BA0DC0 /* DisplayAreaNonEditable.java */; };
+		ADE4CE1F0C34030D00295441 /* DisplayAreaViewPort.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F160BC7B2D000BA0DC0 /* DisplayAreaViewPort.java */; };
+		ADE4CE200C34030D00295441 /* DocumentPropertyWindow.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F170BC7B2D000BA0DC0 /* DocumentPropertyWindow.java */; };
+		ADE4CE210C34030D00295441 /* EntryException.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F300BC7B2D000BA0DC0 /* EntryException.java */; };
+		ADE4CE220C34030D00295441 /* ErrorAndWarningReport.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F500BC7B2D000BA0DC0 /* ErrorAndWarningReport.java */; };
+		ADE4CE230C34030D00295441 /* ExecuteDocumentThread.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F310BC7B2D000BA0DC0 /* ExecuteDocumentThread.java */; };
+		ADE4CE240C34030D00295441 /* ExecuteException.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F270BC7B2D000BA0DC0 /* ExecuteException.java */; };
+		ADE4CE250C34030D00295441 /* ExecuteWindow.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F510BC7B2D000BA0DC0 /* ExecuteWindow.java */; };
+		ADE4CE260C34030D00295441 /* ExtensionFileFilter.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F180BC7B2D000BA0DC0 /* ExtensionFileFilter.java */; };
+		ADE4CE270C34030D00295441 /* FileLoader.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F280BC7B2D000BA0DC0 /* FileLoader.java */; };
+		ADE4CE280C34030D00295441 /* GraphException.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F290BC7B2D000BA0DC0 /* GraphException.java */; };
+		ADE4CE290C34030D00295441 /* GraphNode.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2A0BC7B2D000BA0DC0 /* GraphNode.java */; };
+		ADE4CE2A0C34030D00295441 /* HistoryException.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F430BC7B2D000BA0DC0 /* HistoryException.java */; };
+		ADE4CE2B0C34030D00295441 /* Identifiable.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F440BC7B2D000BA0DC0 /* Identifiable.java */; };
+		ADE4CE2C0C34030D00295441 /* IdentifiableImpl.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F450BC7B2D000BA0DC0 /* IdentifiableImpl.java */; };
+		ADE4CE2D0C34030D00295441 /* IOBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2B0BC7B2D000BA0DC0 /* IOBox.java */; };
+		ADE4CE2E0C34030D00295441 /* IOBoxDisplay.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F190BC7B2D000BA0DC0 /* IOBoxDisplay.java */; };
+		ADE4CE2F0C34030D00295441 /* LibLoader.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F470BC7B2D000BA0DC0 /* LibLoader.java */; };
+		ADE4CE300C34030D00295441 /* Link.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2C0BC7B2D000BA0DC0 /* Link.java */; };
+		ADE4CE310C34030D00295441 /* LinkDisplay.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1A0BC7B2D000BA0DC0 /* LinkDisplay.java */; };
+		ADE4CE320C34030D00295441 /* LinksList.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2D0BC7B2D000BA0DC0 /* LinksList.java */; };
+		ADE4CE330C34030D00295441 /* LogOutput.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F520BC7B2D000BA0DC0 /* LogOutput.java */; };
+		ADE4CE340C34030D00295441 /* MacroTemplate.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F480BC7B2D000BA0DC0 /* MacroTemplate.java */; };
+		ADE4CE350C34030D00295441 /* MacroTemplateLoader.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F490BC7B2D000BA0DC0 /* MacroTemplateLoader.java */; };
+		ADE4CE360C34030D00295441 /* MainGUI.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1B0BC7B2D000BA0DC0 /* MainGUI.java */; };
+		ADE4CE380C34030D00295441 /* Mark.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F460BC7B2D000BA0DC0 /* Mark.java */; };
+		ADE4CE390C34030D00295441 /* MultiLineToolTip.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1C0BC7B2D000BA0DC0 /* MultiLineToolTip.java */; };
+		ADE4CE3A0C34030D00295441 /* MultiLineToolTipUI.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1D0BC7B2D000BA0DC0 /* MultiLineToolTipUI.java */; };
+		ADE4CE3B0C34030D00295441 /* Option.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F4B0BC7B2D000BA0DC0 /* Option.java */; };
+		ADE4CE3C0C34030D00295441 /* OptionList.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F4C0BC7B2D000BA0DC0 /* OptionList.java */; };
+		ADE4CE3D0C34030D00295441 /* OutputBoxPropertyWindow.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1E0BC7B2D000BA0DC0 /* OutputBoxPropertyWindow.java */; };
+		ADE4CE3E0C34030D00295441 /* ParsingErrorException.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F540BC7B2D000BA0DC0 /* ParsingErrorException.java */; };
+		ADE4CE3F0C34030D00295441 /* Pipeline.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2E0BC7B2D000BA0DC0 /* Pipeline.java */; };
+		ADE4CE400C34030D00295441 /* PipelineMacro.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F2F0BC7B2D000BA0DC0 /* PipelineMacro.java */; };
+		ADE4CE410C34030D00295441 /* PipelineMacroSimpleDisplay.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F1F0BC7B2D000BA0DC0 /* PipelineMacroSimpleDisplay.java */; };
+		ADE4CE420C34030D00295441 /* Preferences.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F550BC7B2D000BA0DC0 /* Preferences.java */; };
+		ADE4CE430C34030D00295441 /* PreferencesWindow.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F560BC7B2D000BA0DC0 /* PreferencesWindow.java */; };
+		ADE4CE440C34030D00295441 /* Refinery.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F570BC7B2D000BA0DC0 /* Refinery.java */; };
+		ADE4CE450C34030D00295441 /* StandardOutput.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F530BC7B2D000BA0DC0 /* StandardOutput.java */; };
+		ADE4CE460C34030D00295441 /* XMLOutput.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F580BC7B2D000BA0DC0 /* XMLOutput.java */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD04ADCE0C396757002DF7FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00E6828EFEC88D1A11DB9C8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADE4CDF40C3402BA00295441;
+			remoteInfo = "JNI Wrapper";
+		};
+		AD04ADD20C39675F002DF7FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00E6828EFEC88D1A11DB9C8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD64402E0BC7E47800BA0DC0;
+			remoteInfo = "Headers Libloader";
+		};
+		AD04ADD60C396765002DF7FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00E6828EFEC88D1A11DB9C8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD64400F0BC7D7EB00BA0DC0;
+			remoteInfo = LibLoader;
+		};
+		AD04ADDA0C39676D002DF7FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00E6828EFEC88D1A11DB9C8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD64400F0BC7D7EB00BA0DC0;
+			remoteInfo = LibLoader;
+		};
+		AD04ADDC0C39676D002DF7FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00E6828EFEC88D1A11DB9C8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD9A81680C3960AA00C43196;
+			remoteInfo = DefaultConditioners;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AD11121E0C39ABC600F727F5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				AD1112200C39ABD400F727F5 /* startJavaStub in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD350FD00C39800A0094C37A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 15;
+			files = (
+				AD350FD20C3980240094C37A /* libLibLoader.jnilib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADDCBD050C32CC5A00F60F2B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			comments = "Installing the conditioner in app-bundle";
+			dstPath = conditioners;
+			dstSubfolderSpec = 15;
+			files = (
+				AD04AE1C0C3969E1002DF7FD /* libDefaultConditioners.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADDCBD750C32D1B900F60F2B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6AE2200B0208CA9C0CC91562 /* JavaVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaVM.framework; path = /System/Library/Frameworks/JavaVM.framework; sourceTree = "<absolute>"; };
+		AD11121D0C39ABB400F727F5 /* startJavaStub */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.script.sh; path = startJavaStub; sourceTree = "<group>"; };
+		AD1847EB0BCEB481000FC307 /* conditionerBase.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = conditionerBase.h; path = ../../include/conditionerBase.h; sourceTree = SOURCE_ROOT; };
+		AD1847EC0BCEB481000FC307 /* libloader.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = libloader.h; path = ../../include/libloader.h; sourceTree = SOURCE_ROOT; };
+		AD1847ED0BCEB49E000FC307 /* axisconverter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = axisconverter.h; path = ../../include/axisconverter.h; sourceTree = SOURCE_ROOT; };
+		AD1847EE0BCEB49E000FC307 /* bindmaterialfixer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = bindmaterialfixer.h; path = ../../include/bindmaterialfixer.h; sourceTree = SOURCE_ROOT; };
+		AD1847EF0BCEB49E000FC307 /* blankconditioner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = blankconditioner.h; path = ../../include/blankconditioner.h; sourceTree = SOURCE_ROOT; };
+		AD1847F00BCEB49E000FC307 /* coherencytest.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = coherencytest.h; path = ../../include/coherencytest.h; sourceTree = SOURCE_ROOT; };
+		AD1847F10BCEB49E000FC307 /* commandlineoptions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = commandlineoptions.h; path = ../../include/commandlineoptions.h; sourceTree = SOURCE_ROOT; };
+		AD1847F20BCEB49E000FC307 /* copyrighter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = copyrighter.h; path = ../../include/copyrighter.h; sourceTree = SOURCE_ROOT; };
+		AD1847F30BCEB49E000FC307 /* daestripper.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = daestripper.h; path = ../../include/daestripper.h; sourceTree = SOURCE_ROOT; };
+		AD1847F40BCEB49E000FC307 /* defines.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = defines.h; path = ../../include/defines.h; sourceTree = SOURCE_ROOT; };
+		AD1847F50BCEB49E000FC307 /* deindexer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = deindexer.h; path = ../../include/deindexer.h; sourceTree = SOURCE_ROOT; };
+		AD1847F60BCEB49E000FC307 /* detrifanner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = detrifanner.h; path = ../../include/detrifanner.h; sourceTree = SOURCE_ROOT; };
+		AD1847F70BCEB49E000FC307 /* detristripper.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = detristripper.h; path = ../../include/detristripper.h; sourceTree = SOURCE_ROOT; };
+		AD1847F80BCEB49E000FC307 /* filename.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = filename.h; path = ../../include/filename.h; sourceTree = SOURCE_ROOT; };
+		AD1847F90BCEB49E000FC307 /* imageConv.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = imageConv.h; path = ../../include/imageConv.h; sourceTree = SOURCE_ROOT; };
+		AD1847FA0BCEB49E000FC307 /* inputinfo.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = inputinfo.h; path = ../../include/inputinfo.h; sourceTree = SOURCE_ROOT; };
+		AD1847FB0BCEB49E000FC307 /* kmzcleanup.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = kmzcleanup.h; path = ../../include/kmzcleanup.h; sourceTree = SOURCE_ROOT; };
+		AD1847FC0BCEB49E000FC307 /* lines2linestrips.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = lines2linestrips.h; path = ../../include/lines2linestrips.h; sourceTree = SOURCE_ROOT; };
+		AD1847FD0BCEB49E000FC307 /* linestrips2lines.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = linestrips2lines.h; path = ../../include/linestrips2lines.h; sourceTree = SOURCE_ROOT; };
+		AD1847FE0BCEB49E000FC307 /* muxer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = muxer.h; path = ../../include/muxer.h; sourceTree = SOURCE_ROOT; };
+		AD1847FF0BCEB49E000FC307 /* optimizer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = optimizer.h; path = ../../include/optimizer.h; sourceTree = SOURCE_ROOT; };
+		AD1848000BCEB49E000FC307 /* packager.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = packager.h; path = ../../include/packager.h; sourceTree = SOURCE_ROOT; };
+		AD1848010BCEB49E000FC307 /* packedvertexindex.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = packedvertexindex.h; path = ../../include/packedvertexindex.h; sourceTree = SOURCE_ROOT; };
+		AD1848020BCEB49E000FC307 /* polygons2lines.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = polygons2lines.h; path = ../../include/polygons2lines.h; sourceTree = SOURCE_ROOT; };
+		AD1848030BCEB49E000FC307 /* polygons2polylists.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = polygons2polylists.h; path = ../../include/polygons2polylists.h; sourceTree = SOURCE_ROOT; };
+		AD1848040BCEB49E000FC307 /* polygons2triangles.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = polygons2triangles.h; path = ../../include/polygons2triangles.h; sourceTree = SOURCE_ROOT; };
+		AD1848050BCEB49E000FC307 /* polylists2lines.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = polylists2lines.h; path = ../../include/polylists2lines.h; sourceTree = SOURCE_ROOT; };
+		AD1848060BCEB49E000FC307 /* polylists2polygons.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = polylists2polygons.h; path = ../../include/polylists2polygons.h; sourceTree = SOURCE_ROOT; };
+		AD1848070BCEB49E000FC307 /* polylists2triangles.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = polylists2triangles.h; path = ../../include/polylists2triangles.h; sourceTree = SOURCE_ROOT; };
+		AD1848080BCEB49E000FC307 /* sceneCreator.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = sceneCreator.h; path = ../../include/sceneCreator.h; sourceTree = SOURCE_ROOT; };
+		AD1848090BCEB49E000FC307 /* triangles2lines.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = triangles2lines.h; path = ../../include/triangles2lines.h; sourceTree = SOURCE_ROOT; };
+		AD18480A0BCEB49E000FC307 /* trifanner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = trifanner.h; path = ../../include/trifanner.h; sourceTree = SOURCE_ROOT; };
+		AD18480B0BCEB49E000FC307 /* tristripper.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = tristripper.h; path = ../../include/tristripper.h; sourceTree = SOURCE_ROOT; };
+		AD18480C0BCEB49E000FC307 /* utility.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = utility.h; path = ../../include/utility.h; sourceTree = SOURCE_ROOT; };
+		AD18480D0BCEB49E000FC307 /* vertexcache.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = vertexcache.h; path = ../../include/vertexcache.h; sourceTree = SOURCE_ROOT; };
+		AD48A6890C39661A000CA3CF /* libLibLoader.jnilib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libLibLoader.jnilib; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD643EE70BC7B2CF00BA0DC0 /* axisconverter_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = axisconverter_core.cpp; sourceTree = "<group>"; };
+		AD643EE80BC7B2CF00BA0DC0 /* bindmaterialfixer_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = bindmaterialfixer_core.cpp; sourceTree = "<group>"; };
+		AD643EE90BC7B2CF00BA0DC0 /* coherencytest_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = coherencytest_core.cpp; sourceTree = "<group>"; };
+		AD643EEA0BC7B2CF00BA0DC0 /* copyrighter_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = copyrighter_core.cpp; sourceTree = "<group>"; };
+		AD643EEB0BC7B2CF00BA0DC0 /* daestripper_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = daestripper_core.cpp; sourceTree = "<group>"; };
+		AD643EEC0BC7B2CF00BA0DC0 /* deindexer_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = deindexer_core.cpp; sourceTree = "<group>"; };
+		AD643EED0BC7B2CF00BA0DC0 /* detrifanner_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = detrifanner_core.cpp; sourceTree = "<group>"; };
+		AD643EEE0BC7B2CF00BA0DC0 /* detristripper_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = detristripper_core.cpp; sourceTree = "<group>"; };
+		AD643EEF0BC7B2CF00BA0DC0 /* filename_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = filename_core.cpp; sourceTree = "<group>"; };
+		AD643EF00BC7B2CF00BA0DC0 /* imageConv_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = imageConv_core.cpp; sourceTree = "<group>"; };
+		AD643EF10BC7B2CF00BA0DC0 /* inputinfo.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = inputinfo.cpp; sourceTree = "<group>"; };
+		AD643EF20BC7B2CF00BA0DC0 /* kmzcleanup_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = kmzcleanup_core.cpp; sourceTree = "<group>"; };
+		AD643EF30BC7B2CF00BA0DC0 /* lines2linestrips_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = lines2linestrips_core.cpp; sourceTree = "<group>"; };
+		AD643EF40BC7B2CF00BA0DC0 /* linestrips2lines_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = linestrips2lines_core.cpp; sourceTree = "<group>"; };
+		AD643EF50BC7B2CF00BA0DC0 /* optimizer_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = optimizer_core.cpp; sourceTree = "<group>"; };
+		AD643EF60BC7B2CF00BA0DC0 /* packager_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = packager_core.cpp; sourceTree = "<group>"; };
+		AD643EF70BC7B2CF00BA0DC0 /* packedvertexindex.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = packedvertexindex.cpp; sourceTree = "<group>"; };
+		AD643EF80BC7B2CF00BA0DC0 /* polygons2lines_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = polygons2lines_core.cpp; sourceTree = "<group>"; };
+		AD643EF90BC7B2CF00BA0DC0 /* polygons2polylists.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = polygons2polylists.cpp; sourceTree = "<group>"; };
+		AD643EFA0BC7B2CF00BA0DC0 /* polygons2triangles.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = polygons2triangles.cpp; sourceTree = "<group>"; };
+		AD643EFB0BC7B2CF00BA0DC0 /* polylists2lines_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = polylists2lines_core.cpp; sourceTree = "<group>"; };
+		AD643EFC0BC7B2CF00BA0DC0 /* polylists2polygons.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = polylists2polygons.cpp; sourceTree = "<group>"; };
+		AD643EFD0BC7B2CF00BA0DC0 /* polylists2triangles.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = polylists2triangles.cpp; sourceTree = "<group>"; };
+		AD643EFE0BC7B2CF00BA0DC0 /* triangles2lines_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = triangles2lines_core.cpp; sourceTree = "<group>"; };
+		AD643EFF0BC7B2CF00BA0DC0 /* trifanner_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = trifanner_core.cpp; sourceTree = "<group>"; };
+		AD643F000BC7B2CF00BA0DC0 /* tristripper_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = tristripper_core.cpp; sourceTree = "<group>"; };
+		AD643F010BC7B2CF00BA0DC0 /* utility.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = utility.cpp; sourceTree = "<group>"; };
+		AD643F020BC7B2CF00BA0DC0 /* vertexcache.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = vertexcache.cpp; sourceTree = "<group>"; };
+		AD643F050BC7B2CF00BA0DC0 /* conditionerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = conditionerBase.cpp; sourceTree = "<group>"; };
+		AD643F060BC7B2CF00BA0DC0 /* libloader.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = libloader.cpp; sourceTree = "<group>"; };
+		AD643F070BC7B2CF00BA0DC0 /* refinery_LibLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = refinery_LibLoader.cpp; sourceTree = "<group>"; };
+		AD643F090BC7B2D000BA0DC0 /* AvailableConditionersList.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = AvailableConditionersList.java; sourceTree = "<group>"; };
+		AD643F0A0BC7B2D000BA0DC0 /* AvailableMacrosList.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = AvailableMacrosList.java; sourceTree = "<group>"; };
+		AD643F0B0BC7B2D000BA0DC0 /* CommandLineParser.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = CommandLineParser.java; sourceTree = "<group>"; };
+		AD643F0C0BC7B2D000BA0DC0 /* ConditionerTemplate.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ConditionerTemplate.java; sourceTree = "<group>"; };
+		AD643F0D0BC7B2D000BA0DC0 /* Couple.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Couple.java; sourceTree = "<group>"; };
+		AD643F0F0BC7B2D000BA0DC0 /* ConditionerDisplay.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ConditionerDisplay.java; sourceTree = "<group>"; };
+		AD643F100BC7B2D000BA0DC0 /* ConditionerPropertyWindow.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ConditionerPropertyWindow.java; sourceTree = "<group>"; };
+		AD643F110BC7B2D000BA0DC0 /* Display.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Display.java; sourceTree = "<group>"; };
+		AD643F120BC7B2D000BA0DC0 /* DisplayArea.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = DisplayArea.java; sourceTree = "<group>"; };
+		AD643F130BC7B2D000BA0DC0 /* DisplayAreaDummy.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = DisplayAreaDummy.java; sourceTree = "<group>"; };
+		AD643F140BC7B2D000BA0DC0 /* DisplayAreaInterface.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = DisplayAreaInterface.java; sourceTree = "<group>"; };
+		AD643F150BC7B2D000BA0DC0 /* DisplayAreaNonEditable.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = DisplayAreaNonEditable.java; sourceTree = "<group>"; };
+		AD643F160BC7B2D000BA0DC0 /* DisplayAreaViewPort.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = DisplayAreaViewPort.java; sourceTree = "<group>"; };
+		AD643F170BC7B2D000BA0DC0 /* DocumentPropertyWindow.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = DocumentPropertyWindow.java; sourceTree = "<group>"; };
+		AD643F180BC7B2D000BA0DC0 /* ExtensionFileFilter.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ExtensionFileFilter.java; sourceTree = "<group>"; };
+		AD643F190BC7B2D000BA0DC0 /* IOBoxDisplay.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = IOBoxDisplay.java; sourceTree = "<group>"; };
+		AD643F1A0BC7B2D000BA0DC0 /* LinkDisplay.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = LinkDisplay.java; sourceTree = "<group>"; };
+		AD643F1B0BC7B2D000BA0DC0 /* MainGUI.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = MainGUI.java; sourceTree = "<group>"; };
+		AD643F1C0BC7B2D000BA0DC0 /* MultiLineToolTip.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = MultiLineToolTip.java; sourceTree = "<group>"; };
+		AD643F1D0BC7B2D000BA0DC0 /* MultiLineToolTipUI.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = MultiLineToolTipUI.java; sourceTree = "<group>"; };
+		AD643F1E0BC7B2D000BA0DC0 /* OutputBoxPropertyWindow.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = OutputBoxPropertyWindow.java; sourceTree = "<group>"; };
+		AD643F1F0BC7B2D000BA0DC0 /* PipelineMacroSimpleDisplay.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = PipelineMacroSimpleDisplay.java; sourceTree = "<group>"; };
+		AD643F210BC7B2D000BA0DC0 /* Anchor.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Anchor.java; sourceTree = "<group>"; };
+		AD643F220BC7B2D000BA0DC0 /* AnchorConditioner.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = AnchorConditioner.java; sourceTree = "<group>"; };
+		AD643F230BC7B2D000BA0DC0 /* AnchorIO.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = AnchorIO.java; sourceTree = "<group>"; };
+		AD643F240BC7B2D000BA0DC0 /* AnchorMacro.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = AnchorMacro.java; sourceTree = "<group>"; };
+		AD643F250BC7B2D000BA0DC0 /* Box.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Box.java; sourceTree = "<group>"; };
+		AD643F260BC7B2D000BA0DC0 /* ConditionerWrapper.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ConditionerWrapper.java; sourceTree = "<group>"; };
+		AD643F270BC7B2D000BA0DC0 /* ExecuteException.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ExecuteException.java; sourceTree = "<group>"; };
+		AD643F280BC7B2D000BA0DC0 /* FileLoader.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = FileLoader.java; sourceTree = "<group>"; };
+		AD643F290BC7B2D000BA0DC0 /* GraphException.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = GraphException.java; sourceTree = "<group>"; };
+		AD643F2A0BC7B2D000BA0DC0 /* GraphNode.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = GraphNode.java; sourceTree = "<group>"; };
+		AD643F2B0BC7B2D000BA0DC0 /* IOBox.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = IOBox.java; sourceTree = "<group>"; };
+		AD643F2C0BC7B2D000BA0DC0 /* Link.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Link.java; sourceTree = "<group>"; };
+		AD643F2D0BC7B2D000BA0DC0 /* LinksList.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = LinksList.java; sourceTree = "<group>"; };
+		AD643F2E0BC7B2D000BA0DC0 /* Pipeline.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Pipeline.java; sourceTree = "<group>"; };
+		AD643F2F0BC7B2D000BA0DC0 /* PipelineMacro.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = PipelineMacro.java; sourceTree = "<group>"; };
+		AD643F300BC7B2D000BA0DC0 /* EntryException.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = EntryException.java; sourceTree = "<group>"; };
+		AD643F310BC7B2D000BA0DC0 /* ExecuteDocumentThread.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ExecuteDocumentThread.java; sourceTree = "<group>"; };
+		AD643F330BC7B2D000BA0DC0 /* Action.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Action.java; sourceTree = "<group>"; };
+		AD643F340BC7B2D000BA0DC0 /* ActionCreateConditioner.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionCreateConditioner.java; sourceTree = "<group>"; };
+		AD643F350BC7B2D000BA0DC0 /* ActionCreateInputBox.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionCreateInputBox.java; sourceTree = "<group>"; };
+		AD643F360BC7B2D000BA0DC0 /* ActionCreateLink.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionCreateLink.java; sourceTree = "<group>"; };
+		AD643F370BC7B2D000BA0DC0 /* ActionCreateMacro.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionCreateMacro.java; sourceTree = "<group>"; };
+		AD643F380BC7B2D000BA0DC0 /* ActionCreateOutputBox.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionCreateOutputBox.java; sourceTree = "<group>"; };
+		AD643F390BC7B2D000BA0DC0 /* ActionEditConditioner.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionEditConditioner.java; sourceTree = "<group>"; };
+		AD643F3A0BC7B2D000BA0DC0 /* ActionEditIO.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionEditIO.java; sourceTree = "<group>"; };
+		AD643F3B0BC7B2D000BA0DC0 /* ActionGroup.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionGroup.java; sourceTree = "<group>"; };
+		AD643F3C0BC7B2D000BA0DC0 /* ActionHistory.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionHistory.java; sourceTree = "<group>"; };
+		AD643F3D0BC7B2D000BA0DC0 /* ActionMoveDisplay.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionMoveDisplay.java; sourceTree = "<group>"; };
+		AD643F3E0BC7B2D000BA0DC0 /* ActionRemoveConditioner.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionRemoveConditioner.java; sourceTree = "<group>"; };
+		AD643F3F0BC7B2D000BA0DC0 /* ActionRemoveInputBox.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionRemoveInputBox.java; sourceTree = "<group>"; };
+		AD643F400BC7B2D000BA0DC0 /* ActionRemoveLink.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionRemoveLink.java; sourceTree = "<group>"; };
+		AD643F410BC7B2D000BA0DC0 /* ActionRemoveMacro.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionRemoveMacro.java; sourceTree = "<group>"; };
+		AD643F420BC7B2D000BA0DC0 /* ActionRemoveOutputBox.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ActionRemoveOutputBox.java; sourceTree = "<group>"; };
+		AD643F430BC7B2D000BA0DC0 /* HistoryException.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = HistoryException.java; sourceTree = "<group>"; };
+		AD643F440BC7B2D000BA0DC0 /* Identifiable.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Identifiable.java; sourceTree = "<group>"; };
+		AD643F450BC7B2D000BA0DC0 /* IdentifiableImpl.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = IdentifiableImpl.java; sourceTree = "<group>"; };
+		AD643F460BC7B2D000BA0DC0 /* Mark.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Mark.java; sourceTree = "<group>"; };
+		AD643F470BC7B2D000BA0DC0 /* LibLoader.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = LibLoader.java; sourceTree = "<group>"; };
+		AD643F480BC7B2D000BA0DC0 /* MacroTemplate.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = MacroTemplate.java; sourceTree = "<group>"; };
+		AD643F490BC7B2D000BA0DC0 /* MacroTemplateLoader.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = MacroTemplateLoader.java; sourceTree = "<group>"; };
+		AD643F4A0BC7B2D000BA0DC0 /* manifest.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = manifest.txt; sourceTree = "<group>"; };
+		AD643F4B0BC7B2D000BA0DC0 /* Option.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Option.java; sourceTree = "<group>"; };
+		AD643F4C0BC7B2D000BA0DC0 /* OptionList.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = OptionList.java; sourceTree = "<group>"; };
+		AD643F4E0BC7B2D000BA0DC0 /* Chart.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Chart.java; sourceTree = "<group>"; };
+		AD643F4F0BC7B2D000BA0DC0 /* Console.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Console.java; sourceTree = "<group>"; };
+		AD643F500BC7B2D000BA0DC0 /* ErrorAndWarningReport.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ErrorAndWarningReport.java; sourceTree = "<group>"; };
+		AD643F510BC7B2D000BA0DC0 /* ExecuteWindow.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ExecuteWindow.java; sourceTree = "<group>"; };
+		AD643F520BC7B2D000BA0DC0 /* LogOutput.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = LogOutput.java; sourceTree = "<group>"; };
+		AD643F530BC7B2D000BA0DC0 /* StandardOutput.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = StandardOutput.java; sourceTree = "<group>"; };
+		AD643F540BC7B2D000BA0DC0 /* ParsingErrorException.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = ParsingErrorException.java; sourceTree = "<group>"; };
+		AD643F550BC7B2D000BA0DC0 /* Preferences.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Preferences.java; sourceTree = "<group>"; };
+		AD643F560BC7B2D000BA0DC0 /* PreferencesWindow.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = PreferencesWindow.java; sourceTree = "<group>"; };
+		AD643F570BC7B2D000BA0DC0 /* Refinery.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Refinery.java; sourceTree = "<group>"; };
+		AD643F580BC7B2D000BA0DC0 /* XMLOutput.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = XMLOutput.java; sourceTree = "<group>"; };
+		AD6440360BC7E47800BA0DC0 /* Headers/refinery_LibLoader.h */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = Headers/refinery_LibLoader.h; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD9A7E7E0C38FED200C43196 /* Add16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Add16.gif; sourceTree = "<group>"; };
+		AD9A7E7F0C38FED200C43196 /* collada.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = collada.gif; sourceTree = "<group>"; };
+		AD9A7E800C38FED200C43196 /* collada.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = collada.ico; sourceTree = "<group>"; };
+		AD9A7E810C38FED200C43196 /* Delete16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Delete16.gif; sourceTree = "<group>"; };
+		AD9A7E820C38FED200C43196 /* New16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = New16.gif; sourceTree = "<group>"; };
+		AD9A7E830C38FED200C43196 /* Open16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Open16.gif; sourceTree = "<group>"; };
+		AD9A7E840C38FED200C43196 /* Play16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Play16.gif; sourceTree = "<group>"; };
+		AD9A7E850C38FED200C43196 /* Redo16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Redo16.gif; sourceTree = "<group>"; };
+		AD9A7E860C38FED300C43196 /* Save16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Save16.gif; sourceTree = "<group>"; };
+		AD9A7E870C38FED300C43196 /* Stop16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Stop16.gif; sourceTree = "<group>"; };
+		AD9A7E880C38FED300C43196 /* Undo16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Undo16.gif; sourceTree = "<group>"; };
+		AD9A7F6F0C390CEE00C43196 /* savefiles.xsd */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; name = savefiles.xsd; path = ../../savefiles.xsd; sourceTree = SOURCE_ROOT; };
+		AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libDefaultConditioners.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADAEE3850C130C5B00B9789A /* conditioner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = conditioner.h; path = ../../include/conditioner.h; sourceTree = SOURCE_ROOT; };
+		ADD5EFA20C2FEE1F006632A6 /* COLLADA_DOM141.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = COLLADA_DOM141.framework; path = /Library/Frameworks/COLLADA_DOM141.framework; sourceTree = "<absolute>"; };
+		ADDCBCD00C32C66600F60F2B /* ColladaRefinery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColladaRefinery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADE4CDF50C3402BA00295441 /* JNIWrapper.jar */ = {isa = PBXFileReference; explicitFileType = archive.jar; includeInIndex = 0; path = JNIWrapper.jar; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD11122F0C39AD1400F727F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD6440130BC7D7EB00BA0DC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD6440140BC7D7EB00BA0DC0 /* JavaVM.framework in Frameworks */,
+				ADD5EFA30C2FEE1F006632A6 /* COLLADA_DOM141.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD6440320BC7E47800BA0DC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD9A81710C3960AA00C43196 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD9A81720C3960AA00C43196 /* JavaVM.framework in Frameworks */,
+				AD9A81730C3960AA00C43196 /* COLLADA_DOM141.framework in Frameworks */,
+				AD48A68A0C39661A000CA3CF /* libLibLoader.jnilib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADE4CDF30C3402BA00295441 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00E6828FFEC88D1A11DB9C8B = {
+			isa = PBXGroup;
+			children = (
+				AD4A4D6A0C34343000A31DDA /* Resources */,
+				AD643EE60BC7B2CF00BA0DC0 /* conditioners */,
+				AD643F030BC7B2CF00BA0DC0 /* libloader */,
+				AD643F080BC7B2D000BA0DC0 /* refinery */,
+				AD643ED30BC7B0CE00BA0DC0 /* External Frameworks and Libraries */,
+				0120612AFEC8923411DB9C8B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0120612AFEC8923411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD6440360BC7E47800BA0DC0 /* Headers/refinery_LibLoader.h */,
+				ADDCBCD00C32C66600F60F2B /* ColladaRefinery.app */,
+				ADE4CDF50C3402BA00295441 /* JNIWrapper.jar */,
+				AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */,
+				AD48A6890C39661A000CA3CF /* libLibLoader.jnilib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD4A4D6A0C34343000A31DDA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD11121D0C39ABB400F727F5 /* startJavaStub */,
+				AD9A7F6F0C390CEE00C43196 /* savefiles.xsd */,
+				AD9A7E7D0C38FED200C43196 /* icons */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AD643ED30BC7B0CE00BA0DC0 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				ADD5EFA20C2FEE1F006632A6 /* COLLADA_DOM141.framework */,
+				6AE2200B0208CA9C0CC91562 /* JavaVM.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		AD643EE60BC7B2CF00BA0DC0 /* conditioners */ = {
+			isa = PBXGroup;
+			children = (
+				AD1847ED0BCEB49E000FC307 /* axisconverter.h */,
+				AD1847EE0BCEB49E000FC307 /* bindmaterialfixer.h */,
+				AD1847EF0BCEB49E000FC307 /* blankconditioner.h */,
+				AD1847F00BCEB49E000FC307 /* coherencytest.h */,
+				AD1847F10BCEB49E000FC307 /* commandlineoptions.h */,
+				AD1847F20BCEB49E000FC307 /* copyrighter.h */,
+				AD1847F30BCEB49E000FC307 /* daestripper.h */,
+				AD1847F50BCEB49E000FC307 /* deindexer.h */,
+				AD1847F60BCEB49E000FC307 /* detrifanner.h */,
+				AD1847F70BCEB49E000FC307 /* detristripper.h */,
+				AD1847F80BCEB49E000FC307 /* filename.h */,
+				AD1847F90BCEB49E000FC307 /* imageConv.h */,
+				AD1847FA0BCEB49E000FC307 /* inputinfo.h */,
+				AD1847FB0BCEB49E000FC307 /* kmzcleanup.h */,
+				AD1847FC0BCEB49E000FC307 /* lines2linestrips.h */,
+				AD1847FD0BCEB49E000FC307 /* linestrips2lines.h */,
+				AD1847FE0BCEB49E000FC307 /* muxer.h */,
+				AD1847FF0BCEB49E000FC307 /* optimizer.h */,
+				AD1848000BCEB49E000FC307 /* packager.h */,
+				AD1848010BCEB49E000FC307 /* packedvertexindex.h */,
+				AD1848020BCEB49E000FC307 /* polygons2lines.h */,
+				AD1848030BCEB49E000FC307 /* polygons2polylists.h */,
+				AD1848040BCEB49E000FC307 /* polygons2triangles.h */,
+				AD1848050BCEB49E000FC307 /* polylists2lines.h */,
+				AD1848060BCEB49E000FC307 /* polylists2polygons.h */,
+				AD1848070BCEB49E000FC307 /* polylists2triangles.h */,
+				AD1848080BCEB49E000FC307 /* sceneCreator.h */,
+				AD1848090BCEB49E000FC307 /* triangles2lines.h */,
+				AD18480A0BCEB49E000FC307 /* trifanner.h */,
+				AD18480B0BCEB49E000FC307 /* tristripper.h */,
+				AD18480C0BCEB49E000FC307 /* utility.h */,
+				AD18480D0BCEB49E000FC307 /* vertexcache.h */,
+				AD643EE70BC7B2CF00BA0DC0 /* axisconverter_core.cpp */,
+				AD643EE80BC7B2CF00BA0DC0 /* bindmaterialfixer_core.cpp */,
+				AD643EE90BC7B2CF00BA0DC0 /* coherencytest_core.cpp */,
+				AD643EEA0BC7B2CF00BA0DC0 /* copyrighter_core.cpp */,
+				AD643EEB0BC7B2CF00BA0DC0 /* daestripper_core.cpp */,
+				AD643EEC0BC7B2CF00BA0DC0 /* deindexer_core.cpp */,
+				AD643EED0BC7B2CF00BA0DC0 /* detrifanner_core.cpp */,
+				AD643EEE0BC7B2CF00BA0DC0 /* detristripper_core.cpp */,
+				AD643EEF0BC7B2CF00BA0DC0 /* filename_core.cpp */,
+				AD643EF00BC7B2CF00BA0DC0 /* imageConv_core.cpp */,
+				AD643EF10BC7B2CF00BA0DC0 /* inputinfo.cpp */,
+				AD643EF20BC7B2CF00BA0DC0 /* kmzcleanup_core.cpp */,
+				AD643EF30BC7B2CF00BA0DC0 /* lines2linestrips_core.cpp */,
+				AD643EF40BC7B2CF00BA0DC0 /* linestrips2lines_core.cpp */,
+				AD643EF50BC7B2CF00BA0DC0 /* optimizer_core.cpp */,
+				AD643EF60BC7B2CF00BA0DC0 /* packager_core.cpp */,
+				AD643EF70BC7B2CF00BA0DC0 /* packedvertexindex.cpp */,
+				AD643EF80BC7B2CF00BA0DC0 /* polygons2lines_core.cpp */,
+				AD643EF90BC7B2CF00BA0DC0 /* polygons2polylists.cpp */,
+				AD643EFA0BC7B2CF00BA0DC0 /* polygons2triangles.cpp */,
+				AD643EFB0BC7B2CF00BA0DC0 /* polylists2lines_core.cpp */,
+				AD643EFC0BC7B2CF00BA0DC0 /* polylists2polygons.cpp */,
+				AD643EFD0BC7B2CF00BA0DC0 /* polylists2triangles.cpp */,
+				AD643EFE0BC7B2CF00BA0DC0 /* triangles2lines_core.cpp */,
+				AD643EFF0BC7B2CF00BA0DC0 /* trifanner_core.cpp */,
+				AD643F000BC7B2CF00BA0DC0 /* tristripper_core.cpp */,
+				AD643F010BC7B2CF00BA0DC0 /* utility.cpp */,
+				AD643F020BC7B2CF00BA0DC0 /* vertexcache.cpp */,
+			);
+			name = conditioners;
+			path = ../../src/conditioners;
+			sourceTree = SOURCE_ROOT;
+		};
+		AD643F030BC7B2CF00BA0DC0 /* libloader */ = {
+			isa = PBXGroup;
+			children = (
+				AD643F050BC7B2CF00BA0DC0 /* conditionerBase.cpp */,
+				AD1847EB0BCEB481000FC307 /* conditionerBase.h */,
+				ADAEE3850C130C5B00B9789A /* conditioner.h */,
+				AD1847EC0BCEB481000FC307 /* libloader.h */,
+				AD1847F40BCEB49E000FC307 /* defines.h */,
+				AD643F060BC7B2CF00BA0DC0 /* libloader.cpp */,
+				AD643F070BC7B2CF00BA0DC0 /* refinery_LibLoader.cpp */,
+			);
+			name = libloader;
+			path = ../../src/libloader;
+			sourceTree = SOURCE_ROOT;
+		};
+		AD643F080BC7B2D000BA0DC0 /* refinery */ = {
+			isa = PBXGroup;
+			children = (
+				AD643F0E0BC7B2D000BA0DC0 /* display */,
+				AD643F4D0BC7B2D000BA0DC0 /* output */,
+				AD643F320BC7B2D000BA0DC0 /* history */,
+				AD643F200BC7B2D000BA0DC0 /* document */,
+				AD643F090BC7B2D000BA0DC0 /* AvailableConditionersList.java */,
+				AD643F0A0BC7B2D000BA0DC0 /* AvailableMacrosList.java */,
+				AD643F0B0BC7B2D000BA0DC0 /* CommandLineParser.java */,
+				AD643F0C0BC7B2D000BA0DC0 /* ConditionerTemplate.java */,
+				AD643F0D0BC7B2D000BA0DC0 /* Couple.java */,
+				AD643F300BC7B2D000BA0DC0 /* EntryException.java */,
+				AD643F310BC7B2D000BA0DC0 /* ExecuteDocumentThread.java */,
+				AD643F470BC7B2D000BA0DC0 /* LibLoader.java */,
+				AD643F480BC7B2D000BA0DC0 /* MacroTemplate.java */,
+				AD643F490BC7B2D000BA0DC0 /* MacroTemplateLoader.java */,
+				AD643F4A0BC7B2D000BA0DC0 /* manifest.txt */,
+				AD643F4B0BC7B2D000BA0DC0 /* Option.java */,
+				AD643F4C0BC7B2D000BA0DC0 /* OptionList.java */,
+				AD643F540BC7B2D000BA0DC0 /* ParsingErrorException.java */,
+				AD643F550BC7B2D000BA0DC0 /* Preferences.java */,
+				AD643F560BC7B2D000BA0DC0 /* PreferencesWindow.java */,
+				AD643F570BC7B2D000BA0DC0 /* Refinery.java */,
+				AD643F580BC7B2D000BA0DC0 /* XMLOutput.java */,
+			);
+			name = refinery;
+			path = ../../src/refinery;
+			sourceTree = SOURCE_ROOT;
+		};
+		AD643F0E0BC7B2D000BA0DC0 /* display */ = {
+			isa = PBXGroup;
+			children = (
+				AD643F0F0BC7B2D000BA0DC0 /* ConditionerDisplay.java */,
+				AD643F100BC7B2D000BA0DC0 /* ConditionerPropertyWindow.java */,
+				AD643F110BC7B2D000BA0DC0 /* Display.java */,
+				AD643F120BC7B2D000BA0DC0 /* DisplayArea.java */,
+				AD643F130BC7B2D000BA0DC0 /* DisplayAreaDummy.java */,
+				AD643F140BC7B2D000BA0DC0 /* DisplayAreaInterface.java */,
+				AD643F150BC7B2D000BA0DC0 /* DisplayAreaNonEditable.java */,
+				AD643F160BC7B2D000BA0DC0 /* DisplayAreaViewPort.java */,
+				AD643F170BC7B2D000BA0DC0 /* DocumentPropertyWindow.java */,
+				AD643F180BC7B2D000BA0DC0 /* ExtensionFileFilter.java */,
+				AD643F190BC7B2D000BA0DC0 /* IOBoxDisplay.java */,
+				AD643F1A0BC7B2D000BA0DC0 /* LinkDisplay.java */,
+				AD643F1B0BC7B2D000BA0DC0 /* MainGUI.java */,
+				AD643F1C0BC7B2D000BA0DC0 /* MultiLineToolTip.java */,
+				AD643F1D0BC7B2D000BA0DC0 /* MultiLineToolTipUI.java */,
+				AD643F1E0BC7B2D000BA0DC0 /* OutputBoxPropertyWindow.java */,
+				AD643F1F0BC7B2D000BA0DC0 /* PipelineMacroSimpleDisplay.java */,
+			);
+			path = display;
+			sourceTree = "<group>";
+		};
+		AD643F200BC7B2D000BA0DC0 /* document */ = {
+			isa = PBXGroup;
+			children = (
+				AD643F210BC7B2D000BA0DC0 /* Anchor.java */,
+				AD643F220BC7B2D000BA0DC0 /* AnchorConditioner.java */,
+				AD643F230BC7B2D000BA0DC0 /* AnchorIO.java */,
+				AD643F240BC7B2D000BA0DC0 /* AnchorMacro.java */,
+				AD643F250BC7B2D000BA0DC0 /* Box.java */,
+				AD643F260BC7B2D000BA0DC0 /* ConditionerWrapper.java */,
+				AD643F270BC7B2D000BA0DC0 /* ExecuteException.java */,
+				AD643F280BC7B2D000BA0DC0 /* FileLoader.java */,
+				AD643F290BC7B2D000BA0DC0 /* GraphException.java */,
+				AD643F2A0BC7B2D000BA0DC0 /* GraphNode.java */,
+				AD643F2B0BC7B2D000BA0DC0 /* IOBox.java */,
+				AD643F2C0BC7B2D000BA0DC0 /* Link.java */,
+				AD643F2D0BC7B2D000BA0DC0 /* LinksList.java */,
+				AD643F2E0BC7B2D000BA0DC0 /* Pipeline.java */,
+				AD643F2F0BC7B2D000BA0DC0 /* PipelineMacro.java */,
+			);
+			path = document;
+			sourceTree = "<group>";
+		};
+		AD643F320BC7B2D000BA0DC0 /* history */ = {
+			isa = PBXGroup;
+			children = (
+				AD643F330BC7B2D000BA0DC0 /* Action.java */,
+				AD643F340BC7B2D000BA0DC0 /* ActionCreateConditioner.java */,
+				AD643F350BC7B2D000BA0DC0 /* ActionCreateInputBox.java */,
+				AD643F360BC7B2D000BA0DC0 /* ActionCreateLink.java */,
+				AD643F370BC7B2D000BA0DC0 /* ActionCreateMacro.java */,
+				AD643F380BC7B2D000BA0DC0 /* ActionCreateOutputBox.java */,
+				AD643F390BC7B2D000BA0DC0 /* ActionEditConditioner.java */,
+				AD643F3A0BC7B2D000BA0DC0 /* ActionEditIO.java */,
+				AD643F3B0BC7B2D000BA0DC0 /* ActionGroup.java */,
+				AD643F3C0BC7B2D000BA0DC0 /* ActionHistory.java */,
+				AD643F3D0BC7B2D000BA0DC0 /* ActionMoveDisplay.java */,
+				AD643F3E0BC7B2D000BA0DC0 /* ActionRemoveConditioner.java */,
+				AD643F3F0BC7B2D000BA0DC0 /* ActionRemoveInputBox.java */,
+				AD643F400BC7B2D000BA0DC0 /* ActionRemoveLink.java */,
+				AD643F410BC7B2D000BA0DC0 /* ActionRemoveMacro.java */,
+				AD643F420BC7B2D000BA0DC0 /* ActionRemoveOutputBox.java */,
+				AD643F430BC7B2D000BA0DC0 /* HistoryException.java */,
+				AD643F440BC7B2D000BA0DC0 /* Identifiable.java */,
+				AD643F450BC7B2D000BA0DC0 /* IdentifiableImpl.java */,
+				AD643F460BC7B2D000BA0DC0 /* Mark.java */,
+			);
+			path = history;
+			sourceTree = "<group>";
+		};
+		AD643F4D0BC7B2D000BA0DC0 /* output */ = {
+			isa = PBXGroup;
+			children = (
+				AD643F4E0BC7B2D000BA0DC0 /* Chart.java */,
+				AD643F4F0BC7B2D000BA0DC0 /* Console.java */,
+				AD643F500BC7B2D000BA0DC0 /* ErrorAndWarningReport.java */,
+				AD643F510BC7B2D000BA0DC0 /* ExecuteWindow.java */,
+				AD643F520BC7B2D000BA0DC0 /* LogOutput.java */,
+				AD643F530BC7B2D000BA0DC0 /* StandardOutput.java */,
+			);
+			path = output;
+			sourceTree = "<group>";
+		};
+		AD9A7E7D0C38FED200C43196 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				AD9A7E7E0C38FED200C43196 /* Add16.gif */,
+				AD9A7E7F0C38FED200C43196 /* collada.gif */,
+				AD9A7E800C38FED200C43196 /* collada.ico */,
+				AD9A7E810C38FED200C43196 /* Delete16.gif */,
+				AD9A7E820C38FED200C43196 /* New16.gif */,
+				AD9A7E830C38FED200C43196 /* Open16.gif */,
+				AD9A7E840C38FED200C43196 /* Play16.gif */,
+				AD9A7E850C38FED200C43196 /* Redo16.gif */,
+				AD9A7E860C38FED300C43196 /* Save16.gif */,
+				AD9A7E870C38FED300C43196 /* Stop16.gif */,
+				AD9A7E880C38FED300C43196 /* Undo16.gif */,
+			);
+			name = icons;
+			path = ../../icons;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AD6440100BC7D7EB00BA0DC0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADAEE3860C130C5B00B9789A /* conditioner.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD9A816B0C3960AA00C43196 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD9A818B0C3961FC00C43196 /* axisconverter.h in Headers */,
+				AD9A818C0C3961FC00C43196 /* bindmaterialfixer.h in Headers */,
+				AD9A81900C3961FC00C43196 /* copyrighter.h in Headers */,
+				AD9A81910C3961FC00C43196 /* daestripper.h in Headers */,
+				AD9A81920C3961FC00C43196 /* deindexer.h in Headers */,
+				AD9A81930C3961FC00C43196 /* detrifanner.h in Headers */,
+				AD9A81940C3961FC00C43196 /* detristripper.h in Headers */,
+				AD9A81950C3961FC00C43196 /* filename.h in Headers */,
+				AD9A81970C3961FC00C43196 /* inputinfo.h in Headers */,
+				AD9A81980C3961FC00C43196 /* kmzcleanup.h in Headers */,
+				AD9A81990C3961FC00C43196 /* lines2linestrips.h in Headers */,
+				AD9A819A0C3961FC00C43196 /* linestrips2lines.h in Headers */,
+				AD9A819B0C3961FC00C43196 /* muxer.h in Headers */,
+				AD9A819C0C3961FC00C43196 /* optimizer.h in Headers */,
+				AD9A819E0C3961FC00C43196 /* packedvertexindex.h in Headers */,
+				AD9A819F0C3961FC00C43196 /* polygons2lines.h in Headers */,
+				AD9A81A00C3961FC00C43196 /* polygons2polylists.h in Headers */,
+				AD9A81A10C3961FC00C43196 /* polygons2triangles.h in Headers */,
+				AD9A81A20C3961FC00C43196 /* polylists2lines.h in Headers */,
+				AD9A81A30C3961FC00C43196 /* polylists2polygons.h in Headers */,
+				AD9A81A40C3961FC00C43196 /* polylists2triangles.h in Headers */,
+				AD9A81A50C3961FC00C43196 /* sceneCreator.h in Headers */,
+				AD9A81A60C3961FC00C43196 /* triangles2lines.h in Headers */,
+				AD9A81A70C3961FC00C43196 /* trifanner.h in Headers */,
+				AD9A81A80C3961FC00C43196 /* tristripper.h in Headers */,
+				AD9A81A90C3961FC00C43196 /* utility.h in Headers */,
+				AD9A81AA0C3961FC00C43196 /* vertexcache.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXJavaArchiveBuildPhase section */
+		AD6440310BC7E47800BA0DC0 /* JavaArchive */ = {
+			isa = PBXJavaArchiveBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD9A7F150C39072400C43196 /* JavaArchive */ = {
+			isa = PBXJavaArchiveBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD9A7F720C390CF300C43196 /* savefiles.xsd in JavaArchive */,
+				AD9A7F170C39076100C43196 /* Add16.gif in JavaArchive */,
+				AD9A7F180C39076100C43196 /* collada.gif in JavaArchive */,
+				AD9A7F190C39076100C43196 /* collada.ico in JavaArchive */,
+				AD9A7F1A0C39076100C43196 /* Delete16.gif in JavaArchive */,
+				AD9A7F1B0C39076100C43196 /* New16.gif in JavaArchive */,
+				AD9A7F1C0C39076100C43196 /* Open16.gif in JavaArchive */,
+				AD9A7F1D0C39076100C43196 /* Play16.gif in JavaArchive */,
+				AD9A7F1E0C39076100C43196 /* Redo16.gif in JavaArchive */,
+				AD9A7F1F0C39076100C43196 /* Save16.gif in JavaArchive */,
+				AD9A7F200C39076100C43196 /* Stop16.gif in JavaArchive */,
+				AD9A7F210C39076100C43196 /* Undo16.gif in JavaArchive */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADE4CDF20C3402BA00295441 /* JavaArchive */ = {
+			isa = PBXJavaArchiveBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXJavaArchiveBuildPhase section */
+
+/* Begin PBXLibraryTarget section */
+		AD64402E0BC7E47800BA0DC0 /* Headers Libloader */ = {
+			isa = PBXLibraryTarget;
+			buildConfigurationList = AD6440330BC7E47800BA0DC0 /* Build configuration list for PBXLibraryTarget "Headers Libloader" */;
+			buildPhases = (
+				AD64402F0BC7E47800BA0DC0 /* Sources */,
+				AD6440300BC7E47800BA0DC0 /* ShellScript */,
+				AD6440310BC7E47800BA0DC0 /* JavaArchive */,
+				AD6440320BC7E47800BA0DC0 /* Frameworks */,
+				ADDCBD750C32D1B900F60F2B /* CopyFiles */,
+			);
+			dependencies = (
+				AD04ADCF0C396757002DF7FD /* PBXTargetDependency */,
+			);
+			name = "Headers Libloader";
+			productInstallPath = /usr/local/lib;
+			productName = CreateHeaders;
+			productReference = AD6440360BC7E47800BA0DC0 /* Headers/refinery_LibLoader.h */;
+		};
+		ADE4CDF40C3402BA00295441 /* JNI Wrapper */ = {
+			isa = PBXLibraryTarget;
+			buildConfigurationList = ADE4CE4B0C34033200295441 /* Build configuration list for PBXLibraryTarget "JNI Wrapper" */;
+			buildPhases = (
+				ADE4CDF10C3402BA00295441 /* Sources */,
+				ADE4CDF20C3402BA00295441 /* JavaArchive */,
+				ADE4CDF30C3402BA00295441 /* Frameworks */,
+			);
+			dependencies = (
+			);
+			name = "JNI Wrapper";
+			productInstallPath = /usr/local/lib;
+			productName = "JNI Wrapper";
+			productReference = ADE4CDF50C3402BA00295441 /* JNIWrapper.jar */;
+		};
+/* End PBXLibraryTarget section */
+
+/* Begin PBXNativeTarget section */
+		AD64400F0BC7D7EB00BA0DC0 /* LibLoader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD6440150BC7D7EB00BA0DC0 /* Build configuration list for PBXNativeTarget "LibLoader" */;
+			buildPhases = (
+				AD6440100BC7D7EB00BA0DC0 /* Headers */,
+				AD6440110BC7D7EB00BA0DC0 /* Sources */,
+				AD6440130BC7D7EB00BA0DC0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD04ADD30C39675F002DF7FD /* PBXTargetDependency */,
+			);
+			name = LibLoader;
+			productName = JNILibN;
+			productReference = AD48A6890C39661A000CA3CF /* libLibLoader.jnilib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		AD9A81680C3960AA00C43196 /* DefaultConditioners */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD9A81740C3960AA00C43196 /* Build configuration list for PBXNativeTarget "DefaultConditioners" */;
+			buildPhases = (
+				AD9A816B0C3960AA00C43196 /* Headers */,
+				AD9A816D0C3960AA00C43196 /* Sources */,
+				AD9A81710C3960AA00C43196 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD04ADD70C396765002DF7FD /* PBXTargetDependency */,
+			);
+			name = DefaultConditioners;
+			productName = JNILibN;
+			productReference = AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00E6828EFEC88D1A11DB9C8B /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 4CEBA75C08679E4D0015D03E /* Build configuration list for PBXProject "COLLADA_REFINERY" */;
+			hasScannedForEncodings = 1;
+			mainGroup = 00E6828FFEC88D1A11DB9C8B;
+			productRefGroup = 0120612AFEC8923411DB9C8B /* Products */;
+			projectDirPath = "";
+			targets = (
+				ADE4CDF40C3402BA00295441 /* JNI Wrapper */,
+				AD64402E0BC7E47800BA0DC0 /* Headers Libloader */,
+				AD64400F0BC7D7EB00BA0DC0 /* LibLoader */,
+				ADDCBCCF0C32C66600F60F2B /* ColladaRefinery */,
+				AD9A81680C3960AA00C43196 /* DefaultConditioners */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD1111B50C39902C00F727F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		ADDCBCCE0C32C66600F60F2B /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AD4A8C440C33EF99000E6405 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\n# This script copies alert strings into the application\n# so that if the application cannot be launched on an \n# older version of the operating system, the user gets a \n# localized error message.  \n#\n# The particular localizations copied into the application\n# are dependent upon the set of localizations installed on\n# the machine the application is built on.\n#\n\nif [ \"${TARGET_BUILD_DIR}\" = \"\" ]; \nthen\n    TARGET_BUILD_DIR=${BUILD_DIR}\nfi\n\nALERTSTRINGS=\"OldJavaAlert.strings\"\nAPPLAUNCHRESDIR=\"/System/Library/PrivateFrameworks/JavaApplicationLauncher.framework/Resources\";\nLSH=`/bin/ls \"$APPLAUNCHRESDIR\" | /usr/bin/grep lproj`;\nRESOURCEDIR=\"${TARGET_BUILD_DIR}/$TARGET_NAME.app/Contents/Resources\"\n\nfor COPYDIR in $LSH\ndo\n        /bin/mkdir -p \"$RESOURCEDIR/$COPYDIR\"\n        /bin/cp \"$APPLAUNCHRESDIR/$COPYDIR/$ALERTSTRINGS\" \"$RESOURCEDIR/$COPYDIR\"\ndone";
+		};
+		AD6440300BC7E47800BA0DC0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "javah -classpath \"${BUILT_PRODUCTS_DIR}/JNIWrapper.jar\" -force -d \"${BUILT_PRODUCTS_DIR}/Headers\" \"refinery.LibLoader\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD6440110BC7D7EB00BA0DC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD9B68040BCD33E60035F5EC /* conditionerBase.cpp in Sources */,
+				AD9B68050BCD33E60035F5EC /* libloader.cpp in Sources */,
+				AD9B68060BCD33E60035F5EC /* refinery_LibLoader.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD64402F0BC7E47800BA0DC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD9A816D0C3960AA00C43196 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD9A81AB0C3961FC00C43196 /* axisconverter_core.cpp in Sources */,
+				AD9A81AC0C3961FC00C43196 /* bindmaterialfixer_core.cpp in Sources */,
+				AD9A81AE0C3961FC00C43196 /* copyrighter_core.cpp in Sources */,
+				AD9A81AF0C3961FC00C43196 /* daestripper_core.cpp in Sources */,
+				AD9A81B00C3961FC00C43196 /* deindexer_core.cpp in Sources */,
+				AD9A81B10C3961FC00C43196 /* detrifanner_core.cpp in Sources */,
+				AD9A81B20C3961FC00C43196 /* detristripper_core.cpp in Sources */,
+				AD9A81B30C3961FC00C43196 /* filename_core.cpp in Sources */,
+				AD9A81B50C3961FC00C43196 /* inputinfo.cpp in Sources */,
+				AD9A81B60C3961FC00C43196 /* kmzcleanup_core.cpp in Sources */,
+				AD9A81B70C3961FC00C43196 /* lines2linestrips_core.cpp in Sources */,
+				AD9A81B80C3961FC00C43196 /* linestrips2lines_core.cpp in Sources */,
+				AD9A81B90C3961FC00C43196 /* optimizer_core.cpp in Sources */,
+				AD9A81BB0C3961FC00C43196 /* packedvertexindex.cpp in Sources */,
+				AD9A81BC0C3961FC00C43196 /* polygons2lines_core.cpp in Sources */,
+				AD9A81BD0C3961FC00C43196 /* polygons2polylists.cpp in Sources */,
+				AD9A81BE0C3961FC00C43196 /* polygons2triangles.cpp in Sources */,
+				AD9A81BF0C3961FC00C43196 /* polylists2lines_core.cpp in Sources */,
+				AD9A81C00C3961FC00C43196 /* polylists2polygons.cpp in Sources */,
+				AD9A81C10C3961FC00C43196 /* polylists2triangles.cpp in Sources */,
+				AD9A81C20C3961FC00C43196 /* triangles2lines_core.cpp in Sources */,
+				AD9A81C30C3961FC00C43196 /* trifanner_core.cpp in Sources */,
+				AD9A81C40C3961FC00C43196 /* tristripper_core.cpp in Sources */,
+				AD9A81C50C3961FC00C43196 /* utility.cpp in Sources */,
+				AD9A81C60C3961FC00C43196 /* vertexcache.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADDCBCCC0C32C66600F60F2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADDD8D6A0C33F6B50044C0D4 /* Action.java in Sources */,
+				ADDD8D6B0C33F6B50044C0D4 /* ActionCreateConditioner.java in Sources */,
+				ADDD8D6C0C33F6B50044C0D4 /* ActionCreateInputBox.java in Sources */,
+				ADDD8D6D0C33F6B50044C0D4 /* ActionCreateLink.java in Sources */,
+				ADDD8D6E0C33F6B50044C0D4 /* ActionCreateMacro.java in Sources */,
+				ADDD8D6F0C33F6B50044C0D4 /* ActionCreateOutputBox.java in Sources */,
+				ADDD8D700C33F6B50044C0D4 /* ActionEditConditioner.java in Sources */,
+				ADDD8D710C33F6B50044C0D4 /* ActionEditIO.java in Sources */,
+				ADDD8D720C33F6B50044C0D4 /* ActionGroup.java in Sources */,
+				ADDD8D730C33F6B50044C0D4 /* ActionHistory.java in Sources */,
+				ADDD8D740C33F6B50044C0D4 /* ActionMoveDisplay.java in Sources */,
+				ADDD8D750C33F6B50044C0D4 /* ActionRemoveConditioner.java in Sources */,
+				ADDD8D760C33F6B50044C0D4 /* ActionRemoveInputBox.java in Sources */,
+				ADDD8D770C33F6B50044C0D4 /* ActionRemoveLink.java in Sources */,
+				ADDD8D780C33F6B50044C0D4 /* ActionRemoveMacro.java in Sources */,
+				ADDD8D790C33F6B50044C0D4 /* ActionRemoveOutputBox.java in Sources */,
+				ADDD8D7A0C33F6B50044C0D4 /* Anchor.java in Sources */,
+				ADDD8D7B0C33F6B50044C0D4 /* AnchorConditioner.java in Sources */,
+				ADDD8D7C0C33F6B50044C0D4 /* AnchorIO.java in Sources */,
+				ADDD8D7D0C33F6B50044C0D4 /* AnchorMacro.java in Sources */,
+				ADDD8D7E0C33F6B50044C0D4 /* AvailableConditionersList.java in Sources */,
+				ADDD8D7F0C33F6B50044C0D4 /* AvailableMacrosList.java in Sources */,
+				ADDD8D800C33F6B50044C0D4 /* Box.java in Sources */,
+				ADDD8D810C33F6B50044C0D4 /* Chart.java in Sources */,
+				ADDD8D820C33F6B50044C0D4 /* CommandLineParser.java in Sources */,
+				ADDD8D830C33F6B50044C0D4 /* ConditionerDisplay.java in Sources */,
+				ADDD8D840C33F6B50044C0D4 /* ConditionerPropertyWindow.java in Sources */,
+				ADDD8D850C33F6B50044C0D4 /* ConditionerTemplate.java in Sources */,
+				ADDD8D860C33F6B50044C0D4 /* ConditionerWrapper.java in Sources */,
+				ADDD8D870C33F6B50044C0D4 /* Console.java in Sources */,
+				ADDD8D880C33F6B50044C0D4 /* Couple.java in Sources */,
+				ADDD8D890C33F6B50044C0D4 /* Display.java in Sources */,
+				ADDD8D8A0C33F6B50044C0D4 /* DisplayArea.java in Sources */,
+				ADDD8D8B0C33F6B50044C0D4 /* DisplayAreaDummy.java in Sources */,
+				ADDD8D8C0C33F6B50044C0D4 /* DisplayAreaInterface.java in Sources */,
+				ADDD8D8D0C33F6B50044C0D4 /* DisplayAreaNonEditable.java in Sources */,
+				ADDD8D8E0C33F6B50044C0D4 /* DisplayAreaViewPort.java in Sources */,
+				ADDD8D8F0C33F6B50044C0D4 /* DocumentPropertyWindow.java in Sources */,
+				ADDD8D900C33F6B50044C0D4 /* EntryException.java in Sources */,
+				ADDD8D910C33F6B50044C0D4 /* ErrorAndWarningReport.java in Sources */,
+				ADDD8D920C33F6B50044C0D4 /* ExecuteDocumentThread.java in Sources */,
+				ADDD8D930C33F6B50044C0D4 /* ExecuteException.java in Sources */,
+				ADDD8D940C33F6B50044C0D4 /* ExecuteWindow.java in Sources */,
+				ADDD8D950C33F6B50044C0D4 /* ExtensionFileFilter.java in Sources */,
+				ADDD8D960C33F6B50044C0D4 /* FileLoader.java in Sources */,
+				ADDD8D970C33F6B50044C0D4 /* GraphException.java in Sources */,
+				ADDD8D980C33F6B50044C0D4 /* GraphNode.java in Sources */,
+				ADDD8D990C33F6B50044C0D4 /* HistoryException.java in Sources */,
+				ADDD8D9A0C33F6B50044C0D4 /* Identifiable.java in Sources */,
+				ADDD8D9B0C33F6B50044C0D4 /* IdentifiableImpl.java in Sources */,
+				ADDD8D9C0C33F6B50044C0D4 /* IOBox.java in Sources */,
+				ADDD8D9D0C33F6B50044C0D4 /* IOBoxDisplay.java in Sources */,
+				ADDD8D9E0C33F6B50044C0D4 /* LibLoader.java in Sources */,
+				ADDD8D9F0C33F6B50044C0D4 /* Link.java in Sources */,
+				ADDD8DA00C33F6B50044C0D4 /* LinkDisplay.java in Sources */,
+				ADDD8DA10C33F6B50044C0D4 /* LinksList.java in Sources */,
+				ADDD8DA20C33F6B50044C0D4 /* LogOutput.java in Sources */,
+				ADDD8DA30C33F6B50044C0D4 /* MacroTemplate.java in Sources */,
+				ADDD8DA40C33F6B50044C0D4 /* MacroTemplateLoader.java in Sources */,
+				ADDD8DA50C33F6B50044C0D4 /* MainGUI.java in Sources */,
+				ADDD8DA70C33F6B50044C0D4 /* Mark.java in Sources */,
+				ADDD8DA80C33F6B50044C0D4 /* MultiLineToolTip.java in Sources */,
+				ADDD8DA90C33F6B50044C0D4 /* MultiLineToolTipUI.java in Sources */,
+				ADDD8DAA0C33F6B50044C0D4 /* Option.java in Sources */,
+				ADDD8DAB0C33F6B50044C0D4 /* OptionList.java in Sources */,
+				ADDD8DAC0C33F6B50044C0D4 /* OutputBoxPropertyWindow.java in Sources */,
+				ADDD8DAD0C33F6B50044C0D4 /* ParsingErrorException.java in Sources */,
+				ADDD8DAE0C33F6B50044C0D4 /* Pipeline.java in Sources */,
+				ADDD8DAF0C33F6B50044C0D4 /* PipelineMacro.java in Sources */,
+				ADDD8DB00C33F6B50044C0D4 /* PipelineMacroSimpleDisplay.java in Sources */,
+				ADDD8DB10C33F6B50044C0D4 /* Preferences.java in Sources */,
+				ADDD8DB20C33F6B50044C0D4 /* PreferencesWindow.java in Sources */,
+				ADDD8DB30C33F6B50044C0D4 /* Refinery.java in Sources */,
+				ADDD8DB40C33F6B50044C0D4 /* StandardOutput.java in Sources */,
+				ADDD8DB50C33F6B50044C0D4 /* XMLOutput.java in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADE4CDF10C3402BA00295441 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADE4CDFB0C34030D00295441 /* Action.java in Sources */,
+				ADE4CDFC0C34030D00295441 /* ActionCreateConditioner.java in Sources */,
+				ADE4CDFD0C34030D00295441 /* ActionCreateInputBox.java in Sources */,
+				ADE4CDFE0C34030D00295441 /* ActionCreateLink.java in Sources */,
+				ADE4CDFF0C34030D00295441 /* ActionCreateMacro.java in Sources */,
+				ADE4CE000C34030D00295441 /* ActionCreateOutputBox.java in Sources */,
+				ADE4CE010C34030D00295441 /* ActionEditConditioner.java in Sources */,
+				ADE4CE020C34030D00295441 /* ActionEditIO.java in Sources */,
+				ADE4CE030C34030D00295441 /* ActionGroup.java in Sources */,
+				ADE4CE040C34030D00295441 /* ActionHistory.java in Sources */,
+				ADE4CE050C34030D00295441 /* ActionMoveDisplay.java in Sources */,
+				ADE4CE060C34030D00295441 /* ActionRemoveConditioner.java in Sources */,
+				ADE4CE070C34030D00295441 /* ActionRemoveInputBox.java in Sources */,
+				ADE4CE080C34030D00295441 /* ActionRemoveLink.java in Sources */,
+				ADE4CE090C34030D00295441 /* ActionRemoveMacro.java in Sources */,
+				ADE4CE0A0C34030D00295441 /* ActionRemoveOutputBox.java in Sources */,
+				ADE4CE0B0C34030D00295441 /* Anchor.java in Sources */,
+				ADE4CE0C0C34030D00295441 /* AnchorConditioner.java in Sources */,
+				ADE4CE0D0C34030D00295441 /* AnchorIO.java in Sources */,
+				ADE4CE0E0C34030D00295441 /* AnchorMacro.java in Sources */,
+				ADE4CE0F0C34030D00295441 /* AvailableConditionersList.java in Sources */,
+				ADE4CE100C34030D00295441 /* AvailableMacrosList.java in Sources */,
+				ADE4CE110C34030D00295441 /* Box.java in Sources */,
+				ADE4CE120C34030D00295441 /* Chart.java in Sources */,
+				ADE4CE130C34030D00295441 /* CommandLineParser.java in Sources */,
+				ADE4CE140C34030D00295441 /* ConditionerDisplay.java in Sources */,
+				ADE4CE150C34030D00295441 /* ConditionerPropertyWindow.java in Sources */,
+				ADE4CE160C34030D00295441 /* ConditionerTemplate.java in Sources */,
+				ADE4CE170C34030D00295441 /* ConditionerWrapper.java in Sources */,
+				ADE4CE180C34030D00295441 /* Console.java in Sources */,
+				ADE4CE190C34030D00295441 /* Couple.java in Sources */,
+				ADE4CE1A0C34030D00295441 /* Display.java in Sources */,
+				ADE4CE1B0C34030D00295441 /* DisplayArea.java in Sources */,
+				ADE4CE1C0C34030D00295441 /* DisplayAreaDummy.java in Sources */,
+				ADE4CE1D0C34030D00295441 /* DisplayAreaInterface.java in Sources */,
+				ADE4CE1E0C34030D00295441 /* DisplayAreaNonEditable.java in Sources */,
+				ADE4CE1F0C34030D00295441 /* DisplayAreaViewPort.java in Sources */,
+				ADE4CE200C34030D00295441 /* DocumentPropertyWindow.java in Sources */,
+				ADE4CE210C34030D00295441 /* EntryException.java in Sources */,
+				ADE4CE220C34030D00295441 /* ErrorAndWarningReport.java in Sources */,
+				ADE4CE230C34030D00295441 /* ExecuteDocumentThread.java in Sources */,
+				ADE4CE240C34030D00295441 /* ExecuteException.java in Sources */,
+				ADE4CE250C34030D00295441 /* ExecuteWindow.java in Sources */,
+				ADE4CE260C34030D00295441 /* ExtensionFileFilter.java in Sources */,
+				ADE4CE270C34030D00295441 /* FileLoader.java in Sources */,
+				ADE4CE280C34030D00295441 /* GraphException.java in Sources */,
+				ADE4CE290C34030D00295441 /* GraphNode.java in Sources */,
+				ADE4CE2A0C34030D00295441 /* HistoryException.java in Sources */,
+				ADE4CE2B0C34030D00295441 /* Identifiable.java in Sources */,
+				ADE4CE2C0C34030D00295441 /* IdentifiableImpl.java in Sources */,
+				ADE4CE2D0C34030D00295441 /* IOBox.java in Sources */,
+				ADE4CE2E0C34030D00295441 /* IOBoxDisplay.java in Sources */,
+				ADE4CE2F0C34030D00295441 /* LibLoader.java in Sources */,
+				ADE4CE300C34030D00295441 /* Link.java in Sources */,
+				ADE4CE310C34030D00295441 /* LinkDisplay.java in Sources */,
+				ADE4CE320C34030D00295441 /* LinksList.java in Sources */,
+				ADE4CE330C34030D00295441 /* LogOutput.java in Sources */,
+				ADE4CE340C34030D00295441 /* MacroTemplate.java in Sources */,
+				ADE4CE350C34030D00295441 /* MacroTemplateLoader.java in Sources */,
+				ADE4CE360C34030D00295441 /* MainGUI.java in Sources */,
+				ADE4CE380C34030D00295441 /* Mark.java in Sources */,
+				ADE4CE390C34030D00295441 /* MultiLineToolTip.java in Sources */,
+				ADE4CE3A0C34030D00295441 /* MultiLineToolTipUI.java in Sources */,
+				ADE4CE3B0C34030D00295441 /* Option.java in Sources */,
+				ADE4CE3C0C34030D00295441 /* OptionList.java in Sources */,
+				ADE4CE3D0C34030D00295441 /* OutputBoxPropertyWindow.java in Sources */,
+				ADE4CE3E0C34030D00295441 /* ParsingErrorException.java in Sources */,
+				ADE4CE3F0C34030D00295441 /* Pipeline.java in Sources */,
+				ADE4CE400C34030D00295441 /* PipelineMacro.java in Sources */,
+				ADE4CE410C34030D00295441 /* PipelineMacroSimpleDisplay.java in Sources */,
+				ADE4CE420C34030D00295441 /* Preferences.java in Sources */,
+				ADE4CE430C34030D00295441 /* PreferencesWindow.java in Sources */,
+				ADE4CE440C34030D00295441 /* Refinery.java in Sources */,
+				ADE4CE450C34030D00295441 /* StandardOutput.java in Sources */,
+				ADE4CE460C34030D00295441 /* XMLOutput.java in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD04ADCF0C396757002DF7FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADE4CDF40C3402BA00295441 /* JNI Wrapper */;
+			targetProxy = AD04ADCE0C396757002DF7FD /* PBXContainerItemProxy */;
+		};
+		AD04ADD30C39675F002DF7FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD64402E0BC7E47800BA0DC0 /* Headers Libloader */;
+			targetProxy = AD04ADD20C39675F002DF7FD /* PBXContainerItemProxy */;
+		};
+		AD04ADD70C396765002DF7FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD64400F0BC7D7EB00BA0DC0 /* LibLoader */;
+			targetProxy = AD04ADD60C396765002DF7FD /* PBXContainerItemProxy */;
+		};
+		AD04ADDB0C39676D002DF7FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD64400F0BC7D7EB00BA0DC0 /* LibLoader */;
+			targetProxy = AD04ADDA0C39676D002DF7FD /* PBXContainerItemProxy */;
+		};
+		AD04ADDD0C39676D002DF7FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD9A81680C3960AA00C43196 /* DefaultConditioners */;
+			targetProxy = AD04ADDC0C39676D002DF7FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4CEBA75D08679E4D0015D03E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		AD350FBE0C397CFE0094C37A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				JAVA_ARCHIVE_TYPE = JAR;
+				JAVA_COMPILER = /usr/bin/javac;
+				JAVA_COMPILER_DEPRECATED_WARNINGS = YES;
+				JAVA_COMPILER_SOURCE_VERSION = 1.5;
+				JAVA_COMPILER_TARGET_VM_VERSION = 1.5;
+				JAVA_MANIFEST_FILE = ../../src/refinery/manifest.txt;
+				JAVA_SOURCE_SUBDIR = .;
+				LIBRARY_STYLE = STATIC;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOL_FLAGS = "";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = JNIWrapper;
+				PURE_JAVA = YES;
+				REZ_EXECUTABLE = YES;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		AD350FBF0C397CFE0094C37A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Headers/refinery_LibLoader.h;
+				REZ_EXECUTABLE = YES;
+				ZERO_LINK = YES;
+			};
+			name = Release;
+		};
+		AD350FC00C397CFE0094C37A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = jnilib;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../Library/Frameworks\"";
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = REFINERY;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS_QUOTED_1)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_2)",
+					/Library/Frameworks/COLLADA_DOM141.framework/Headers,
+				);
+				HEADER_SEARCH_PATHS_QUOTED_1 = "\"${OBJROOT}/Headers\"";
+				HEADER_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/JavaVM.framework/Headers\"";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_3)",
+				);
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-lxml2";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = LibLoader;
+				SECTORDER_FLAGS = "";
+				SEPARATE_STRIP = YES;
+				STRIPFLAGS = "-Xx";
+				STRIP_INSTALLED_PRODUCT = YES;
+				STRIP_STYLE = debugging;
+				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		AD350FC10C397CFE0094C37A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../Library/Frameworks\"";
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					REFINERY,
+					"stricmp=strcasecmp",
+				);
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS_QUOTED_1)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_2)",
+					/Library/Frameworks/COLLADA_DOM141.framework/Headers,
+				);
+				HEADER_SEARCH_PATHS_QUOTED_1 = "\"${OBJROOT}/Headers\"";
+				HEADER_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/JavaVM.framework/Headers\"";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/build/Debug\"";
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-lxml2";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = DefaultConditioners;
+				SECTORDER_FLAGS = "";
+				SEPARATE_STRIP = YES;
+				STRIPFLAGS = "-Xx";
+				STRIP_INSTALLED_PRODUCT = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		AD350FC20C397CFE0094C37A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				JAVA_COMPILER = /usr/bin/javac;
+				JAVA_COMPILER_SOURCE_VERSION = 1.5;
+				JAVA_COMPILER_TARGET_VM_VERSION = 1.5;
+				JAVA_FORCE_FILE_LIST = YES;
+				JAVA_MANIFEST_FILE = ../../src/refinery/manifest.txt;
+				JAVA_ONLY = YES;
+				JAVA_SOURCE_SUBDIR = .;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ColladaRefinery;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = YES;
+			};
+			name = Release;
+		};
+		AD350FC30C397CFE0094C37A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		AD6440160BC7D7EB00BA0DC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = jnilib;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../Library/Frameworks\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = REFINERY;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS_QUOTED_1)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_2)",
+					/Library/Frameworks/COLLADA_DOM141.framework/Headers,
+				);
+				HEADER_SEARCH_PATHS_QUOTED_1 = "\"${OBJROOT}/Headers\"";
+				HEADER_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/JavaVM.framework/Headers\"";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_3)",
+				);
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-lxml2";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = LibLoader;
+				SECTORDER_FLAGS = "";
+				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		AD6440340BC7E47800BA0DC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Headers/refinery_LibLoader.h;
+				REZ_EXECUTABLE = YES;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		AD9A81750C3960AA00C43196 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../Library/Frameworks\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					REFINERY,
+					"stricmp=strcasecmp",
+				);
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS_QUOTED_1)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_2)",
+					/Library/Frameworks/COLLADA_DOM141.framework/Headers,
+				);
+				HEADER_SEARCH_PATHS_QUOTED_1 = "\"${OBJROOT}/Headers\"";
+				HEADER_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/JavaVM.framework/Headers\"";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/build/Debug\"";
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-lxml2";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = DefaultConditioners;
+				SECTORDER_FLAGS = "";
+				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		ADDCBCD30C32C6B200F60F2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				JAVA_COMPILER = /usr/bin/javac;
+				JAVA_COMPILER_SOURCE_VERSION = 1.5;
+				JAVA_COMPILER_TARGET_VM_VERSION = 1.5;
+				JAVA_FORCE_FILE_LIST = YES;
+				JAVA_MANIFEST_FILE = ../../src/refinery/manifest.txt;
+				JAVA_ONLY = YES;
+				JAVA_SOURCE_SUBDIR = .;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ColladaRefinery;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		ADE4CE4C0C34033200295441 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				JAVA_ARCHIVE_TYPE = JAR;
+				JAVA_COMPILER = /usr/bin/javac;
+				JAVA_COMPILER_DEPRECATED_WARNINGS = YES;
+				JAVA_COMPILER_SOURCE_VERSION = 1.5;
+				JAVA_COMPILER_TARGET_VM_VERSION = 1.5;
+				JAVA_MANIFEST_FILE = ../../src/refinery/manifest.txt;
+				JAVA_SOURCE_SUBDIR = .;
+				LIBRARY_STYLE = STATIC;
+				OPTIMIZATION_CFLAGS = "-O0";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOL_FLAGS = "";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = JNIWrapper;
+				PURE_JAVA = YES;
+				REZ_EXECUTABLE = YES;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CEBA75C08679E4D0015D03E /* Build configuration list for PBXProject "COLLADA_REFINERY" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CEBA75D08679E4D0015D03E /* Debug */,
+				AD350FC30C397CFE0094C37A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AD6440150BC7D7EB00BA0DC0 /* Build configuration list for PBXNativeTarget "LibLoader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD6440160BC7D7EB00BA0DC0 /* Debug */,
+				AD350FC00C397CFE0094C37A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AD6440330BC7E47800BA0DC0 /* Build configuration list for PBXLibraryTarget "Headers Libloader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD6440340BC7E47800BA0DC0 /* Debug */,
+				AD350FBF0C397CFE0094C37A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AD9A81740C3960AA00C43196 /* Build configuration list for PBXNativeTarget "DefaultConditioners" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD9A81750C3960AA00C43196 /* Debug */,
+				AD350FC10C397CFE0094C37A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		ADDCBCD20C32C6B200F60F2B /* Build configuration list for PBXApplicationTarget "ColladaRefinery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADDCBCD30C32C6B200F60F2B /* Debug */,
+				AD350FC20C397CFE0094C37A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		ADE4CE4B0C34033200295441 /* Build configuration list for PBXLibraryTarget "JNI Wrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADE4CE4C0C34033200295441 /* Debug */,
+				AD350FBE0C397CFE0094C37A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 00E6828EFEC88D1A11DB9C8B /* Project object */;
+}

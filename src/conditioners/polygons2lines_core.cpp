@@ -148,4 +148,4 @@ int Polygons2lines::execute()
 	return 0;
 }
 
-Conditioner::Register<Polygons2linesProxy> registerObject;
+Conditioner::Register<Polygons2linesProxy> polygons2linesProxy;

@@ -441,4 +441,4 @@ int TriStripper::execute()
 	return 0;	
 }
 
-Conditioner::Register< TriStripperProxy > triangulateProxy;
+Conditioner::Register< TriStripperProxy > tristripperProxy;

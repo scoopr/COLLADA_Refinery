@@ -118,7 +118,8 @@ public class LibLoader
 	{
 		//Possibly make this variable so we can have different conditioner libraries.
 		System.loadLibrary("libloader");
-		//System.load(Refinery.RefineryDirectory + File.separator + "libloader.dll");
+		
+//		System.load(Refinery.RefineryDirectory + File.separator + "libloader.dll");
 		//init();
 	}
 
