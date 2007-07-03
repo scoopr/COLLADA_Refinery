@@ -1,8 +1,0 @@
-#!/bin/sh
-#
-# Start the JavaStub with correct DYLD_LIBRARY_PATH
-
-CWD="`dirname \"$0\"`"
-
-export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:../../Resources/Java" 
-exec "$CWD/ColladaRefinery" "$@"

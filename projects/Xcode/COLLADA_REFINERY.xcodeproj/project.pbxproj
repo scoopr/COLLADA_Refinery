@@ -39,7 +39,7 @@
 	<key>CFBundleDocumentTypes</key>
 	<array/>
 	<key>CFBundleExecutable</key>
-	<string>startJavaStub</string>
+	<string>ColladaRefinery</string>
 	<key>CFBundleGetInfoString</key>
 	<string>2.0.3</string>
 	<key>CFBundleIconFile</key>
@@ -86,7 +86,6 @@
 
 /* Begin PBXBuildFile section */
 		AD04AE1C0C3969E1002DF7FD /* libDefaultConditioners.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */; };
-		AD1112200C39ABD400F727F5 /* startJavaStub in CopyFiles */ = {isa = PBXBuildFile; fileRef = AD11121D0C39ABB400F727F5 /* startJavaStub */; };
 		AD350FD20C3980240094C37A /* libLibLoader.jnilib in CopyFiles */ = {isa = PBXBuildFile; fileRef = AD48A6890C39661A000CA3CF /* libLibLoader.jnilib */; };
 		AD48A68A0C39661A000CA3CF /* libLibLoader.jnilib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD48A6890C39661A000CA3CF /* libLibLoader.jnilib */; };
 		AD6440140BC7D7EB00BA0DC0 /* JavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE2200B0208CA9C0CC91562 /* JavaVM.framework */; };
@@ -358,7 +357,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
-				AD1112200C39ABD400F727F5 /* startJavaStub in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +394,6 @@
 
 /* Begin PBXFileReference section */
 		6AE2200B0208CA9C0CC91562 /* JavaVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaVM.framework; path = /System/Library/Frameworks/JavaVM.framework; sourceTree = "<absolute>"; };
-		AD11121D0C39ABB400F727F5 /* startJavaStub */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.script.sh; path = startJavaStub; sourceTree = "<group>"; };
 		AD1847EB0BCEB481000FC307 /* conditionerBase.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = conditionerBase.h; path = ../../include/conditionerBase.h; sourceTree = SOURCE_ROOT; };
 		AD1847EC0BCEB481000FC307 /* libloader.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = libloader.h; path = ../../include/libloader.h; sourceTree = SOURCE_ROOT; };
 		AD1847ED0BCEB49E000FC307 /* axisconverter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = axisconverter.h; path = ../../include/axisconverter.h; sourceTree = SOURCE_ROOT; };
@@ -631,7 +628,6 @@
 		AD4A4D6A0C34343000A31DDA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AD11121D0C39ABB400F727F5 /* startJavaStub */,
 				AD9A7F6F0C390CEE00C43196 /* savefiles.xsd */,
 				AD9A7E7D0C38FED200C43196 /* icons */,
 			);
@@ -1032,10 +1028,10 @@
 			productRefGroup = 0120612AFEC8923411DB9C8B /* Products */;
 			projectDirPath = "";
 			targets = (
+				ADDCBCCF0C32C66600F60F2B /* ColladaRefinery */,
 				ADE4CDF40C3402BA00295441 /* JNI Wrapper */,
 				AD64402E0BC7E47800BA0DC0 /* Headers Libloader */,
 				AD64400F0BC7D7EB00BA0DC0 /* LibLoader */,
-				ADDCBCCF0C32C66600F60F2B /* ColladaRefinery */,
 				AD9A81680C3960AA00C43196 /* DefaultConditioners */,
 			);
 		};
@@ -1334,6 +1330,9 @@
 		4CEBA75D08679E4D0015D03E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				GCC_MODEL_TUNING = G5;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				ZERO_LINK = NO;
 			};
 			name = Debug;
@@ -1401,11 +1400,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_EXTENSION = jnilib;
 				EXECUTABLE_PREFIX = lib;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "";
 				GCC_DEBUGGING_SYMBOLS = full;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = G5;
@@ -1419,7 +1415,7 @@
 				);
 				HEADER_SEARCH_PATHS_QUOTED_1 = "\"${OBJROOT}/Headers\"";
 				HEADER_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/JavaVM.framework/Headers\"";
-				INSTALL_PATH = /usr/local/lib;
+				INSTALL_PATH = "@executable_path/../Resources/Java";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
@@ -1484,7 +1480,7 @@
 				);
 				HEADER_SEARCH_PATHS_QUOTED_1 = "\"${OBJROOT}/Headers\"";
 				HEADER_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/JavaVM.framework/Headers\"";
-				INSTALL_PATH = /usr/local/lib;
+				INSTALL_PATH = "@executable_path/../Resources/Java/conditioners";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
@@ -1547,6 +1543,12 @@
 		AD350FC30C397CFE0094C37A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_MODEL_TUNING = G5;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1554,7 +1556,10 @@
 		AD6440160BC7D7EB00BA0DC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH)";
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1564,7 +1569,7 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PREPROCESSOR_DEFINITIONS = REFINERY;
@@ -1576,7 +1581,7 @@
 				);
 				HEADER_SEARCH_PATHS_QUOTED_1 = "\"${OBJROOT}/Headers\"";
 				HEADER_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/JavaVM.framework/Headers\"";
-				INSTALL_PATH = /usr/local/lib;
+				INSTALL_PATH = "@executable_path/../Resources/Java";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
@@ -1643,7 +1648,7 @@
 				);
 				HEADER_SEARCH_PATHS_QUOTED_1 = "\"${OBJROOT}/Headers\"";
 				HEADER_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/JavaVM.framework/Headers\"";
-				INSTALL_PATH = /usr/local/lib;
+				INSTALL_PATH = "@executable_path/../Resources/Java/conditioners";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
@@ -1744,7 +1749,7 @@
 				AD350FC30C397CFE0094C37A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		AD6440150BC7D7EB00BA0DC0 /* Build configuration list for PBXNativeTarget "LibLoader" */ = {
 			isa = XCConfigurationList;
@@ -1753,7 +1758,7 @@
 				AD350FC00C397CFE0094C37A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		AD6440330BC7E47800BA0DC0 /* Build configuration list for PBXLibraryTarget "Headers Libloader" */ = {
 			isa = XCConfigurationList;
@@ -1762,7 +1767,7 @@
 				AD350FBF0C397CFE0094C37A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		AD9A81740C3960AA00C43196 /* Build configuration list for PBXNativeTarget "DefaultConditioners" */ = {
 			isa = XCConfigurationList;
@@ -1771,7 +1776,7 @@
 				AD350FC10C397CFE0094C37A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		ADDCBCD20C32C6B200F60F2B /* Build configuration list for PBXApplicationTarget "ColladaRefinery" */ = {
 			isa = XCConfigurationList;
@@ -1780,7 +1785,7 @@
 				AD350FC20C397CFE0094C37A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		ADE4CE4B0C34033200295441 /* Build configuration list for PBXLibraryTarget "JNI Wrapper" */ = {
 			isa = XCConfigurationList;
@@ -1789,7 +1794,7 @@
 				AD350FBE0C397CFE0094C37A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
