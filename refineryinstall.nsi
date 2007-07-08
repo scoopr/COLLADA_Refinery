@@ -67,6 +67,12 @@ Section "" ; empty string makes it hidden, so would starting with -
 SectionEnd
 
 Section "Binaries" Sec1
+	; Install the VS 2005 redist
+	SetOutPath $INSTDIR
+	File vcredist_x86.exe
+	ExecWait '"$INSTDIR\vcredist_x86.exe"'
+	Delete vcredist_x86.exe
+
 	SetOutPath $INSTDIR\bin\vc8\release
 	File /r bin\vc8\release\*.dll
 	File /r bin\vc8\release\*.bat
@@ -88,7 +94,13 @@ SectionEnd
 Section /o "Source" Sec2
 	Call DetectMSVS
 	Call DetectJDK
-    
+
+	; Install the VS 2005 redist
+	SetOutPath $INSTDIR
+	File vcredist_x86.exe
+	ExecWait '"$INSTDIR\vcredist_x86.exe"'
+	Delete vcredist_x86.exe
+
 	SetOutPath $INSTDIR\bin\vc8\release
 	File /r bin\vc8\release\*.dll
 	File /r bin\vc8\release\*.bat
