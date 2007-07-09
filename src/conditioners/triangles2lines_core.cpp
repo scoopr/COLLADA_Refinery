@@ -95,4 +95,4 @@ int Triangles2lines::execute()
 	return 0;
 }
 
-Conditioner::Register<Triangles2linesProxy> triangles2linesProxy;
+Conditioner::Register<Triangles2linesProxy> registerObject;

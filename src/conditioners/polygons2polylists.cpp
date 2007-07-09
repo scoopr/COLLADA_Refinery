@@ -74,4 +74,4 @@ int Polygons2Polylists::execute()
 	return 0;
 }
 
-Conditioner::Register< Polygons2PolylistsProxy > pgon2plistProxy;
+Conditioner::Register< Polygons2PolylistsProxy > p2pProxy;

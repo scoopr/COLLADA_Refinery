@@ -20,9 +20,7 @@
 				Name="VCNMakeTool"
 				BuildCommandLine="mkdir ..\..\tmp
 &quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java
-&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc7/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery
-cd ../../
-&quot;$(JDK_HOME)\bin\jar&quot; uf ./bin/vc7/$(ConfigurationName)/refinery.jar icons/*.gif savefiles.xsd"
+&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc7/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
 				ReBuildCommandLine="mkdir ..\..\tmp
 &quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java
 &quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc7/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
@@ -39,9 +37,7 @@ rmdir /S /Q ..\..\tmp\refinery"
 				Name="VCNMakeTool"
 				BuildCommandLine="mkdir ..\..\tmp
 &quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java
-&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc7/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery
-cd ../../
-&quot;$(JDK_HOME)\bin\jar&quot; uf ./bin/vc7/$(ConfigurationName)/refinery.jar icons/*.gif savefiles.xsd"
+&quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc7/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"
 				ReBuildCommandLine="mkdir ..\..\tmp
 &quot;$(JDK_HOME)\bin\javac&quot; -nowarn -sourcepath &quot;../../src/refinery&quot; -d &quot;../../tmp&quot; ../../src/refinery/*.java ../../src/refinery/display/*.java ../../src/refinery/document/*.java ../../src/refinery/history/*.java ../../src/refinery/output/*.java
 &quot;$(JDK_HOME)\bin\jar&quot; cfm ../../bin/vc7/$(ConfigurationName)/refinery.jar ../../src/refinery/manifest.txt -C ../../tmp refinery"

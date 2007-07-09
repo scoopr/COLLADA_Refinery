@@ -317,21 +317,19 @@ int Trifanner::execute()
 		//if(verbose)	cerr<<"There are "<<trianglesElementCount<<"triangle elements in this file\n"; 
 		for(int currentTriangles = 0; currentTriangles < trianglesElementCount; currentTriangles++)
 		{
-			// Get the triangles out of the mesh
+			// Create Trifans from Triangles
 			domTriangles *thisTriangles = thisMesh->getTriangles_array().get(currentTriangles);  
 			createTrifansFromTriangles( thisMesh, thisTriangles, verbose );
 		}  
-		for(int currentTriangles = 0; currentTriangles < trianglesElementCount; currentTriangles++)
+		while(thisMesh->getTriangles_array().getCount() != 0)
 		{
-			// Get the triangles out of the mesh
-			domTriangles *thisTriangles = thisMesh->getTriangles_array().get(currentTriangles);  
-			// Remove the triangles from the mesh
+			domTriangles *thisTriangles = thisMesh->getTriangles_array().get(0);  
 			thisMesh->removeChildElement(thisTriangles);
 		}
 	} 
 	return 0; 
 }
 
-Conditioner::Register<TrifannerProxy> trifannerProxy;
+Conditioner::Register<TrifannerProxy> registerObject;
 
 

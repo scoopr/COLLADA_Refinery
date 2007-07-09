@@ -59,8 +59,7 @@ public class ExecuteWindow extends JFrame implements WindowListener, LogOutput{
 		title = new javax.swing.JLabel();
 		log = new javax.swing.JTextArea();
 		jProgressBar1 = new javax.swing.JProgressBar();
-		//buttonStopClose = new javax.swing.JButton(new ImageIcon("icons/Stop16.gif"));
-		buttonStopClose = new javax.swing.JButton(new ImageIcon(refinery.getClass().getResource("/icons/Stop16.gif")));
+		buttonStopClose = new javax.swing.JButton(new ImageIcon("icons/Stop16.gif"));
 		verticalSpace = new Dimension(0, 10);
 		borderSpace = new Dimension(10,10);
 		

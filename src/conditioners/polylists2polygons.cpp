@@ -78,4 +78,4 @@ int Polylists2Polygons::execute()
 	return 0;
 }
 
-Conditioner::Register< Polylists2PolygonsProxy > plist2pgonProxy;
+Conditioner::Register< Polylists2PolygonsProxy > p2pProxy;

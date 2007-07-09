@@ -56,8 +56,8 @@ public class MacroTemplate {
 		//factory.setErrorHandler(new MyErrorHandler());
 //		set the resource resolver to customize resource resolution
 		//factory.setResourceResolver( new MyLSResourceResolver());
-//		 load a WXS schema, represented by a Schema instance
-		Schema schema = factory.newSchema(this.getClass().getResource("/savefiles.xsd"));
+//		 load a WXS schema, represented by a Schema instance 
+		Schema schema = factory.newSchema(new StreamSource(new File(Refinery.RefineryDirectory + File.separator + "savefiles.xsd")));
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 //		Just set the Schema instance on SAXParserFactory
 		spf.setSchema(schema);

@@ -11,7 +11,7 @@
 ======================================================================
 COLLADA Refinery
 
-Date: March 29, 2007
+Date: November 8, 2006
 Author: Herbert Law, Andrew C. Lorino, Ling Liu
 ======================================================================
 ======================================================================
@@ -50,18 +50,7 @@ Restriction
 Changes (for developer)
 ======================================================================
 
-- March 29, 2007
-  Update new Dom headers and library
-  Axisconverter - add matrix support, remove exit(1) that cause unexpected exit.
-  coherencytest - CHECK_unique_id will run faster, update check_skin that crash on null pointers.
-  copyrighter - remove exit(1) that cause unexpected exit.
-  deindexer - add resolveElement() to make sure getElement() will work, add null check to avoid crash.
-  kmzcleanup - add null checks to avoid crash, remove exit(1) that cause unexpected exit.
-  packager - remove exit(1) that cause unexpected exit.
-  Pipeline.java - add line separators to separate output message between execute()
-
-- November 8, 2006
-  Inital Version
+- Inital Version
 
 
 ======================================================================

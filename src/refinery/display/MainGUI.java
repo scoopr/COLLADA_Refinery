@@ -112,10 +112,10 @@ public class MainGUI {
 		clist = _clist;
 		mlist = _mlist;
 		
+		
 		// First we create our window
 		window = new JFrame("Refinery");
-		//window.setIconImage((new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/collada.gif")).getImage());
-		window.setIconImage((new ImageIcon(_main.getClass().getResource("/icons/collada.gif"))).getImage());
+		window.setIconImage((new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/collada.gif")).getImage());
 		
 		
 		// Set of actions
@@ -512,8 +512,7 @@ public class MainGUI {
 		private static final long serialVersionUID = -3680705883192824329L;
 
 		public ActionExecute(){
-			//super("Execute", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Play16.gif"));
-			super("Execute", new ImageIcon(main.getClass().getResource("/icons/Play16.gif")));
+			super("Execute", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Play16.gif"));
 		}
 		
 		public void actionPerformed(ActionEvent arg0) {
@@ -532,8 +531,7 @@ public class MainGUI {
 		JFrame parentFrame;
 		
 		public ActionOpen(JFrame _parentFrame) {
-			//super("Open", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Open16.gif"));
-			super("Open", new ImageIcon(main.getClass().getResource("/icons/Open16.gif")));
+			super("Open", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Open16.gif"));
 			parentFrame = _parentFrame;
 		}
 
@@ -566,8 +564,7 @@ public class MainGUI {
 		JFrame parentFrame;
 		
 		public ActionSave(JFrame _parentFrame) {
-//			super("Save", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Save16.gif"));
-			super("Save", new ImageIcon(main.getClass().getResource("/icons/Save16.gif")));
+			super("Save", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Save16.gif"));
 			parentFrame = _parentFrame;
 			putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
 		}
@@ -626,8 +623,7 @@ public class MainGUI {
 		private static final long serialVersionUID = -5048682940897487824L;
 
 		public ActionDelete(){
-			//super("Delete", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Delete16.gif"));
-			super("Delete", new ImageIcon(main.getClass().getResource("/icons/Delete16.gif")));
+			super("Delete", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Delete16.gif"));
 			putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke("DELETE"));
 		}
 
@@ -673,8 +669,7 @@ public class MainGUI {
 	class ActionNew extends AbstractAction {
 		private static final long serialVersionUID = -578642069071954800L;
 		public ActionNew(){
-			//super("New", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/New16.gif"));
-			super("New", new ImageIcon(main.getClass().getResource("/icons/New16.gif")));
+			super("New", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/New16.gif"));
 		}
 		public void actionPerformed(ActionEvent arg0) {
 			main.newWorkSpace();
@@ -726,8 +721,7 @@ public class MainGUI {
 		JFrame parentFrame;
 		
 		public ActionUndo(JFrame _parent){
-//			super("Undo", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Undo16.gif"));
-			super("Undo", new ImageIcon(main.getClass().getResource("/icons/Undo16.gif")));
+			super("Undo", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Undo16.gif"));
 			parentFrame = _parent;
 			putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK));
 		}
@@ -752,8 +746,7 @@ public class MainGUI {
 		JFrame parentFrame;
 		
 		public ActionRedo(JFrame _parent){
-			//super("Redo", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Redo16.gif"));
-			super("Redo", new ImageIcon(main.getClass().getResource("/icons/Redo16.gif")));
+			super("Redo", new ImageIcon(Refinery.RefineryDirectory + File.separator + "icons/Redo16.gif"));
 			parentFrame = _parent;
 			putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_Y, InputEvent.CTRL_MASK));
 		}

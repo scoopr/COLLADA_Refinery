@@ -63,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcollada141dom12.lib libloader.lib libxml2_a.lib zlib.lib iconv.lib wsock32.lib"
+				AdditionalDependencies="libcollada141dom12.lib libloader.lib libxml2_a.lib zlib.lib wsock32.lib"
 				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../../external-libs/collada_dom/lib;../../lib/vc8/$(ConfigurationName);&quot;$(COLLADA_EXTERNAL_LIBS_LOCATION)/libxml2/win32/lib&quot;"
@@ -145,7 +145,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcollada141dom12.lib libloader.lib libxml2_a.lib zlib.lib iconv.lib wsock32.lib"
+				AdditionalDependencies="libcollada141dom12.lib libloader.lib libxml2_a.lib zlib.lib wsock32.lib"
 				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="../../external-libs/collada_dom/lib;../../lib/vc8/$(ConfigurationName);&quot;$(COLLADA_EXTERNAL_LIBS_LOCATION)/libxml2/win32/lib&quot;"

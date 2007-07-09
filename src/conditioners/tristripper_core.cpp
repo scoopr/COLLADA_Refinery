@@ -178,6 +178,11 @@ Strip *TriStripper::stripifyOnce(Triangle *startingTriangle, int StripMaxLen){
 		bool faceOrientationSwap1 = false;
 		bool faceOrientationSwap2 = false;
 
+		if (firstChoice == 0 || secondChoice == 0) //TODO: it crashes in some document when they are NULL
+		{
+			if (lastEdge == 0) break;  //TODO: it crashes in some document when they are NULL
+			continue;								
+		}
 		Triangle *neighbor1 = firstChoice->getOtherTriangle(currentTriangle);
 		Triangle *neighbor2 = secondChoice->getOtherTriangle(currentTriangle);
 
@@ -441,4 +446,4 @@ int TriStripper::execute()
 	return 0;	
 }
 
-Conditioner::Register< TriStripperProxy > tristripperProxy;
+Conditioner::Register< TriStripperProxy > triangulateProxy;

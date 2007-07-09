@@ -164,7 +164,7 @@ void ParseInputAndP(domInputLocalOffset_Array &input_array, domP * p, domPRef &n
 		uri.resolveElement();
 		domElement * element = uri.getElement();
 		offsetmap[element] = input_array[j]->getOffset();
-		input_array[j]->setOffset(0);			// reset all input's offset to 0 since all inputs use the same vertex index
+//		input_array[j]->setOffset(0);			// reset all input's offset to 0 since all inputs use the same vertex index
 	}
 	domListOfUInts & value = p->getValue();
 
@@ -175,7 +175,8 @@ void ParseInputAndP(domInputLocalOffset_Array &input_array, domP * p, domPRef &n
 		std::map<domElement*, domUint>::iterator iter;
 		for (iter=offsetmap.begin(); iter!=offsetmap.end(); iter++)
 		{
-			vertex->SetIndex(iter->first, value[(size_t) (j+(iter->second))]);
+			domUint index = value[(size_t) (j+(iter->second))];
+			vertex->SetIndex(iter->first, index);
 		}
 		pair<VertexSet::iterator,bool> result = vertexset.insert(vertex);
 		if (result.second)
@@ -295,6 +296,13 @@ bool Deindexer::init()
 	return true;
 }
 
+void SetAllInputToOffsetZero( domInputLocalOffset_Array &input_array )
+{
+	for ( unsigned int i = 0; i < input_array.getCount(); i++ ) {
+		input_array[i]->setOffset(0);
+	}	
+}
+
 int Deindexer::execute()
 {
 	domInt error = 0;
@@ -326,6 +334,7 @@ int Deindexer::execute()
 			// remove old p and add new p
 			triangles->removeChildElement(p);
 			triangles->placeElement(newp);
+			SetAllInputToOffsetZero(input_array);
 		}
 
 		domTristrips_Array & tristrips_array = mesh->getTristrips_array();
@@ -346,6 +355,7 @@ int Deindexer::execute()
 				tristrips->placeElement(newp);
 				tristrips->removeChildElement(p);
 			}
+			SetAllInputToOffsetZero(input_array);
 		}
 
 		domTrifans_Array & trifans_array = mesh->getTrifans_array();
@@ -366,6 +376,7 @@ int Deindexer::execute()
 				trifans->placeElement(newp);
 				trifans->removeChildElement(p);
 			}
+			SetAllInputToOffsetZero(input_array);
 		}
 
 		domPolygons_Array & polygons_array = mesh->getPolygons_array();
@@ -386,6 +397,7 @@ int Deindexer::execute()
 				polygons->placeElement(newp);
 				polygons->removeChildElement(p);
 			}
+			SetAllInputToOffsetZero(input_array);
 		}
 
 		domPolylist_Array & polylist_array = mesh->getPolylist_array();
@@ -402,6 +414,7 @@ int Deindexer::execute()
 			// remove old p and add new p
 			polylist->removeChildElement(p);
 			polylist->placeElement(newp);
+			SetAllInputToOffsetZero(input_array);
 		}
 
 		domLines_Array & lines_array = mesh->getLines_array();
@@ -418,6 +431,7 @@ int Deindexer::execute()
 			// remove old p and add new p
 			lines->removeChildElement(p);
 			lines->placeElement(newp);
+			SetAllInputToOffsetZero(input_array);
 		}
 
 		domLinestrips_Array & linestrips_array = mesh->getLinestrips_array();
@@ -440,6 +454,7 @@ int Deindexer::execute()
 				linestrips->placeElement(newp);
 				linestrips->removeChildElement(p);
 			}
+			SetAllInputToOffsetZero(input_array);
 		}
 
 		domVertices * vertices = mesh->getVertices();
@@ -524,13 +539,17 @@ int Deindexer::execute()
 			{						// found match mesh, process skin
 				domSkin::domVertex_weights * weights = skin->getVertex_weights();
 				domUint maxoffset = 0;
+
+
 				domInputLocalOffset_Array &inputarray = weights->getInput_array();
-				for (size_t j=0; j< inputarray.getCount(); j++)
+/*				for (size_t j=0; j< inputarray.getCount(); j++)
 				{
 					domUint tmpoffset = inputarray[j]->getOffset();
 					if (tmpoffset > maxoffset) maxoffset = tmpoffset;
 				}
 				domUint numbersofinput = maxoffset + 1; // offset is 0 start, not 1 start
+*/
+				domUint numbersofinput = getMaxOffset(inputarray) + 1;
 
 				skininfo = new SkinInfo(weights, numbersofinput);
 				break;

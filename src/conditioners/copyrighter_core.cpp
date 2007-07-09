@@ -112,4 +112,4 @@ int Copyrighter::execute()
 	return 0;
 }
 
-Conditioner::Register< CopyrighterProxy > copyrighterProxy;
+Conditioner::Register< CopyrighterProxy > triangulateProxy;

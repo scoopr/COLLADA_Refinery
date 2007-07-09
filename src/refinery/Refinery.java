@@ -45,7 +45,8 @@ import refinery.output.StandardOutput;
 
 
 public class Refinery {
-	private final String VERSION_NUMBER = new String("2.0.0");
+	private final String VERSION_INI_LINK = "http://www.collada.org/refineryupdates/version.ini";
+	private String CURRENT_VERSION_NUMBER;
 
 	public static Refinery instance;					// We will have only one instance of Refinery in this progam.
 														// This will allow easy access from anywhere in the code.
@@ -71,50 +72,14 @@ public class Refinery {
 	                                           //   e.g. "C:\Program Files\COLLADA Refinery"
 	public static String ApplicationDirectory; // The actual bin path that the Refinery was run from,
 	                                           //   e.g. "C:\Program Files\COLLADA Refinery\bin\vc8\release"
-											   
-	
 	
 //	public static final String CONDITIONER_DIRECTORY = "lib";
 //	public static final String MACRO_DIRECTORY = "macros";
 //	public static final String TEMP_DIRECTORY = "tmp";
 	
 	public Refinery() {
-		instance = this;
-		
-		//Get the path of the jar-file, that's our binary-path
-		try {
-		
-			File appPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().getFile());;
-			ApplicationDirectory = appPath.getParentFile().getCanonicalPath();
-			
-			//On Windows we use the usual dir-structure, three level above jar-directory
-			if (System.getProperty("os.name").contains("Windows")) {
-			
-				RefineryDirectory = appPath.getParentFile().getParentFile().getParentFile().getCanonicalPath();
-				
-			} else if (System.getProperty("os.name").contains("Mac OS")) {
-				
-				String homeDir = System.getProperty("user.home")+"/Library/Application Support/Collada Refinery";
-				File appUserPath = new File(homeDir);
-				if (!appUserPath.exists()) {
-					if (appUserPath.getParentFile().canWrite()) {
-						appUserPath.mkdir();
-						//Also create user-dir of conditioners
-						File userConditionerDir = new File(homeDir + "/conditioners");
-						userConditionerDir.mkdir();
-					} else 
-						System.err.println("No ~/Library/Application Support/Collada Refinery directory available.");
-				}
-					
-				RefineryDirectory = appUserPath.getCanonicalPath();
-				
-			} else if (System.getProperty("os.name").contains("Linux")) {
-				//TODO: setup Linux-Userpaths (e.g. ~/.ColladaRefinery/ ) 
-			}
-			
-		} catch (IOException e) {
-		}
 
+		instance = this;
 		availableCondList = new AvailableConditionersList();
 		availableMacroList = new AvailableMacrosList();
 		gui = null;
@@ -133,25 +98,24 @@ public class Refinery {
 		availableCondList.load(extLibs, mainConditionerDir);
 		availableCondList.load(extLibs, RefineryDirectory + File.separator + preferences.getValue("DIR_USER_LIB"));
 
-		//Populate the list of conditioners
-		for (int i = 0; i < extLibs.getNumAvailableConditioners(); i++)
-		{
-			ConditionerTemplate cb = extLibs.getConditioner( i );
-			if (cb != null)
-			{
-				availableCondList.add(cb);
-				//Refinery.instance.addDebugMessage(cb.getIDName()() + " added");
-			}
-			else
-			{
-				System.err.println("load lib call back null");
-			}
-			
-		}
-
 		if(errorAndWarnings.hasErrors() || errorAndWarnings.hasWarnings()){
 			errorAndWarnings.popupWindow();
 		}
+		CURRENT_VERSION_NUMBER = GetCurrentVersion();
+	}
+
+	public String GetCurrentVersion(){
+		String version = "";
+		try {
+			String version_ini = RefineryDirectory + File.separator + "version.ini";
+			BufferedReader reader = new BufferedReader(new FileReader(version_ini));
+			version = reader.readLine();
+		}
+		catch (Exception e)
+		{
+			System.err.println("verion.ini is not found");
+		}
+		return version;
 	}
 	
 	public void loadMacros(){
@@ -260,7 +224,7 @@ public class Refinery {
 		//System.out.println("2###############");
 		SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		//System.out.println("3###############");
-		Schema schema = factory.newSchema(this.getClass().getResource("/savefiles.xsd"));
+		Schema schema = factory.newSchema(new StreamSource(new File(Refinery.RefineryDirectory + File.separator + "savefiles.xsd")));
 		//System.out.println("4###############");
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		//System.out.println("5###############");
@@ -289,24 +253,25 @@ public class Refinery {
 			String update = preferences.getOption("UPDATE").value;
 			Calendar currDate = Calendar.getInstance();
 			DateFormat df = DateFormat.getDateTimeInstance();
-			if (update.equals("YES") || currDate.getTime().after( df.parse( update ) ) ) 
+			if (update.equals("Yes"))
 			{
-				URL url = new URL("http://www.collada.org/refineryupdates/version.ini");
+				URL url = new URL(VERSION_INI_LINK);
 				URLConnection uconn = url.openConnection();
 				//System.out.println("Type = " + uconn.getContentType());
 				//System.out.println("Content = " + uconn.getContent());
 				BufferedReader br = new BufferedReader(new InputStreamReader(uconn.getInputStream()));
 				String ln = br.readLine();
-				//System.out.println("Version = " + ln);
-				if (!ln.equals(VERSION_NUMBER))
+				System.out.println("Version = " + ln);
+				if (!ln.equals(CURRENT_VERSION_NUMBER))
 				{
 					String[] options = { "Update", "Update later", "Remind me in 1 week", "Update never" };
-					String message = "Newer version of COLLADA Refinery available.\nUpdate now?\n\nnew version: " + ln + "\ncurrent version: " + VERSION_NUMBER;
+					String message = "Newer version of COLLADA Refinery available.\nUpdate now?\n\nnew version: " + ln + "\ncurrent version: " + CURRENT_VERSION_NUMBER;
 					Object selected = JOptionPane.showOptionDialog(null, message, "Update?", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[1]);
 					if (selected.equals(0))
 					{
 						//System.out.println("Chose to update now");
-						ProcessBuilder pb = new ProcessBuilder("update.exe");
+						String update_exe = RefineryDirectory + File.separator + "update.exe";
+						ProcessBuilder pb = new ProcessBuilder(update_exe);
 						Process p = pb.start();
 						System.exit(0);
 					}
@@ -336,7 +301,7 @@ public class Refinery {
 		}
 		catch (Exception e)
 		{
-			//System.out.println(e.getMessage());
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -345,10 +310,24 @@ public class Refinery {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-	
 		Mode mode;
 		CommandLineParser clp;
 		Refinery main;
+
+		// Get the Refinery and bin locations as absolute paths
+		try {
+			File appPath = new File(System.getProperty("java.class.path")).getCanonicalFile().getParentFile();
+			Refinery.ApplicationDirectory = appPath.getCanonicalPath();
+			Refinery.RefineryDirectory = appPath.getParentFile().getParentFile().getParentFile().getCanonicalPath();
+		}
+		catch (IOException e) {
+		}
+
+		if (Refinery.RefineryDirectory == null)
+		{
+			System.err.println("Failed to determine the location of the COLLADA Refinery!");
+			System.exit(-1);
+		}
 
 		try {
 			clp = new CommandLineParser(args);
@@ -364,7 +343,6 @@ public class Refinery {
 		//System.out.println("############");
 
 		main = new Refinery();
-		
 		Pipeline document = main.document;
 		ConditionerWrapper lib;
 

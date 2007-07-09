@@ -126,4 +126,4 @@ unsigned int DeTriStripper::getMaxOffset2( domInputLocalOffset_Array &input_arra
 	return maxOffset;
 }
 
-Conditioner::Register< DeTriStripperProxy > detripstripperProxy;
+Conditioner::Register< DeTriStripperProxy > triangulateProxy;

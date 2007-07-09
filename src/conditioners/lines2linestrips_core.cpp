@@ -252,4 +252,4 @@ int Lines2linestrips::execute()
 	return 0;
 }
 
-Conditioner::Register<Lines2linestripsProxy> lines2linestripsProxy;
+Conditioner::Register<Lines2linestripsProxy> registerObject;

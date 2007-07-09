@@ -1,0 +1,27 @@
+This document describes how to generate the installer program for COLLADA_Refinery using nullsoft scriptable
+
+Prerequisite:
+
+- NSIS 2
+  for more information, please go to http://nsis.sourceforge.net/Main_Page
+
+- Windows XP Service Pack 2
+
+Step 1
+Check out the install script "refineryinstall.nsi" from COLLADA_Refinery svn repositiory
+
+Step 2
+Create a folder, for example C:\Refineryinstall
+
+Step 3
+Create the update client distribution package, for details how to do this please refer to refinery_update.txt.
+Copy update.exe and update.dat to the above folder
+
+Step 4
+Copy all the data needed to the above folder, for example, refinery.jar, \macros folder, \savefiles folder, etc.
+Please refer to the script for all the data it is trying to include in the installer. If you want to add/remove 
+certain data, modify the script accordingly.
+
+Step 5
+Right click on "refineryinstall.nsi", in the menu option, choose "Compile NSIS Script", it will generate 
+"refineryinstall.exe". This is the single, self-extracting installer program.

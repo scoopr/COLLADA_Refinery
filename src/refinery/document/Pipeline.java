@@ -744,8 +744,7 @@ public class Pipeline
 		catch (Exception e)
 		{
 			refinery.addNormalMessage("EXECUTION STOPPED " + e.getMessage());
-			refinery.addNormalMessage("\n==========================================================================================");
-			refinery.addNormalMessage("==========================================================================================\n");
+			refinery.addNormalMessage("\n====================\n");
 			if (exWin != null)
 			{
 				exWin.finish();
@@ -754,8 +753,7 @@ public class Pipeline
 		}
 
 		refinery.addNormalMessage("\n*** EXECUTION SUCCESSFUL ***\n");
-		refinery.addNormalMessage("\n==========================================================================================");
-		refinery.addNormalMessage("==========================================================================================\n");
+		refinery.addNormalMessage("====================\n");
 		return 0;
 	}
 

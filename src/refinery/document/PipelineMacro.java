@@ -410,8 +410,8 @@ public class PipelineMacro extends Pipeline implements Box, Identifiable {
 	
 	private void loadFromFile(File file) throws SAXException, ParserConfigurationException, IOException{
 		FileLoader contentHandler = new FileLoader(refinery, this, displayArea);
-		SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);		
-		Schema schema = factory.newSchema(refinery.getClass().getResource("/savefiles.xsd"));
+		SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		Schema schema = factory.newSchema(new StreamSource(new File(Refinery.RefineryDirectory + File.separator + "savefiles.xsd")));
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		spf.setSchema(schema);
 		SAXParser saxParser = spf.newSAXParser();
