@@ -43,7 +43,6 @@ import refinery.output.ErrorAndWarningReport;
 import refinery.output.LogOutput;
 import refinery.output.StandardOutput;
 
-
 public class Refinery {
 	private final String VERSION_INI_LINK = "http://www.collada.org/refineryupdates/version.ini";
 	private String CURRENT_VERSION_NUMBER;
@@ -387,7 +386,11 @@ public class Refinery {
 		case Normal:
 			main.loadMacros();
 			main.startGUI();
-			main.checkForUpdates();
+			String osName = System.getProperty("os.name").toLowerCase();
+			if (osName.startsWith("windows"))
+			{
+				main.checkForUpdates();
+			}
 			break;
 		case ExLib:
 			// To execute this conditioner, we add to the document and create links.
