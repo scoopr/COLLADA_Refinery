@@ -1585,7 +1585,7 @@ int Axisconverter::execute()
 	return 0;
 }
 
-Conditioner::Register<AxisconverterProxy> registerObject;
+Conditioner::Register<AxisconverterProxy> axisConverterProxy;
 
 void domMatrix4x4Mult(domFloat4x4 &LSrcMtx, domFloat4x4 &LDestMtx)
 {

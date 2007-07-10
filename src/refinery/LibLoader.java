@@ -116,9 +116,43 @@ public class LibLoader
 	 */
 	static
 	{
-		//Possibly make this variable so we can have different conditioner libraries.
-		System.loadLibrary("libloader");
-		//System.load(Refinery.RefineryDirectory + File.separator + "libloader.dll");
+	
+		//TODO: Add Behavior for Linux
+	
+		//Check for Mac-platform
+		if (System.getProperty("os.name").contains("Mac OS")) {
+			
+			//At first check if Refinery is called by Xcode Debugger, in this case the 
+			//following env-var would have been set and we would load the Conditioner-framework
+			//directly out of the build-directory
+			
+			String debugFramework = System.getenv("REFINERY_XCODE_DEBUG_FRAMEWORK");
+			if (debugFramework != null) {
+				
+				try {
+					//Load the Dynamic lib from Build directory
+					System.load(debugFramework+"/ColladaRefineryConditioner.framework/ColladaRefineryConditioner");					
+				} catch (UnsatisfiedLinkError ule) {
+					System.err.println("Could not load Framework from build directory " + debugFramework);
+					ule.printStackTrace();
+				}
+				
+			} else {
+				//Try to load the Conditioner-framework from normal install location on Mac
+				try {
+					System.load("/Library/Frameworks/ColladaRefineryConditioner.framework/ColladaRefineryConditioner");					
+				} catch (UnsatisfiedLinkError ule) {
+					System.err.println("Could not load Framework from default installation-dir /Library/Frameworks/ColladaRefineryConditioner.framework/ColladaRefineryConditioner. You might have a broken installation.");
+					ule.printStackTrace();
+				}
+			}
+		} else {
+		
+			//For Windows load it as usual
+			System.loadLibrary("libloader");
+			
+		}
+
 		//init();
 	}
 

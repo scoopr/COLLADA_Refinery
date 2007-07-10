@@ -165,4 +165,4 @@ int Optimizer::execute()
 	return 0;
 }
 
-Conditioner::Register<OptimizerProxy> registerObject;
+Conditioner::Register<OptimizerProxy> opimizerProxy;

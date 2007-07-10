@@ -94,4 +94,4 @@ int Polylists2lines::execute()
 	return 0;
 }
 
-Conditioner::Register<Polylists2linesProxy> registerObject;
+Conditioner::Register<Polylists2linesProxy> polylists2linesProxy;

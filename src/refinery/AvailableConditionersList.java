@@ -57,7 +57,18 @@ public class AvailableConditionersList {
 	
 	public void load(LibLoader ll, String directory )
 	{
-		final String LIB_EXTENSION = "dll";
+		final String LIB_EXTENSION;
+		if (System.getProperty("os.name").contains("Windows"))
+			LIB_EXTENSION = "dll";
+		else if (System.getProperty("os.name").contains("Mac OS"))
+			LIB_EXTENSION = "dylib";
+		else if (System.getProperty("os.name").contains("Linux"))
+			LIB_EXTENSION = "so";
+		else {
+			System.err.println("Could not determine OS for platform-specific LIB_EXTENSION");
+			return;
+		}
+
 		File libDirectory = new File(directory);
 		if (!libDirectory.exists())
 		{
@@ -72,30 +83,22 @@ public class AvailableConditionersList {
 			File file = new File(directory + File.separator + libList[i]);
 			if (file.isFile() && file.getName().matches("[a-zA-Z][a-zA-Z0-9\\-\\_]*\\." + LIB_EXTENSION))
 			{
+			
+				//note: if we catch the unsatisfied link-error, the Refinery won't crash just because
+				//of one broken conditioner, it simply does not load it
 				try
 				{
 					System.load(file.getCanonicalPath());
+				}
+				catch (UnsatisfiedLinkError ule)
+				{
+					ule.printStackTrace();
 				}
 				catch (Exception e)
 				{
 					System.err.println(e.getMessage());
 				}
 			}
-		}
-
-		for (int i = 0; i < ll.getNumAvailableConditioners(); i++)
-		{
-			ConditionerTemplate cb = ll.getConditioner( i );
-			if (cb != null)
-			{
-				add(cb);
-				//Refinery.instance.addDebugMessage(cb.getIDName() + " added");
-			}
-			else
-			{
-				System.err.println("load lib call back null");
-			}
-			
 		}
 	}
 

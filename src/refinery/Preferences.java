@@ -43,7 +43,7 @@ public class Preferences {
 		preferences.put("GUI_PIPDIR", new Option("GUI_PIPDIR", "Default pipeline files directory", "", "savefiles"));
 		preferences.put("GUI_DAEDIR", new Option("GUI_DAEDIR", "Default dae files directory", "", "Collada_data"));
 		
-		preferences.put("DIR_USER_LIB", new Option("DIR_USER_LIB", "User conditioner directory", "Directory where the user's custom conditioners are stored and loaded at launch", "user_conditioners"));
+		preferences.put("DIR_USER_LIB", new Option("DIR_USER_LIB", "User conditioner directory", "Directory where the user's custom conditioners are stored and loaded at launch", "conditioners"));
 		preferences.put("DIR_MACRO", new Option("DIR_MACRO", "Macro directory", "Directory where macros are stored and loaded at launch", "macros"));
 		//preferences.put("DIR_TEMP", new Option("DIR_TEMP", "Temporary directory", "Directory where temporary execution files are stored", "tmp"));
 		

@@ -19,6 +19,8 @@
 	#else
 		#define REF_EXPORT __declspec(dllimport)
 	#endif
+#else
+	#define REF_EXPORT
 #endif
 
 #endif //__DEFINES_H__

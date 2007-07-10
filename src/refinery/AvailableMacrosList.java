@@ -56,12 +56,12 @@ public class AvailableMacrosList {
 		
 		//Refinery.instance.addDebugMessage("Macro list:");
 		for(int i=0; i<macroList.length; i++){
-			File file = new File(dir+"\\"+macroList[i]);
+			File file = new File(dir + File.separator + macroList[i]);
 			if(file.isFile() && file.getName().matches(".*\\."+MACRO_EXTENSION)){
 				try {
 					addFromFile(file.getCanonicalPath(), "No category");
 				} catch (Exception e) {
-					Refinery.instance.addDebugMessage("Macro "+dir+"\\"+macroList[i]+ " could not be loaded :\n"+e);
+					Refinery.instance.addDebugMessage("Macro "+dir+ File.separator +macroList[i]+ " could not be loaded :\n"+e);
 				}
 			} else if (file.isDirectory()) {	// Scan the first directory level
 				File [] macroList2 = file.listFiles(new MacroFileNameFilter());
@@ -69,7 +69,7 @@ public class AvailableMacrosList {
 					try{
 						addFromFile(macroList2[j].getCanonicalPath(), file.getName());
 					} catch (Exception e){
-						Refinery.instance.addDebugMessage("Macro "+dir+"\\"+macroList2[j]+ " could not be loaded :\n"+e);
+						Refinery.instance.addDebugMessage("Macro "+dir+ File.separator + macroList2[j]+ " could not be loaded :\n"+e);
 					}
 				}
 			}

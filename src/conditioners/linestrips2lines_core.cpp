@@ -91,4 +91,4 @@ int Linestrips2lines::execute()
 	return 0;
 }
 
-Conditioner::Register<Linestrips2linesProxy> registerObject;
+Conditioner::Register<Linestrips2linesProxy> linestrips2linesProxy;

@@ -330,6 +330,6 @@ int Trifanner::execute()
 	return 0; 
 }
 
-Conditioner::Register<TrifannerProxy> registerObject;
+Conditioner::Register<TrifannerProxy> trifannerProxy;
 
 

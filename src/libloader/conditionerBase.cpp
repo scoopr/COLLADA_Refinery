@@ -11,7 +11,7 @@
  * License. 
  */
 
-#include <windows.h>
+//#include <windows.h>
 
 #include <dae.h>
 #include "conditionerBase.h"
