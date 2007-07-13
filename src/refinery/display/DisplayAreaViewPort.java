@@ -23,7 +23,7 @@ public class DisplayAreaViewPort extends JViewport {
 		setView(area);
 	}
 	
-	public void reshape(int x, int y, int w, int h) {
+	public void setBounds(int x, int y, int w, int h) {
 		super.reshape(x, y, w, h);
 		
 		Dimension newSize = null;

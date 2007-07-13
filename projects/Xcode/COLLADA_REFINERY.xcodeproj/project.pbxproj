@@ -95,6 +95,11 @@
 		AD4811FB0C3C20B200C8B11D /* refinery_LibLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643F070BC7B2CF00BA0DC0 /* refinery_LibLoader.cpp */; };
 		AD48120E0C3C224E00C8B11D /* COLLADA_DOM141.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADD5EFA20C2FEE1F006632A6 /* COLLADA_DOM141.framework */; };
 		AD4812310C3C23DA00C8B11D /* ColladaRefineryConditioner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4811EE0C3C203E00C8B11D /* ColladaRefineryConditioner.framework */; };
+		AD6AD2C40C44D16500EF6482 /* JavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE2200B0208CA9C0CC91562 /* JavaVM.framework */; };
+		AD6AD2C50C44D16500EF6482 /* COLLADA_DOM141.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADD5EFA20C2FEE1F006632A6 /* COLLADA_DOM141.framework */; };
+		AD6AD2C60C44D16500EF6482 /* ColladaRefineryConditioner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4811EE0C3C203E00C8B11D /* ColladaRefineryConditioner.framework */; };
+		AD6AD2CF0C44D1C200EF6482 /* coherencytest.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1847F00BCEB49E000FC307 /* coherencytest.h */; };
+		AD6AD2D20C44D1CD00EF6482 /* coherencytest_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643EE90BC7B2CF00BA0DC0 /* coherencytest_core.cpp */; };
 		AD9A7F170C39076100C43196 /* Add16.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E7E0C38FED200C43196 /* Add16.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
 		AD9A7F180C39076100C43196 /* collada.gif in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E7F0C38FED200C43196 /* collada.gif */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
 		AD9A7F190C39076100C43196 /* collada.ico in JavaArchive */ = {isa = PBXBuildFile; fileRef = AD9A7E800C38FED200C43196 /* collada.ico */; settings = {JAVA_ARCHIVE_SUBDIR = icons; }; };
@@ -162,6 +167,8 @@
 		AD9A81C50C3961FC00C43196 /* utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643F010BC7B2CF00BA0DC0 /* utility.cpp */; };
 		AD9A81C60C3961FC00C43196 /* vertexcache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD643F020BC7B2CF00BA0DC0 /* vertexcache.cpp */; };
 		ADD6602D0C429A6900E21246 /* ColladaRefineryConditioner.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AD4811EE0C3C203E00C8B11D /* ColladaRefineryConditioner.framework */; };
+		ADDB27E20C47D6510093BEE3 /* libxml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDB27E10C47D6510093BEE3 /* libxml.framework */; };
+		ADDB27F70C47D92D0093BEE3 /* libCoherencyTest.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = AD6AD2CA0C44D16500EF6482 /* libCoherencyTest.dylib */; };
 		ADDD8D6A0C33F6B50044C0D4 /* Action.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F330BC7B2D000BA0DC0 /* Action.java */; };
 		ADDD8D6B0C33F6B50044C0D4 /* ActionCreateConditioner.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F340BC7B2D000BA0DC0 /* ActionCreateConditioner.java */; };
 		ADDD8D6C0C33F6B50044C0D4 /* ActionCreateInputBox.java in Sources */ = {isa = PBXBuildFile; fileRef = AD643F350BC7B2D000BA0DC0 /* ActionCreateInputBox.java */; };
@@ -350,6 +357,13 @@
 			remoteGlobalIDString = AD4811ED0C3C203E00C8B11D;
 			remoteInfo = ColladaRefineryConditioner;
 		};
+		AD6AD28C0C44D16500EF6482 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00E6828EFEC88D1A11DB9C8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD4811ED0C3C203E00C8B11D;
+			remoteInfo = ColladaRefineryConditioner;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -360,6 +374,16 @@
 			dstSubfolderSpec = 10;
 			files = (
 				ADD6602D0C429A6900E21246 /* ColladaRefineryConditioner.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADDB27D60C47CF260093BEE3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "Collada Refinery.app/Contents/Resources/Java/conditioners";
+			dstSubfolderSpec = 16;
+			files = (
+				ADDB27F70C47D92D0093BEE3 /* libCoherencyTest.dylib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +557,7 @@
 		AD643F570BC7B2D000BA0DC0 /* Refinery.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = Refinery.java; sourceTree = "<group>"; };
 		AD643F580BC7B2D000BA0DC0 /* XMLOutput.java */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.java; path = XMLOutput.java; sourceTree = "<group>"; };
 		AD6440360BC7E47800BA0DC0 /* Headers/refinery_LibLoader.h */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = Headers/refinery_LibLoader.h; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD6AD2CA0C44D16500EF6482 /* libCoherencyTest.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libCoherencyTest.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD9A7E7E0C38FED200C43196 /* Add16.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Add16.gif; sourceTree = "<group>"; };
 		AD9A7E7F0C38FED200C43196 /* collada.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = collada.gif; sourceTree = "<group>"; };
 		AD9A7E800C38FED200C43196 /* collada.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = collada.ico; sourceTree = "<group>"; };
@@ -548,6 +573,7 @@
 		AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libDefaultConditioners.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAEE3850C130C5B00B9789A /* conditioner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = conditioner.h; path = ../../include/conditioner.h; sourceTree = SOURCE_ROOT; };
 		ADD5EFA20C2FEE1F006632A6 /* COLLADA_DOM141.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = COLLADA_DOM141.framework; path = /Library/Frameworks/COLLADA_DOM141.framework; sourceTree = "<absolute>"; };
+		ADDB27E10C47D6510093BEE3 /* libxml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libxml.framework; path = /Library/Frameworks/libxml.framework; sourceTree = "<absolute>"; };
 		ADDCBCD00C32C66600F60F2B /* Collada Refinery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Collada Refinery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE4CDF50C3402BA00295441 /* JNIWrapper.jar */ = {isa = PBXFileReference; explicitFileType = archive.jar; includeInIndex = 0; path = JNIWrapper.jar; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -572,6 +598,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD6AD2C30C44D16500EF6482 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD6AD2C40C44D16500EF6482 /* JavaVM.framework in Frameworks */,
+				AD6AD2C50C44D16500EF6482 /* COLLADA_DOM141.framework in Frameworks */,
+				AD6AD2C60C44D16500EF6482 /* ColladaRefineryConditioner.framework in Frameworks */,
+				ADDB27E20C47D6510093BEE3 /* libxml.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +653,7 @@
 				ADE4CDF50C3402BA00295441 /* JNIWrapper.jar */,
 				AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */,
 				AD4811EE0C3C203E00C8B11D /* ColladaRefineryConditioner.framework */,
+				AD6AD2CA0C44D16500EF6482 /* libCoherencyTest.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -633,6 +671,7 @@
 		AD643ED30BC7B0CE00BA0DC0 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				ADDB27E10C47D6510093BEE3 /* libxml.framework */,
 				ADD5EFA20C2FEE1F006632A6 /* COLLADA_DOM141.framework */,
 				6AE2200B0208CA9C0CC91562 /* JavaVM.framework */,
 			);
@@ -871,6 +910,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD6AD28D0C44D16500EF6482 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD6AD2CF0C44D1C200EF6482 /* coherencytest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD9A816B0C3960AA00C43196 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -999,6 +1046,26 @@
 			productReference = AD4811EE0C3C203E00C8B11D /* ColladaRefineryConditioner.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		AD6AD28A0C44D16500EF6482 /* CoherencyTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD6AD2C70C44D16500EF6482 /* Build configuration list for PBXNativeTarget "CoherencyTest" */;
+			buildPhases = (
+				AD6AD28D0C44D16500EF6482 /* Headers */,
+				AD6AD2A90C44D16500EF6482 /* Sources */,
+				AD6AD2C30C44D16500EF6482 /* Frameworks */,
+				ADDB27D60C47CF260093BEE3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			comments = "This conditioner requires a newer libxml2-version as shipped with Tiger, \nget it at http://www.explain.com.au/oss/libxml2xslt.html";
+			dependencies = (
+				AD6AD28B0C44D16500EF6482 /* PBXTargetDependency */,
+			);
+			name = CoherencyTest;
+			productName = JNILibN;
+			productReference = AD6AD2CA0C44D16500EF6482 /* libCoherencyTest.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 		AD9A81680C3960AA00C43196 /* DefaultConditioners */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD9A81740C3960AA00C43196 /* Build configuration list for PBXNativeTarget "DefaultConditioners" */;
@@ -1033,6 +1100,7 @@
 				AD64402E0BC7E47800BA0DC0 /* Headers Libloader */,
 				AD9A81680C3960AA00C43196 /* DefaultConditioners */,
 				AD4811ED0C3C203E00C8B11D /* ColladaRefineryConditioner */,
+				AD6AD28A0C44D16500EF6482 /* CoherencyTest */,
 			);
 		};
 /* End PBXProject section */
@@ -1105,6 +1173,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD6AD2A90C44D16500EF6482 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD6AD2D20C44D1CD00EF6482 /* coherencytest_core.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1332,6 +1408,11 @@
 			target = AD4811ED0C3C203E00C8B11D /* ColladaRefineryConditioner */;
 			targetProxy = AD48123C0C3C24C500C8B11D /* PBXContainerItemProxy */;
 		};
+		AD6AD28B0C44D16500EF6482 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD4811ED0C3C203E00C8B11D /* ColladaRefineryConditioner */;
+			targetProxy = AD6AD28C0C44D16500EF6482 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -1356,7 +1437,9 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				JAVA_ARCHIVE_TYPE = JAR;
 				JAVA_COMPILER = /usr/bin/javac;
+				JAVA_COMPILER_DEBUGGING_SYMBOLS = NO;
 				JAVA_COMPILER_DEPRECATED_WARNINGS = YES;
+				JAVA_COMPILER_FLAGS = "-Xlint:unchecked";
 				JAVA_COMPILER_SOURCE_VERSION = 1.5;
 				JAVA_COMPILER_TARGET_VM_VERSION = 1.5;
 				JAVA_MANIFEST_FILE = ../../src/refinery/manifest.txt;
@@ -1583,6 +1666,122 @@
 			};
 			name = Debug;
 		};
+		AD6AD2C80C44D16500EF6482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					REFINERY,
+					"stricmp=strcasecmp",
+				);
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS_QUOTED_1)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_2)",
+					/Library/Frameworks/COLLADA_DOM141.framework/Headers,
+				);
+				HEADER_SEARCH_PATHS_QUOTED_1 = "\"${OBJROOT}/Headers\"";
+				HEADER_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/JavaVM.framework/Headers\"";
+				INSTALL_PATH = "@executable_path/../Resources/Java/conditioners";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "";
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = CoherencyTest;
+				SECTORDER_FLAGS = "";
+				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		AD6AD2C90C44D16500EF6482 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "";
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					REFINERY,
+					"stricmp=strcasecmp",
+				);
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS_QUOTED_1)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_2)",
+					/Library/Frameworks/COLLADA_DOM141.framework/Headers,
+				);
+				HEADER_SEARCH_PATHS_QUOTED_1 = "\"${OBJROOT}/Headers\"";
+				HEADER_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_LIBRARY_DIR)/Frameworks/JavaVM.framework/Headers\"";
+				INSTALL_PATH = "@executable_path/../Resources/Java/conditioners";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_2)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_3)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "";
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = CoherencyTest;
+				SECTORDER_FLAGS = "";
+				SEPARATE_STRIP = YES;
+				STRIPFLAGS = "-Xx";
+				STRIP_INSTALLED_PRODUCT = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		AD9A81750C3960AA00C43196 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1676,6 +1875,7 @@
 				JAVA_ARCHIVE_TYPE = JAR;
 				JAVA_COMPILER = /usr/bin/javac;
 				JAVA_COMPILER_DEPRECATED_WARNINGS = YES;
+				JAVA_COMPILER_FLAGS = "-Xlint:unchecked";
 				JAVA_COMPILER_SOURCE_VERSION = 1.5;
 				JAVA_COMPILER_TARGET_VM_VERSION = 1.5;
 				JAVA_MANIFEST_FILE = ../../src/refinery/manifest.txt;
@@ -1725,6 +1925,15 @@
 			buildConfigurations = (
 				AD6440340BC7E47800BA0DC0 /* Debug */,
 				AD350FBF0C397CFE0094C37A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD6AD2C70C44D16500EF6482 /* Build configuration list for PBXNativeTarget "CoherencyTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD6AD2C80C44D16500EF6482 /* Debug */,
+				AD6AD2C90C44D16500EF6482 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

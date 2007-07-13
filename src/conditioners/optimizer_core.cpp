@@ -85,7 +85,7 @@ int Optimizer::execute()
 				{
 					domPRef P = thisTriangles->getP();
 					domListOfUInts Plist = P->getValue();
-					unsigned int  count = (unsigned int ) Plist.getCount();
+//					unsigned int  count = (unsigned int ) Plist.getCount();
 					unsigned int  Pindex = currentTriangleIndex + currentIndex * maxinputoffset;
 					unsigned int  Pvalue = (unsigned int ) Plist[Pindex];
 					aTriangle.indices[currentIndex] = Pvalue;

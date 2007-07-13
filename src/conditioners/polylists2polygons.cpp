@@ -57,14 +57,14 @@ int Polylists2Polygons::execute()
 					maxOffset = plist->getInput_array()[i]->getOffset();
 			}
 			int currIdx = 0;
-			for ( int poly = 0; poly < plist->getCount(); poly++ )
+			for ( daeUInt poly = 0; poly < plist->getCount(); poly++ )
 			{
 				domP *p = daeSafeCast<domP>( polys->createAndPlace( COLLADA_ELEMENT_P ) );
 				int vcount = (int)plist->getVcount()->getValue()[poly];
 				for ( int v = 0; v < vcount; v++ )
 				{
 					domListOfUInts &inds = p->getValue();
-					for ( int i = 0; i < maxOffset+1; i++ )
+					for ( daeUInt i = 0; i < maxOffset+1; i++ )
 					{
 						inds.append( plist->getP()->getValue()[currIdx] );
 						currIdx++;

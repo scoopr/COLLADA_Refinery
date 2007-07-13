@@ -137,7 +137,7 @@ domUint Coherencytest::CHECK_count(domElement * element, domInt expected, domInt
 	if (expected != result)
 	{
 		char temp[MAX_LOG_BUFFER];
-		sprintf(temp, "CHECK_count   Failed: expected=%d, result=%d", expected, result);
+		sprintf(temp, "CHECK_count   Failed: expected=%d, result=%d", static_cast<int >( expected ), static_cast<int >( result ));
 		PRINTF(temp);
 		print_name_id(element);
 		if (message) PRINTF(message);
@@ -209,7 +209,8 @@ domUint Coherencytest::CHECK_Polygons(domPolygons *polygons)
 	domUint count = polygons->getCount();
 	domInputLocalOffset_Array & inputs = polygons->getInput_array();
 	errorcount += CHECK_inputs(inputs, "VERTEX");
-	domUint maxoffset = GetMaxOffsetFromInputs(inputs);
+	//maxoffset: unused variable
+	//domUint maxoffset = GetMaxOffsetFromInputs(inputs);
 	domP_Array & parray = polygons->getP_array();
 
 	// check count
@@ -855,7 +856,8 @@ domUint Coherencytest::CHECK_unique_id (DAE *input, int verbose)
 	domInt error = 0;
 	domUint errorcount = 0;
 	daeDatabase *db = input->getDatabase();
-	daeString file = file_name.c_str();
+	//unused variable file
+	//daeString file = file_name.c_str();
 	daeInt count = (daeInt) db->getElementCount(NULL, NULL, NULL);
 	for (daeInt i=0; i<count; i++)
 	{
@@ -977,7 +979,8 @@ domUint Coherencytest::CHECK_validateDocument(xmlDocPtr LXMLDoc)
 //	const char * dae_SchemaURL = "C:\\svn\\COLLADA_DOM\\doc\\COLLADASchema.xsd";
 	const char * dae_SchemaURL = "http://www.collada.org/2005/11/COLLADASchema.xsd";
 
-	xmlSchemaParserCtxt*  Ctxt = xmlSchemaNewDocParserCtxt(LXMLDoc);
+	//unused variable Ctxt
+//	xmlSchemaParserCtxt*  Ctxt = xmlSchemaNewDocParserCtxt(LXMLDoc);
 	xmlSchemaParserCtxt*    LXMLSchemaParserCtxt = xmlSchemaNewParserCtxt(dae_SchemaURL);
 
 	if(LXMLSchemaParserCtxt)

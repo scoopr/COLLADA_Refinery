@@ -32,7 +32,8 @@ public class MultiLineToolTipUI extends MetalToolTipUI {
 	  private int maxWidth = 0;
 
 	  public void paint(Graphics g, JComponent c) {
-	    FontMetrics metrics = Toolkit.getDefaultToolkit().getFontMetrics(g.getFont());
+
+	    FontMetrics metrics = c.getFontMetrics(g.getFont());
 	    Dimension size = c.getSize();
 	    g.setColor(c.getBackground());
 	    g.fillRect(0, 0, size.width, size.height);
@@ -45,7 +46,8 @@ public class MultiLineToolTipUI extends MetalToolTipUI {
 	  }
 
 	  public Dimension getPreferredSize(JComponent c) {
-	    FontMetrics metrics = Toolkit.getDefaultToolkit().getFontMetrics(c.getFont());
+
+	    FontMetrics metrics = c.getFontMetrics(c.getFont());
 	    String tipText = ((JToolTip)c).getTipText();
 	    if (tipText == null) {
 	      tipText = "";
@@ -53,7 +55,7 @@ public class MultiLineToolTipUI extends MetalToolTipUI {
 	    BufferedReader br = new BufferedReader(new StringReader(tipText));
 	    String line;
 	    int maxWidth = 0;
-	    Vector v = new Vector();
+	    Vector<String> v = new Vector<String>();
 	    try {
 	      while ((line = br.readLine()) != null) {
 		int width = SwingUtilities.computeStringWidth(metrics,line);

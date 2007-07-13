@@ -308,7 +308,7 @@ int Deindexer::execute()
 	domInt error = 0;
 	domUint geometry_count = _dae->getDatabase()->getElementCount(NULL, COLLADA_TYPE_GEOMETRY, getInput(0).c_str());
 
-	for (daeInt c=0; c<geometry_count; c++)
+	for (daeUInt c=0; c<geometry_count; c++)
 	{	// for each geometry
 		domGeometry *geometry;
 		error = _dae->getDatabase()->getElement((daeElement**)&geometry,c, NULL, COLLADA_TYPE_GEOMETRY, getInput(0).c_str());
@@ -527,7 +527,7 @@ int Deindexer::execute()
 		// parse skinning
 		SkinInfo * skininfo = NULL;
 		domUint skin_count = _dae->getDatabase()->getElementCount(NULL, COLLADA_TYPE_SKIN, getInput(0).c_str());
-		for (daeInt i=0; i < skin_count; i++)
+		for (daeUInt i=0; i < skin_count; i++)
 		{
 			domSkin * skin = 0;
 			error = _dae->getDatabase()->getElement((daeElement**)&skin, i, NULL, COLLADA_TYPE_SKIN, getInput(0).c_str());
@@ -538,7 +538,7 @@ int Deindexer::execute()
 			if (geometry == skin_geometry)
 			{						// found match mesh, process skin
 				domSkin::domVertex_weights * weights = skin->getVertex_weights();
-				domUint maxoffset = 0;
+//				domUint maxoffset = 0;
 
 
 				domInputLocalOffset_Array &inputarray = weights->getInput_array();
@@ -571,14 +571,14 @@ int Deindexer::execute()
 
 	// resolve all a the inputs so that they will reference to the new domSource
 	domUint input_count = _dae->getDatabase()->getElementCount(NULL, COLLADA_TYPE_INPUTLOCAL, getInput(0).c_str());
-	for (daeInt c=0; c<input_count; c++)
+	for (daeUInt c=0; c<input_count; c++)
 	{	// for each geometry
 		domInputLocal *inputlocal;
 		error = _dae->getDatabase()->getElement((daeElement**)&inputlocal,c, NULL, COLLADA_TYPE_INPUTLOCAL, getInput(0).c_str());
 		inputlocal->getSource().resolveElement();
 	}
 	domUint inputlocaloffset_count = _dae->getDatabase()->getElementCount(NULL, COLLADA_TYPE_INPUTLOCALOFFSET, getInput(0).c_str());
-	for (daeInt c=0; c<inputlocaloffset_count; c++)
+	for (daeUInt c=0; c<inputlocaloffset_count; c++)
 	{	// for each geometry
 		domInputLocalOffset *inputlocaloffset;
 		error = _dae->getDatabase()->getElement((daeElement**)&inputlocaloffset,c, NULL, COLLADA_TYPE_INPUTLOCALOFFSET, getInput(0).c_str());

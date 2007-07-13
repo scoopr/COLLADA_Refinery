@@ -60,7 +60,7 @@ int Polygons2Polylists::execute()
 				if ( polys->getInput_array()[i]->getOffset() > maxOffset )
 					maxOffset = polys->getInput_array()[i]->getOffset();
 			}
-			for ( int poly = 0; poly < polys->getCount(); poly++ )
+			for ( daeUInt poly = 0; poly < polys->getCount(); poly++ )
 			{
 				domP *p = polys->getP_array()[poly];
 								

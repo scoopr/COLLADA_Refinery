@@ -122,7 +122,7 @@ public class ConditionerWrapper extends IdentifiableImpl implements Box
 	{
 		try
 		{
-			Option o = new Option<Boolean>(name, fullName, description,
+			Option<Boolean> o = new Option<Boolean>(name, fullName, description,
 				Option.OptionType.BOOL);
 			o.setValue(val);
 			options.addOption(o);
@@ -137,7 +137,7 @@ public class ConditionerWrapper extends IdentifiableImpl implements Box
 	{
 		try
 		{
-			Option o = new Option<String>(name, fullName, description,
+			Option<String> o = new Option<String>(name, fullName, description,
 				Option.OptionType.STRING);
 			o.setValue(val);
 			o.setFlag(flag);
@@ -153,7 +153,7 @@ public class ConditionerWrapper extends IdentifiableImpl implements Box
 	{
 		try
 		{
-			Option o = new Option<Float>(name, fullName, description,
+			Option<Float> o = new Option<Float>(name, fullName, description,
 				Option.OptionType.FLOAT);
 			o.setValue(val);
 			//System.out.println("option " + name + " = " + val);

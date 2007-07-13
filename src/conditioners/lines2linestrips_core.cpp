@@ -24,7 +24,7 @@ public:
 	{
 		m_maxoffset = copy.m_maxoffset;
 		m_data = new domUint(m_maxoffset);
-		for(int i=0; i<m_maxoffset; i++)
+		for(domUint i=0; i<m_maxoffset; i++)
 		{
 			m_data[i] = copy.m_data[i];
 		}
@@ -47,7 +47,7 @@ public:
 
 	bool operator ==(Vertex & v)
 	{
-		for (int i=0; i<m_maxoffset; i++)
+		for (domUint i=0; i<m_maxoffset; i++)
 		{
 			if (m_data[i] != v.m_data[i])
 				return false;
@@ -58,7 +58,7 @@ public:
 	{
 		m_maxoffset = copy.m_maxoffset;
 		m_data = new domUint(m_maxoffset);
-		for(int i=0; i<m_maxoffset; i++)
+		for(domUint i=0; i<m_maxoffset; i++)
 		{
 			m_data[i] = copy.m_data[i];
 		}

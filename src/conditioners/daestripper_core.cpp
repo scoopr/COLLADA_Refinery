@@ -69,7 +69,7 @@ void stripouttechniquespecified(DAE *input, const char *attribute)
 
 int daestrip (DAE *input, const char *element, const char *attribute, int verbose = 0)
 {
-	int error = 0;
+//	int error = 0;
     
 	if (strcmp(element, "extra") == 0) {
 		stripoutextra(input);

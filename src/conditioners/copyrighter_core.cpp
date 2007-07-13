@@ -40,7 +40,7 @@ int Copyrighter::execute()
 		if (pFile==NULL)
 		{
 			char temp[1024];
-			sprintf(temp, "File %s is not found\n", copyright_file); 
+			sprintf(temp, "File %s is not found\n", copyright_file.c_str()); 
 			printDebugMessage(temp);
 			return (-1);
 		}
@@ -55,7 +55,7 @@ int Copyrighter::execute()
 		if (buffer == NULL) 
 		{
 			char temp[1024];
-			sprintf(temp, "File %s is too big, not enough memory\n", copyright_file); 
+			sprintf(temp, "File %s is too big, not enough memory\n", copyright_file.c_str()); 
 			printDebugMessage(temp);
 			return (-2);
 		}
