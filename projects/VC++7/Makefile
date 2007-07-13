@@ -22,9 +22,15 @@ PROJECT_FILES				+= \
 							packager.vcproj \
 							JavaSrc.vcproj \
 							
-CLEAN_DIR					+=  ../../lib \
+CLEAN_DIR					+= 	../../lib \
 								../../lib-dbg \
 								../../tmp \
+								../../bin/vc7/debug/libloader.* \
+								../../bin/vc7/debug/refinery.jar \
+								../../bin/vc7/debug/conditioners \
+								../../bin/vc7/release/libloader.* \
+								../../bin/vc7/release/refinery.jar \
+								../../bin/vc7/release/conditioners \
 								
 PROJECT_CONFIG				:= $(BUILD)
 

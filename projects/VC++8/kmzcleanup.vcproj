@@ -63,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcollada141dom12.lib libloader.lib"
+				AdditionalDependencies="libcollada141dom13.lib libloader.lib"
 				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../../external-libs/collada_dom/lib;../../lib/vc8/$(ConfigurationName)"
@@ -145,7 +145,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcollada141dom12.lib libloader.lib"
+				AdditionalDependencies="libcollada141dom13.lib libloader.lib"
 				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="../../external-libs/collada_dom/lib;../../lib/vc8/$(ConfigurationName)"

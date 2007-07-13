@@ -34,7 +34,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcollada141dom12.lib libloader.lib DevIL.lib"
+				AdditionalDependencies="libcollada141dom13.lib libloader.lib DevIL.lib"
 				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../../external-libs/collada_dom/lib;&quot;$(COLLADA_EXTERNAL_LIBS_LOCATION)/devIL/win32/lib&quot;;../../lib/vc7/$(ConfigurationName)"
@@ -86,7 +86,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcollada141dom12.lib libloader.lib DevIL.lib"
+				AdditionalDependencies="libcollada141dom13.lib libloader.lib DevIL.lib"
 				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="../../external-libs/collada_dom/lib;&quot;$(COLLADA_EXTERNAL_LIBS_LOCATION)/devIL/win32/lib&quot;;../../lib/vc7/$(ConfigurationName)"

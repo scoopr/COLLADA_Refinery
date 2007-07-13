@@ -25,6 +25,14 @@ PROJECT_FILES				+= \
 CLEAN_DIR					+= 	../../lib \
 								../../lib-dbg \
 								../../tmp \
+								../../bin/vc8/debug/libloader.* \
+								../../bin/vc8/debug/refinery.jar \
+								../../bin/vc8/debug/conditioners \
+								../../bin/vc8/release/libloader.* \
+								../../bin/vc8/release/refinery.jar \
+								../../bin/vc8/release/conditioners \
+								
+								
 															
 PROJECT_CONFIG				:= $(BUILD)
 
