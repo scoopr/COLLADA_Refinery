@@ -16,7 +16,6 @@ include						$(ROOT_DIR)/build/MakeDefs
 PROJECT_FILES				+= \
 							libloader.vcproj \
 							bindmaterialfixer.vcproj \
-							coherencytest.vcproj \
 							conditioners.vcproj \
 							kmzcleanup.vcproj  \
 							packager.vcproj \
