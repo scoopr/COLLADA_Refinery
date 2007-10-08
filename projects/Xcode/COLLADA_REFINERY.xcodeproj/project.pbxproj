@@ -393,7 +393,6 @@
 		AD1847ED0BCEB49E000FC307 /* axisconverter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = axisconverter.h; path = ../../include/axisconverter.h; sourceTree = SOURCE_ROOT; };
 		AD1847EE0BCEB49E000FC307 /* bindmaterialfixer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = bindmaterialfixer.h; path = ../../include/bindmaterialfixer.h; sourceTree = SOURCE_ROOT; };
 		AD1847EF0BCEB49E000FC307 /* blankconditioner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = blankconditioner.h; path = ../../include/blankconditioner.h; sourceTree = SOURCE_ROOT; };
-		AD1847F00BCEB49E000FC307 /* coherencytest.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = coherencytest.h; path = ../../include/coherencytest.h; sourceTree = SOURCE_ROOT; };
 		AD1847F10BCEB49E000FC307 /* commandlineoptions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = commandlineoptions.h; path = ../../include/commandlineoptions.h; sourceTree = SOURCE_ROOT; };
 		AD1847F20BCEB49E000FC307 /* copyrighter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = copyrighter.h; path = ../../include/copyrighter.h; sourceTree = SOURCE_ROOT; };
 		AD1847F30BCEB49E000FC307 /* daestripper.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = daestripper.h; path = ../../include/daestripper.h; sourceTree = SOURCE_ROOT; };
@@ -428,7 +427,6 @@
 		AD4811EF0C3C203E00C8B11D /* ColladaRefineryConditioner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ColladaRefineryConditioner-Info.plist"; sourceTree = "<group>"; };
 		AD643EE70BC7B2CF00BA0DC0 /* axisconverter_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = axisconverter_core.cpp; sourceTree = "<group>"; };
 		AD643EE80BC7B2CF00BA0DC0 /* bindmaterialfixer_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = bindmaterialfixer_core.cpp; sourceTree = "<group>"; };
-		AD643EE90BC7B2CF00BA0DC0 /* coherencytest_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = coherencytest_core.cpp; sourceTree = "<group>"; };
 		AD643EEA0BC7B2CF00BA0DC0 /* copyrighter_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = copyrighter_core.cpp; sourceTree = "<group>"; };
 		AD643EEB0BC7B2CF00BA0DC0 /* daestripper_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = daestripper_core.cpp; sourceTree = "<group>"; };
 		AD643EEC0BC7B2CF00BA0DC0 /* deindexer_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = deindexer_core.cpp; sourceTree = "<group>"; };
@@ -548,7 +546,6 @@
 		AD9A7F6F0C390CEE00C43196 /* savefiles.xsd */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; name = savefiles.xsd; path = ../../savefiles.xsd; sourceTree = SOURCE_ROOT; };
 		AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libDefaultConditioners.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAEE3850C130C5B00B9789A /* conditioner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = conditioner.h; path = ../../include/conditioner.h; sourceTree = SOURCE_ROOT; };
-		ADDB27E10C47D6510093BEE3 /* libxml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libxml.framework; path = /Library/Frameworks/libxml.framework; sourceTree = "<absolute>"; };
 		ADDCBCD00C32C66600F60F2B /* Collada Refinery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Collada Refinery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE4CDF50C3402BA00295441 /* JNIWrapper.jar */ = {isa = PBXFileReference; explicitFileType = archive.jar; includeInIndex = 0; path = JNIWrapper.jar; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -635,7 +632,6 @@
 			isa = PBXGroup;
 			children = (
 				AD08E2590C565F270090980D /* Collada141Dom.framework */,
-				ADDB27E10C47D6510093BEE3 /* libxml.framework */,
 				6AE2200B0208CA9C0CC91562 /* JavaVM.framework */,
 			);
 			name = "External Frameworks and Libraries";
@@ -647,7 +643,6 @@
 				AD1847ED0BCEB49E000FC307 /* axisconverter.h */,
 				AD1847EE0BCEB49E000FC307 /* bindmaterialfixer.h */,
 				AD1847EF0BCEB49E000FC307 /* blankconditioner.h */,
-				AD1847F00BCEB49E000FC307 /* coherencytest.h */,
 				AD1847F10BCEB49E000FC307 /* commandlineoptions.h */,
 				AD1847F20BCEB49E000FC307 /* copyrighter.h */,
 				AD1847F30BCEB49E000FC307 /* daestripper.h */,
@@ -678,7 +673,6 @@
 				AD18480D0BCEB49E000FC307 /* vertexcache.h */,
 				AD643EE70BC7B2CF00BA0DC0 /* axisconverter_core.cpp */,
 				AD643EE80BC7B2CF00BA0DC0 /* bindmaterialfixer_core.cpp */,
-				AD643EE90BC7B2CF00BA0DC0 /* coherencytest_core.cpp */,
 				AD643EEA0BC7B2CF00BA0DC0 /* copyrighter_core.cpp */,
 				AD643EEB0BC7B2CF00BA0DC0 /* daestripper_core.cpp */,
 				AD643EEC0BC7B2CF00BA0DC0 /* deindexer_core.cpp */,
