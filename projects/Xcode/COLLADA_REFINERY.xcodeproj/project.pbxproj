@@ -64,7 +64,7 @@
 			<string>$JAVAROOT/Collada Refinery.jar</string>
 		</array>
 		<key>JVMVersion</key>
-		<string>1.4+</string>
+		<string>1.5*</string>
 		<key>MainClass</key>
 		<string>refinery.Refinery</string>
 		<key>Properties</key>
@@ -546,7 +546,7 @@
 		AD9A7F6F0C390CEE00C43196 /* savefiles.xsd */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; name = savefiles.xsd; path = ../../savefiles.xsd; sourceTree = SOURCE_ROOT; };
 		AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libDefaultConditioners.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAEE3850C130C5B00B9789A /* conditioner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = conditioner.h; path = ../../include/conditioner.h; sourceTree = SOURCE_ROOT; };
-		ADDCBCD00C32C66600F60F2B /* Collada Refinery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Collada Refinery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADDCBCD00C32C66600F60F2B /* Collada Refinery.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Collada Refinery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE4CDF50C3402BA00295441 /* JNIWrapper.jar */ = {isa = PBXFileReference; explicitFileType = archive.jar; includeInIndex = 0; path = JNIWrapper.jar; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
