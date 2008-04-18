@@ -151,6 +151,7 @@ void MergeVertex(VertexIndexes * match_vertex, VertexIndexes *vertex)
 	{
 		match_vertex->index_map[srciter->first] = srciter->second;
 	}
+	delete vertex;
 }
 
 
@@ -556,7 +557,15 @@ int Deindexer::execute()
 			}
 		}
 
-		if (skininfo==NULL) continue;
+		if (skininfo==NULL)
+		{
+			for(sortedsetiter = sortedvertexset.begin(); sortedsetiter != sortedvertexset.end(); sortedsetiter++)
+			{
+				delete *sortedsetiter;
+			}
+			continue;
+		}
+
 		for (sortedsetiter=sortedvertexset.begin();sortedsetiter!=sortedvertexset.end();sortedsetiter++)
 		{
 			VertexIndexes * vertex_index = *sortedsetiter;
