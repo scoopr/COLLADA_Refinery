@@ -349,7 +349,7 @@ int Kmzcleanup::execute()
 						if (id[0] >= '0' && id[0] <= '9') {
 							char *uri_1 = new char[strlen(id) + 1 + 1];
 							sprintf(uri_1, "#a%s", id);
-							daeURI thisUri((daeString)uri_1, false);
+							daeURI thisUri((DAE&)*_dae, (daeString)uri_1, false);
 							instance_ref->setUrl(thisUri);
 						}
 					}
@@ -580,7 +580,7 @@ int Kmzcleanup::execute()
 									//printf("symbol value is %s\n", (*si).c_str());
 									//printf("target value is %s\n", targetValue.c_str());
 									thisInstanceMaterial->setSymbol((*si).first.c_str());
-									daeURI thisUri((daeString)targetValue.c_str(), false);
+									daeURI thisUri((DAE&)*(daeString)targetValue.c_str(), false);
 									thisInstanceMaterial->setTarget(thisUri);
 									//check if it needs <bind_vertex_input> 
 									//printf("material name is %s\n", (*si).first.c_str());

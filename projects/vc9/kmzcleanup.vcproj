@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
-	Name="libloader"
-	ProjectGUID="{F370A905-B2B7-4C3B-803A-6E5E24DD99F2}"
+	Version="9.00"
+	Name="kmzcleanup"
+	ProjectGUID="{E9EAE43E-B43F-44D6-91C2-A0D5170A9CA8}"
 	RootNamespace="libloader"
 	Keyword="Win32Proj"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -17,8 +18,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="../../bin/vc8/$(ConfigurationName)"
-			IntermediateDirectory="../../tmp/vc8/$(ConfigurationName)/$(ProjectName)"
+			OutputDirectory="../../bin/vc9/$(ConfigurationName)/conditioners"
+			IntermediateDirectory="../../tmp/vc9/$(ConfigurationName)/$(ProjectName)"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
@@ -43,7 +44,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="&quot;$(JDK_HOME)\include&quot;;&quot;$(JDK_HOME)\include\win32&quot;;../../include;../../../dom/include/1.4;../../../dom/include;&quot;../../../dom/external-libs/boost&quot;"
-				PreprocessorDefinitions="WIN32;_WIN32;_DEBUG;_WINDOWS;_USRDLL;REFINERY;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;BOOST_ALL_NO_LIB"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;REFINERY;_CRT_SECURE_NO_DEPRECATE;DOM_DYNAMIC;PCRE_STATIC;BOOST_ALL_NO_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -63,17 +64,18 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcollada14dom21.lib libxml2_a.lib zlib.lib pcre.lib pcrecpp.lib libboost_system.lib minizip.lib libboost_filesystem.lib wsock32.lib winmm.lib"
+				AdditionalDependencies="libcollada14dom21.lib libloader.lib libboost_system.lib libboost_filesystem.lib"
 				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;../../../dom/build/vc8-1.4&quot;;&quot;../../../dom/external-libs/minizip/win32/lib&quot;;&quot;..\..\..\dom\external-libs\libxml2\win32\lib&quot;;&quot;..\..\..\dom\external-libs\pcre\lib\vc8&quot;;&quot;..\..\..\dom\external-libs\boost\lib\vc8&quot;"
-				IgnoreAllDefaultLibraries="false"
+				AdditionalLibraryDirectories="&quot;../../lib/vc9/$(ConfigurationName)&quot;;&quot;../../../dom/build/vc9-1.4&quot;;&quot;../../../dom/external-libs/boost/lib/vc9&quot;"
 				IgnoreDefaultLibraryNames=""
 				DelayLoadDLLs=""
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
 				SubSystem="2"
-				ImportLibrary="../../lib/vc8/$(ConfigurationName)/$(TargetName).lib"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				ImportLibrary="../../lib/vc9/$(ConfigurationName)/$(TargetName).lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -95,19 +97,16 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="../../bin/vc8/$(ConfigurationName)"
-			IntermediateDirectory="../../tmp/vc8/$(ConfigurationName)/$(ProjectName)"
+			OutputDirectory="../../bin/vc9/$(ConfigurationName)/conditioners"
+			IntermediateDirectory="../../tmp/vc9/$(ConfigurationName)/$(ProjectName)"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
-			UseOfMFC="2"
+			UseOfMFC="0"
 			CharacterSet="2"
 			>
 			<Tool
@@ -127,8 +126,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(JDK_HOME)\include&quot;;&quot;$(JDK_HOME)\include\win32&quot;;../../include;&quot;../../external-libs/collada_dom/include/1.4&quot;;&quot;../../external-libs/collada_dom/include&quot;"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBLOADER_EXPORTS;_CRT_SECURE_NO_DEPRECATE;REFINERY"
+				AdditionalIncludeDirectories="&quot;$(JDK_HOME)\include&quot;;&quot;$(JDK_HOME)\include\win32&quot;;../../include;../../../dom/include/1.4;../../../dom/include;&quot;../../../dom/external-libs/boost&quot;"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBLOADER_EXPORTS;_CRT_SECURE_NO_DEPRECATE;REFINERY;DOM_DYNAMIC;PCRE_STATIC;BOOST_ALL_NO_LIB"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -146,16 +145,19 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcollada141dom13.lib"
+				AdditionalDependencies="libcollada14dom21.lib libloader.lib libboost_system.lib libboost_filesystem.lib"
 				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="../../external-libs/collada_dom/lib"
+				AdditionalLibraryDirectories="&quot;../../lib/vc9/$(ConfigurationName)&quot;;&quot;../../external-libs/Devil&quot;;&quot;../../../dom/build/vc9-1.4&quot;;&quot;../../../dom/external-libs/boost/lib/vc9&quot;"
+				IgnoreDefaultLibraryNames=" "
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
 				SubSystem="2"
 				OptimizeReferences="0"
 				EnableCOMDATFolding="0"
-				ImportLibrary="../../lib/vc8/$(ConfigurationName)/$(TargetName).lib"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				ImportLibrary="../../lib/vc9/$(ConfigurationName)/$(TargetName).lib"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -177,9 +179,6 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -189,37 +188,25 @@
 	<Files>
 		<Filter
 			Name="Source Files"
-			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\src\libloader\libloader.cpp"
+				RelativePath="..\..\src\libloader\conditionerBase.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\src\libloader\refinery_LibLoader.cpp"
+				RelativePath="..\..\src\conditioners\kmzcleanup_core.cpp"
 				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\include\conditioner.h"
+				RelativePath="..\..\include\conditionerBase.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\defines.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\libloader.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\refinery_LibLoader.h"
+				RelativePath="..\..\include\kmzcleanup.h"
 				>
 			</File>
 		</Filter>

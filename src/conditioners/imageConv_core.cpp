@@ -100,10 +100,14 @@ int Imageconv::execute()
 		if ( strcmp( origURI.getProtocol(), "file" ) != 0 )
 			continue;
 
-		char *origPath = new char[ strlen( origURI.getFilepath() ) + strlen( origURI.getFile() ) +1 ];
+//		char *origPath = new char[ strlen( origURI.getFilepath() ) + strlen( origURI.getFile() ) +1 ];
+		char *origPath = new char[ strlen( origURI.getPath() ) + strlen( origURI.getPath() ) +1 ];
 
-		strcpy( origPath, origURI.getFilepath() );
-		strcat( origPath, origURI.getFile() );
+//		strcpy( origPath, origURI.getFilepath() );
+		strcpy( origPath, origURI.getPath() );
+
+//		strcat( origPath, origURI.getFile() );
+
 		//convert image using dev il
 		ret = ilLoadImage((const ILstring)origPath+1);
 		
@@ -129,7 +133,11 @@ int Imageconv::execute()
 		else if (strcmp(extension.c_str(), "dds") == 0) 
 			type = IL_DDS;
 
-		char *newPath = new char[ strlen( origPath ) + extension.size() - strlen( origURI.getExtension() ) + 1 ];
+//		char *newPath = new char[ strlen( origPath ) + extension.size() - strlen( origURI.getExtension() ) + 1 ];
+		const char * ext = origURI.pathExt().c_str();
+
+		char *newPath = new char[ strlen( origPath ) + extension.size() - strlen(ext) + 1 ];
+
 		strcpy( newPath, origPath );
 		char *newExt = strrchr( newPath, '.' );
 		newExt++;

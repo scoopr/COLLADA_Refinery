@@ -127,8 +127,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(JDK_HOME)\include&quot;;&quot;$(JDK_HOME)\include\win32&quot;;../../include;&quot;../../external-libs/collada_dom/include/1.4&quot;;&quot;../../external-libs/collada_dom/include&quot;"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBLOADER_EXPORTS;_CRT_SECURE_NO_DEPRECATE;REFINERY"
+				AdditionalIncludeDirectories="&quot;$(JDK_HOME)\include&quot;;&quot;$(JDK_HOME)\include\win32&quot;;../../include;../../../dom/include/1.4;../../../dom/include;&quot;../../../dom/external-libs/boost&quot;"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBLOADER_EXPORTS;_CRT_SECURE_NO_DEPRECATE;REFINERY;BOOST_ALL_NO_LIB"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -146,10 +146,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="libcollada141dom13.lib"
+				AdditionalDependencies="libcollada14dom21.lib libxml2.lib zlib.lib pcre.lib pcrecpp.lib libboost_system.lib minizip.lib libboost_filesystem.lib wsock32.lib winmm.lib"
 				OutputFile="$(OutDir)/$(ProjectName).dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="../../external-libs/collada_dom/lib"
+				AdditionalLibraryDirectories="&quot;../../../dom/build/vc8-1.4&quot;;&quot;../../../dom/external-libs/minizip/win32/lib&quot;;&quot;..\..\..\dom\external-libs\libxml2\win32\lib&quot;;&quot;..\..\..\dom\external-libs\pcre\lib\vc8&quot;;&quot;..\..\..\dom\external-libs\boost\lib\vc8&quot;"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile="$(OutDir)/$(TargetName).pdb"
 				SubSystem="2"

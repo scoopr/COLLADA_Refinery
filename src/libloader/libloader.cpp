@@ -52,7 +52,7 @@ void LibLoader::init( JNIEnv *env, jobject obj )
 	//_obj = obj;
 	if ( _dae == NULL )
 	{
-		_dae = new DAE();
+		_dae = new DAE;
 		_dae->setDatabase( NULL );
 		_dae->setIOPlugin( NULL );
 	}
@@ -65,7 +65,7 @@ void LibLoader::cleanup()
 		delete _dae;
 		_dae = NULL;
 	}
-	DAE::cleanup();
+//	DAE::cleanup();
 }
 
 void LibLoader::registerConditioner( const ConditionerCreator *cc )
@@ -257,7 +257,7 @@ bool LibLoader::cloneDocument( const std::string &from, const std::string &to )
 		return false;
 
 	toDoc->setDomRoot( fromDoc->getDomRoot()->clone() );
-	daeElement::resolveAll();
+//	daeElement::resolveAll();
 	return true;
 }
 

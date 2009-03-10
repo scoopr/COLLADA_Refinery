@@ -22,9 +22,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  */
 
+
+#include <windows.h>
 #define WINDLL
 #include "packager.h"
 #include "zip.h"
+#include "api.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -33,6 +36,7 @@ THE SOFTWARE.
 #define ZIP_DLL_NAME "ZIP32.DLL\0"
 #define TEMPDIR		"./~packagertemp/"
 
+DAE * dae;
 int AddPathName(string str);
 string FindFileName(string str);
 string FindPath(string str);
@@ -96,13 +100,14 @@ BOOL FileExist(string str)
 
 string FindFile(string str)
 {
-	xsAnyURI uri(str.c_str());
+	daeURI uri((DAE&)(*dae), str);
 	string temp, filename, pathname;
 	const char * protocol = uri.getProtocol();
 	if (protocol) {
 		if (stricmp(protocol, "file") == 0)
 		{
-			string slashpathname = uri.getFilepath();
+//			string slashpathname = uri.getFilepath();
+			string slashpathname = uri.getPath();
 			pathname = slashpathname.substr(1, slashpathname.length());
 		} else 	if (stricmp(protocol, "http") == 0)
 		{
@@ -187,7 +192,8 @@ vector<string> Packager::gatherExternals( const daeString &docName, bool needsTe
 	if (needsTemp)
 	{
 		daeDocument *tmp;
-		string tempName = string("packager-temp_") + string(doc->getDocumentURI()->getFile());
+//		string tempName = string("packager-temp_") + string(doc->getDocumentURI()->getFile());
+				string tempName = string("packager-temp_") + string(doc->getDocumentURI()->getPath());
 		db->insertDocument( tempName.c_str(), doc->getDomRoot()->clone(), &tmp );
 		doc = tmp;
 	}
@@ -216,15 +222,19 @@ vector<string> Packager::gatherExternals( const daeString &docName, bool needsTe
 		thisImage->getInit_from()->getValue().setURI(imagefileuri.getFile());		
 	}*/
 
-	//look through all external references
-	daeStringRefArray ref = doc->getReferencedDocuments();
-	for (daeUInt j=0; j<ref.getCount(); j++)
+//	daeStringRefArray ref = doc->getReferencedDocuments();
+	daeUInt count = db->getCollectionCount();
+
+	for (daeUInt j=0; j<count; j++)
 	{
-		const daeTArray<daeURI*> * uri_array = doc->getExternalURIs(ref[j]);
-		if (uri_array == NULL) continue;
-		for (daeUInt k=0; k<(*uri_array).getCount(); k++)
+//		const daeTArray<daeURI*> * uri_array = doc->getExternalURIs(ref[j]);
+		daeDocument * document = db->getDocument(j);
+		daeURI * uri = document->getDocumentURI();
+
+//		if (uri_array == NULL) continue;
+//		for (daeUInt k=0; k<(*uri_array).getCount(); k++)
 		{
-			daeURI* uri = (*uri_array)[k];
+//			daeURI* uri = (*uri_array)[k];
 			if (uri->getProtocol() && stricmp(uri->getProtocol(), "file") != 0)
 				continue;
 			if (verbose) printf("reference file = %s\n", uri->getURI());
@@ -232,11 +242,12 @@ vector<string> Packager::gatherExternals( const daeString &docName, bool needsTe
 			string file;
 			if (uri->getID())
 				fragment = uri->getID();
-			if (uri->getFile())
-				file = uri->getFile();
-			if (uri->getExtension())
+//			if (uri->getFile())
+			if (!uri->pathFile().empty())
+				file = uri->pathFile();
+			if (!uri->pathExt().empty())
 			{
-				if (stricmp(uri->getExtension(), "dae") == 0)
+				if (stricmp(uri->pathExt().c_str(), "dae") == 0)
 				{
 					tempfiles = gatherExternals( uri->getURI(), true, verbose );
 					string fileandfragment = file + "#" + fragment;
@@ -245,7 +256,7 @@ vector<string> Packager::gatherExternals( const daeString &docName, bool needsTe
 				else
 				{
 					//if not a COLLADA document ie cgfx
-					uri->setURI(file.c_str());
+/*					uri->setURI(file.c_str());
 					daePath = FindPath(daeString(ref[j]));
 					if (daePath == "") daePath = ".";
 					string newuri = FindFile(daeString(ref[j]));
@@ -254,13 +265,15 @@ vector<string> Packager::gatherExternals( const daeString &docName, bool needsTe
 						continue;
 					}
 					AddPathName(newuri);
-				}
+*/				}
 			}
 		}
 	}
 
 	// Add modified dae
-	daeString xmldoc = doc->getDocumentURI()->getFile();
+//	daeString xmldoc = doc->getDocumentURI()->getFile();
+	daeString xmldoc = doc->getDocumentURI()->pathFile().c_str();
+
 	string newuri = FindFile(xmldoc);
 	string tempfile = string(TEMPDIR) + xmldoc;
 	_dae->saveAs(tempfile.c_str(), doc->getDocumentURI()->getURI() );
@@ -280,7 +293,7 @@ bool Packager::init()
 
 int Packager::execute()
 {
-
+	dae = _dae;
 	string temp = getInput(0);
 	string archivename;
 	bool verbose(false);

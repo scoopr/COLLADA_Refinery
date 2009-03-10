@@ -62,7 +62,8 @@ int Filename::execute()
 			{
 			    continue;
 			}
-			char *_URIfile = (char *)thisInclude->getUrl().getFile();
+//			char *_URIfile = (char *)thisInclude->getUrl().getFile();
+			char *_URIfile = (char *)thisInclude->getUrl().getPath();
 
 		    // Build the new relative file name and write it back into the DOM
 		    // This uses the filename in domInclude.source as parsed by the API
@@ -100,7 +101,9 @@ int Filename::execute()
 			}
 		    // Build the new relative file name and write it back into the DOM
 		    // This uses the filename in domImage.source as parsed by the API
-			std::string finalname = prefix + thisImage->getInit_from()->getValue().getFile();
+//			std::string finalname = prefix + thisImage->getInit_from()->getValue().getFile();
+			std::string finalname = prefix + thisImage->getInit_from()->getValue().getPath();
+
 		    if(finalname.length() != 0)
 			{
 			    thisImage->getInit_from()->getValue().setURI(finalname.c_str());
