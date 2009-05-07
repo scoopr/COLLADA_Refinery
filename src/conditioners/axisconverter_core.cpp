@@ -1461,8 +1461,10 @@ void common_convert(DAE *input, int code, int verbose)
 			continue;
 
 		domPhysics_scene::domTechnique_commonRef tech = thisPhysicsScene->getTechnique_common();
-		daeDoubleArray &gravity = tech->getGravity()->getValue();
-        doublearray_swap(gravity, code, verbose);
+		if( tech && tech->getGravity() ) {
+			daeDoubleArray &gravity = tech->getGravity()->getValue();
+			doublearray_swap(gravity, code, verbose);		    
+		}
 	}
 
 
