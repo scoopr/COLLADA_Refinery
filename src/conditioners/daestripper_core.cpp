@@ -68,7 +68,7 @@ void stripouttechniquespecified(DAE *input, const char *attribute)
 		error = input->getDatabase()->getElement((daeElement**)&thisTechnique,position, NULL, "technique");
 		if (thisTechnique != NULL) {
 			xsNMTOKEN profile = thisTechnique->getProfile();
-			if ((profile != NULL) && (stricmp(profile, attribute) == 0)) {
+			if ((profile != NULL) && (cdom::strcasecmp(profile, attribute) == 0)) {
 				daeElement *parent = thisTechnique->getParentElement();
 				parent->removeChildElement(thisTechnique);
 			} else {
