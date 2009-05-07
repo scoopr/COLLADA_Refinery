@@ -30,7 +30,7 @@
 			productName = ColladaRefinery;
 			productReference = ADDCBCD00C32C66600F60F2B /* Collada Refinery.app */;
 			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
 <plist version=\"1.0\">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
@@ -424,7 +424,7 @@
 		AD18480D0BCEB49E000FC307 /* vertexcache.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = vertexcache.h; path = ../../include/vertexcache.h; sourceTree = SOURCE_ROOT; };
 		AD48102D0C3B9C8500C8B11D /* APPL.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = APPL.icns; sourceTree = "<group>"; };
 		AD4811EE0C3C203E00C8B11D /* ColladaRefineryConditioner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColladaRefineryConditioner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD4811EF0C3C203E00C8B11D /* ColladaRefineryConditioner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ColladaRefineryConditioner-Info.plist"; sourceTree = "<group>"; };
+		AD4811EF0C3C203E00C8B11D /* ColladaRefineryConditioner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColladaRefineryConditioner-Info.plist"; sourceTree = "<group>"; };
 		AD643EE70BC7B2CF00BA0DC0 /* axisconverter_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = axisconverter_core.cpp; sourceTree = "<group>"; };
 		AD643EE80BC7B2CF00BA0DC0 /* bindmaterialfixer_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = bindmaterialfixer_core.cpp; sourceTree = "<group>"; };
 		AD643EEA0BC7B2CF00BA0DC0 /* copyrighter_core.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = copyrighter_core.cpp; sourceTree = "<group>"; };
@@ -546,7 +546,7 @@
 		AD9A7F6F0C390CEE00C43196 /* savefiles.xsd */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; name = savefiles.xsd; path = ../../savefiles.xsd; sourceTree = SOURCE_ROOT; };
 		AD9A81770C3960AA00C43196 /* libDefaultConditioners.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libDefaultConditioners.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAEE3850C130C5B00B9789A /* conditioner.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = conditioner.h; path = ../../include/conditioner.h; sourceTree = SOURCE_ROOT; };
-		ADDCBCD00C32C66600F60F2B /* Collada Refinery.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Collada Refinery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADDCBCD00C32C66600F60F2B /* Collada Refinery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Collada Refinery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE4CDF50C3402BA00295441 /* JNIWrapper.jar */ = {isa = PBXFileReference; explicitFileType = archive.jar; includeInIndex = 0; path = JNIWrapper.jar; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1019,10 +1019,12 @@
 		00E6828EFEC88D1A11DB9C8B /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 4CEBA75C08679E4D0015D03E /* Build configuration list for PBXProject "COLLADA_REFINERY" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 00E6828FFEC88D1A11DB9C8B;
 			productRefGroup = 0120612AFEC8923411DB9C8B /* Products */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				ADDCBCCF0C32C66600F60F2B /* Collada Refinery */,
 				ADE4CDF40C3402BA00295441 /* JNI Wrapper */,
@@ -1336,6 +1338,7 @@
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH)";
 				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = NO_BOOST;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				ZERO_LINK = NO;
 			};
@@ -1360,7 +1363,6 @@
 				JAVA_MANIFEST_FILE = ../../src/refinery/manifest.txt;
 				JAVA_SOURCE_SUBDIR = .;
 				LIBRARY_STYLE = STATIC;
-				OPTIMIZATION_CFLAGS = "-O0";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOL_FLAGS = "";
@@ -1415,7 +1417,7 @@
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					REFINERY,
-					"stricmp=strcasecmp",
+					NO_BOOST,
 				);
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1471,7 +1473,6 @@
 				JAVA_MANIFEST_FILE = ../../src/refinery/manifest.txt;
 				JAVA_ONLY = YES;
 				JAVA_SOURCE_SUBDIR = .;
-				OPTIMIZATION_CFLAGS = "-O0";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -1494,6 +1495,7 @@
 					i386,
 				);
 				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = NO_BOOST;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				ZERO_LINK = NO;
 			};
@@ -1596,7 +1598,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					REFINERY,
-					"stricmp=strcasecmp",
+					NO_BOOST,
 				);
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1647,7 +1649,6 @@
 				JAVA_MANIFEST_FILE = ../../src/refinery/manifest.txt;
 				JAVA_ONLY = YES;
 				JAVA_SOURCE_SUBDIR = .;
-				OPTIMIZATION_CFLAGS = "-O0";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -1680,7 +1681,6 @@
 				JAVA_MANIFEST_FILE = ../../src/refinery/manifest.txt;
 				JAVA_SOURCE_SUBDIR = .;
 				LIBRARY_STYLE = STATIC;
-				OPTIMIZATION_CFLAGS = "-O0";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOL_FLAGS = "";
