@@ -1583,11 +1583,11 @@ int Axisconverter::execute()
 
 	docName = getInput(0).c_str();
 
-	if ( stricmp(axis.c_str(), "X_UP") == 0 || stricmp(axis.c_str(), "X") == 0 ) 
+	if ( cdom::strcasecmp(axis.c_str(), "X_UP") == 0 || cdom::strcasecmp(axis.c_str(), "X") == 0 ) 
 		x_up_converter(_dae, verbose);
-	else if (stricmp(axis.c_str(), "Y_UP") == 0 || stricmp(axis.c_str(), "Y") == 0) 
+	else if (cdom::strcasecmp(axis.c_str(), "Y_UP") == 0 || cdom::strcasecmp(axis.c_str(), "Y") == 0) 
 		y_up_converter(_dae, verbose);
-	else if (stricmp(axis.c_str(), "Z_UP") == 0 || stricmp(axis.c_str(), "Z") == 0)
+	else if (cdom::strcasecmp(axis.c_str(), "Z_UP") == 0 || cdom::strcasecmp(axis.c_str(), "Z") == 0)
 		z_up_converter(_dae, verbose);
 	else {
 		printf("%s is not recongized\n", axis.c_str());
