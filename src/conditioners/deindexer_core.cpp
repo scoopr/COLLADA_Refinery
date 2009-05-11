@@ -74,10 +74,10 @@ SkinInfo::~SkinInfo()
 {
 	for (domUint i=0; i<vcountnumber; i++)
 	{
-		delete v[i];
+		delete [] v[i];
 	}
-	delete v;
-	delete vcount;
+	delete [] v;
+	delete [] vcount;
 }
 void SkinInfo::AppendIndex(domUint i)
 {
