@@ -25,10 +25,17 @@ THE SOFTWARE.
 #define __DEFINES_H__
 
 #ifdef WIN32
-	#ifdef REFINERY
-		#define REF_EXPORT __declspec(dllexport)
+
+	#ifdef COLLADAREFINERY_STATIC
+		#define REF_EXPORT
 	#else
-		#define REF_EXPORT __declspec(dllimport)
+
+		#ifdef REFINERY
+			#define REF_EXPORT __declspec(dllexport)
+		#else
+			#define REF_EXPORT __declspec(dllimport)
+		#endif
+
 	#endif
 #else
 	#define REF_EXPORT
