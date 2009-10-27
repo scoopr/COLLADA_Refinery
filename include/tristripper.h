@@ -156,7 +156,7 @@ public:
 
 	bool needSwap(Edge *destinationEdge, Vertex *firstVertex);
 
-	bool Triangle::isSameDirection(Edge *e);
+	bool isSameDirection(Edge *e);
 
 };
 
